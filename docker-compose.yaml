@@ -1,0 +1,21 @@
+services:
+  server:
+    container_name: metern-backend
+    build:
+      context: './server'
+      target: 'server'
+    command: npm run dev
+    networks:
+      - reverse_proxy
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.metern.entrypoints=web, websecure'
+      - 'traefik.http.routers.metern.rule=Host(`api.metern.no`)'
+      - 'traefik.http.routers.metern.tls=true'
+      - 'traefik.http.routers.metern.tls.certresolver=production'
+      - 'traefik.http.services.metern.loadbalancer.server.port=4000'
+    restart: unless-stopped
+
+networks:
+  reverse_proxy:
+    external: true
