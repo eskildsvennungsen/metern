@@ -19,27 +19,20 @@ function App() {
   });
 
   useEffect(() => {
-    let ignore = false;
-
     if (country !== 0) return;
 
     async function startFetching() {
       const json = await fetchRandomCountry();
-      if (!ignore) {
-        setCountry(json);
-      }
+      setCountry(json);
     }
 
     startFetching();
-
-    return () => {
-      ignore = true;
-    };
   }, []);
 
   return (
     <div className='bg-slate-700 text-white'>
       <div>{country.name === '' ? <p>Loading...</p> : <p>Yoyo: {country.name} </p>}</div>
+      <div>{country.funfact}</div>
       <form>
         <label>
           Guess:
