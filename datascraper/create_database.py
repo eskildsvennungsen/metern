@@ -9,7 +9,16 @@ import sqlite3
 csvFile = "countries.csv"
 geolocator = Nominatim(user_agent="metern")
 
-failed = []
+entries = [
+    "country",
+    "capital",
+    "location",
+    "population",
+    "currency",
+    "latitude",
+    "longitude",
+    "funfact",
+]
 
 countries = [
     "Afghanistan",
@@ -218,7 +227,6 @@ def getFunFact(country_name):
 
     # Check if the page exists
     if not page.exists():
-        print(f"Sorry, no Wikipedia page found for {country_name}.")
         return
 
     # Try to extract the introduction section as a fun fact
@@ -245,10 +253,10 @@ def createCountryEntry(country):
         capital = getEntry("Capital", soup)
         population = getEntry("Population", soup)
         location = getEntry("Location", soup)
+        currency = getEntry("Currency", soup)
         coords = geolocator.geocode(country)
     except:
         print(f"######### Failed querying: {country}")
-        failed.append(f"Q:{country}")
         return
 
     try:
@@ -258,6 +266,7 @@ def createCountryEntry(country):
                 capital,
                 location,
                 population,
+                currency,
                 coords.latitude,
                 coords.longitude,
                 getFunFact(country),
@@ -266,7 +275,6 @@ def createCountryEntry(country):
         )
     except:
         print(f"######### Could not write: {country}")
-        failed.append(f"W:{country}")
         return
 
 
@@ -286,17 +294,7 @@ def writeToCsv(input, fname):
     with open(fname, "a", newline="") as file:
         writer = csv.writer(file)
         if newFile:
-            writer.writerow(
-                [
-                    "country",
-                    "capital",
-                    "location",
-                    "population",
-                    "latitude",
-                    "longitude",
-                    "fun-fact",
-                ]
-            )
+            writer.writerow(entries)
 
         writer.writerow(fixed_input)
 
@@ -304,29 +302,30 @@ def writeToCsv(input, fname):
 
 
 def createDatabase(dbName, fileName):
-    con = sqlite3.connect(dbName)  # change to 'sqlite:///your_filename.db'
+    con = sqlite3.connect(dbName)
     cur = con.cursor()
     cur.execute(
-        "CREATE TABLE countries (a, b, c, d, e, f, g);"
-    )  # use your column names here
+        "CREATE TABLE countries (country, capital, location, population, currency, latitude, longitude, funfact);"
+    )
 
     with open(fileName, "r") as fin:
         dr = csv.DictReader(fin)
         to_db = [
             (
-                i["a"],
-                i["b"],
-                i["c"],
-                i["d"],
-                i["e"],
-                i["f"],
-                i["g"],
+                i["country"],
+                i["capital"],
+                i["location"],
+                i["population"],
+                i["currency"],
+                i["latitude"],
+                i["longitude"],
+                i["funfact"],
             )
             for i in dr
         ]
 
     cur.executemany(
-        "INSERT INTO countries (a, b, c, d, e, f, g) VALUES (?, ?, ?, ?, ?, ?, ?);",
+        "INSERT INTO countries (country, capital, location, population, currency, latitude, longitude, funfact) VALUES (?, ?, ?, ?, ?, ?, ?, ?);",
         to_db,
     )
     con.commit()
@@ -334,12 +333,10 @@ def createDatabase(dbName, fileName):
 
 
 if __name__ == "__main__":
-    if os.path.exists(csvFile):
-        os.remove(csvFile)
+    # if os.path.exists(csvFile):
+    #    os.remove(csvFile)
 
-    for country in countries:
-        createCountryEntry(country)
+    # for country in countries:
+    #    createCountryEntry(country)
 
     createDatabase("countries.sqlite3", csvFile)
-
-    print(failed)
