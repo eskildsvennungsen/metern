@@ -1,53 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { dailyNumber } from './components/dailynumber';
-
-const URI = 'http://localhost:4000';
-
-async function fetchRandomCountry() {
-  const res = await fetch(`${URI}/game/country`).then((res) => res.json());
-  return res.data;
-}
+import React from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { Input } from './components/Input';
+import { Presenter } from './components/Presenter';
+import { MyGlobe } from './components/MyGlobe';
 
 function App() {
-  const number = dailyNumber(243);
 
   const [country, setCountry] = useState(0);
-  const [day, setDay] = useState(number);
-
-  useEffect(() => {
-    setDay(number);
-  });
-
-  useEffect(() => {
-    let ignore = false;
-
-    if (country !== 0) return;
-
-    async function startFetching() {
-      const json = await fetchRandomCountry();
-      if (!ignore) {
-        setCountry(json);
-      }
-    }
-
-    startFetching();
-
-    return () => {
-      ignore = true;
-    };
-  }, []);
+  const [guess, setGuess] = useState(0);
 
   return (
-    <div className='bg-slate-700 text-white'>
-      <div>{country.name === '' ? <p>Loading...</p> : <p>Yoyo: {country.name} </p>}</div>
-      <form>
-        <label>
-          Guess:
-          <input type='text' name='test' className='text-black'></input>
-        </label>
-        <input type='submit' value='Submit'></input>
-      </form>
+    <div className='overflow-hidden'>
+      <div className='bg-slate-700 text-white text-center rounded-md max-w-80 min-w-64 shadow-2xl p-5 z-50 absolute top-4 inset-x-10'>
+        <Presenter country={country} setCountry={setCountry} /> 
+      </div>
+      <div>
+        <MyGlobe />
+      </div>
+      <div className='bg-slate-700 text-white text-center rounded-md max-w-80 min-w-64 shadow-2xl p-5 z-50 absolute bottom-4 inset-x-10'>
+        <Input guess={guess} setGuess={setGuess} />
+      </div>
     </div>
+    
   );
 }
 
