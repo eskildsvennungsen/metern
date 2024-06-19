@@ -1,15 +1,29 @@
 const express = require('express');
+const NodeCache = require('node-cache');
 const route = express.Router();
-
-const db = require('better-sqlite3')('./data.sqlite3');
-
-const allData = db.prepare('SELECT * FROM countries').all();
+const cache = new NodeCache();
 
 route.get('/country/:countryId?', (req, res) => {
-  const countryId = req.params.countryId || Math.floor(Math.random() * allData.length);
-  return res.json({ data: allData[countryId - 1] });
+  const cacheKey = 'country';
+  let cacheData = cache.get(cacheKey);
+
+  if (!cacheData) {
+    allData = getCountryDatabase();
+    cache.set(cacheKey, allData);
+    cacheData = allData;
+  }
+
+  let countryId = req.params.countryId || Math.floor(Math.random() * allData.length);
+  let country = cacheData[countryId - 1];
+
+  res.json({ data: country });
 });
 
-db.close();
+function getCountryDatabase() {
+  const db = require('better-sqlite3')('./data.sqlite3');
+  const allData = db.prepare('SELECT * FROM countries').all();
+  db.close();
+  return allData;
+}
 
 module.exports = route;
