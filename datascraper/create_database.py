@@ -27,7 +27,8 @@ def getEntry(entry, soup: BeautifulSoup):
 
 def createCountryEntry(country):
     # URL of the Wikipedia page containing the list of countries
-    url = f"https://www.countryreports.org/country/{''.join(country.split())}.htm"
+    search = "".join(country.split())
+    url = f"https://www.countryreports.org/country/{search}.htm"
 
     # Fetch the content of the page
     response = requests.get(url)
@@ -41,8 +42,8 @@ def createCountryEntry(country):
         location = getEntry("Location", soup)
         currency = getEntry("Currency", soup)
         coords = geolocator.geocode(country)
-    except:
-        print(f"######### Failed querying: {country}")
+    except Exception as error:
+        print(f"######### Failed querying: {country}, Error: {error}")
         return
 
     try:
@@ -59,20 +60,14 @@ def createCountryEntry(country):
             ],
             csvFile,
         )
-    except:
-        print(f"######### Could not write: {country}")
+    except Exception as error:
+        print(f"######### Failed writing: {country}, Error: {error}")
         return
 
 
 def writeToCsv(input, fname):
     newFile = False
-    fixed_input = []
-    for val in input:
-        try:
-            val = val.strip()
-        except:
-            pass
-        fixed_input.append(val)
+    fixed_input = [x.strip() if x == str else x for x in input]
 
     if not os.path.exists(fname):
         newFile = True
