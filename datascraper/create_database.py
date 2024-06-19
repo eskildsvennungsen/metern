@@ -10,7 +10,7 @@ csvFile = "countries.csv"
 geolocator = Nominatim(user_agent="metern")
 
 entries = [
-    "country",
+    "name",
     "capital",
     "location",
     "population",
@@ -91,14 +91,14 @@ def createDatabase(dbName, fileName):
     con = sqlite3.connect(dbName)
     cur = con.cursor()
     cur.execute(
-        "CREATE TABLE countries (country, capital, location, population, currency, latitude, longitude, funfact);"
+        "CREATE TABLE countries (name, capital, location, population, currency, latitude, longitude, funfact);"
     )
 
     with open(fileName, "r") as fin:
         dr = csv.DictReader(fin)
         to_db = [
             (
-                i["country"],
+                i["name"],
                 i["capital"],
                 i["location"],
                 i["population"],
@@ -111,7 +111,7 @@ def createDatabase(dbName, fileName):
         ]
 
     cur.executemany(
-        "INSERT INTO countries (country, capital, location, population, currency, latitude, longitude, funfact) VALUES (?, ?, ?, ?, ?, ?, ?, ?);",
+        "INSERT INTO countries (name, capital, location, population, currency, latitude, longitude, funfact) VALUES (?, ?, ?, ?, ?, ?, ?, ?);",
         to_db,
     )
     con.commit()
