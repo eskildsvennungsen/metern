@@ -2,35 +2,54 @@ const express = require('express');
 const NodeCache = require('node-cache');
 const Database = require('better-sqlite3');
 
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
+
 const route = express.Router();
 const cache = new NodeCache();
 const db = new Database('./countries.sqlite3');
+const apiSecret = process.env.API_SECRET;
 
 route.get('/distance', (req, res) => {
-  const from = getCountry(req.query.from);
-  const to = getCountry(req.query.to);
+  try {
+    const from = getCountry(req.query.from);
+    const to = getCountry(req.query.to);
 
-  const distance = calculateDistance(from, to);
+    const distance = calculateDistance(from, to);
 
-  res.json({ a: from, b: to, distance: distance }).status(200);
+    res.status(200).json({ a: from, b: to, distance: distance });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Failed to calculate distance' });
+  }
 });
 
 route.get('/random', (req, res) => {
-  const country = getRandomCountry();
-  res.json({ data: country }).status(200);
+  try {
+    const country = getRandomCountry();
+    res.status(200).json({ data: country });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Failed to fetch random country' });
+  }
 });
 
 route.get('/today', (req, res) => {
-  const cacheKey = 'country';
-  let cacheData = cache.get(cacheKey);
+  try {
+    const cacheKey = 'country';
+    let cacheData = cache.get(cacheKey);
 
-  if (!cacheData) {
-    const country = getCountryOTD();
-    cache.set(cacheKey, country);
-    cacheData = country;
+    if (!cacheData) {
+      const country = getCountryOTD();
+      cache.set(cacheKey, country);
+      cacheData = country;
+    }
+
+    res.status(200).json({ data: cacheData });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Failed to fetch todays country' });
   }
-
-  res.json({ data: cacheData }).status(200);
 });
 
 function createCountryOTDIfNotExist() {
