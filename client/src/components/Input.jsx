@@ -13,10 +13,20 @@ export const Input = (props) => {
     const formJson = Object.fromEntries(formData.entries());
     const guess = formJson.newGuess;
 
-    const res = await fetch(`${apiURI}/country/check?target=` + guess).then((res) => res.json());
-
-    const arr = props.data.guesses.concat({ country: guess, distance: res.distance });
-    props.data.setGuesses(arr);
+    fetch(`${apiURI}/country/check?target=${guess}`)
+      .then((res) => {
+        if (!res.ok) {
+          console.log('Response was not ok: ' + res.statusText);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        const arr = props.data.guesses.concat({ country: guess, distance: data.distance });
+        props.data.setGuesses(arr);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
