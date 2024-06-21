@@ -16,7 +16,7 @@ export const Input = (props) => {
     fetch(`${apiURI}/country/check?target=${guess}`)
       .then((res) => {
         if (!res.ok) {
-          console.log('Response was not ok: ' + res.statusText);
+          throw new Error('Response was not ok: ' + res.statusText);
         }
         return res.json();
       })
