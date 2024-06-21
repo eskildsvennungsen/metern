@@ -6,7 +6,10 @@ import csv
 import os
 import sqlite3
 
-csvFile = "countries.csv"
+fileName = "countries"
+dbFile = f"{fileName}.sqlite3"
+csvFile = f"{fileName}.csv"
+
 geolocator = Nominatim(user_agent="metern")
 
 entries = [
@@ -22,7 +25,9 @@ entries = [
 
 
 def getEntry(entry, soup: BeautifulSoup):
-    return soup.find("td", string=f" {entry} ").find_next_sibling("td").get_text()
+    return (
+        soup.find("td", string=f" {entry} ").find_next_sibling("td").get_text().strip()
+    )
 
 
 def createCountryEntry(country):
@@ -82,14 +87,17 @@ def writeToCsv(input, fname):
     print(fixed_input)
 
 
-def createDatabase(dbName, fileName):
-    con = sqlite3.connect(dbName)
+def createDatabase(dbFile, inputDataFile):
+    if os.path.exists(dbFile):
+        os.remove(dbFile)
+
+    con = sqlite3.connect(dbFile)
     cur = con.cursor()
     cur.execute(
-        "CREATE TABLE countries (name, capital, location, population, currency, latitude, longitude, funfact);"
+        "CREATE TABLE countries (id INTEGER PRIMARY KEY, name, capital, location, population, currency, latitude, longitude, funfact);"
     )
 
-    with open(fileName, "r") as fin:
+    with open(inputDataFile, "r") as fin:
         dr = csv.DictReader(fin)
         to_db = [
             (
@@ -120,4 +128,4 @@ if __name__ == "__main__":
     for country in countries:
         createCountryEntry(country)
 
-    createDatabase("countries.sqlite3", csvFile)
+    createDatabase(dbFile, csvFile)

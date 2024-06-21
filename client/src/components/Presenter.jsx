@@ -4,7 +4,7 @@ import { dailyNumber } from './dailynumber';
 const URI = 'http://localhost:4000';
 
 async function fetchRandomCountry() {
-  const res = await fetch(`${URI}/game/country`).then((res) => res.json());
+  const res = await fetch(`${URI}/country/get`).then((res) => res.json());
   return res.data;
 }
 
@@ -31,8 +31,6 @@ export const Presenter = (props) => {
 
     startFetching();
   }, []);
-    
-  return(     
-    <div>{props.country.name === '' ? <p>Loading...</p> : <p>Yoyo: {props.country.name} </p>}</div>
-  )
-}
+
+  return <div>{props.country.name === '' ? <p>Loading...</p> : <p>Yoyo: {props.country.name} </p>}</div>;
+};
