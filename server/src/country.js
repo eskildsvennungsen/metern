@@ -2,9 +2,13 @@ const express = require('express');
 const NodeCache = require('node-cache');
 const Database = require('better-sqlite3');
 
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
+
 const route = express.Router();
 const cache = new NodeCache();
 const db = new Database('./countries.sqlite3');
+const apiSecret = process.env.API_SECRET;
 
 route.get('/distance', (req, res) => {
   try {
