@@ -1,36 +1,43 @@
-import { useState, useEffect } from 'react';
-import { dailyNumber } from './dailynumber';
+import { useEffect, useState } from 'react';
 
-const URI = 'http://localhost:4000';
+const getClosestGuess = (guesses, closest ,setClosest) => {
+  guesses.forEach(guess => {
+    if (guess.distance < closest.distance)
+      {
+        setClosest(guess);
+      }
+  });
+}
 
-async function fetchRandomCountry() {
-  const res = await fetch(`${URI}/country/today`).then((res) => res.json());
-  return res.data;
+const displayText = (closest) => {
+  if (closest.distance == 0) {
+    return (
+      <div>
+        <p>{closest.country.name} is correct!</p>
+        <p>Did you know: {closest.country.funfact}</p>
+      </div>
+    );
+  } else if (closest.country == 0) {
+    return (
+      <div>
+        <p>Make a guess to play the game!</p>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <p>Closest guess: {closest.country.name}<br/>Distance: {closest.distance}</p>
+      </div>
+    );
+  }
 }
 
 export const Presenter = (props) => {
-  let number = dailyNumber(243);
-
-  const [day, setDay] = useState(number);
+  const [closest, setClosest] = useState({"country": 0, "distance": 100000});
 
   useEffect(() => {
-    setDay(number);
-  });
+    getClosestGuess(props.data.guesses, closest, setClosest);
+  }, [props.data.guesses]);
 
-  useEffect(() => {
-    let ignore = false;
-
-    if (props.country !== 0) return;
-
-    async function startFetching() {
-      const json = await fetchRandomCountry();
-      if (!ignore) {
-        props.setCountry(json);
-      }
-    }
-
-    startFetching();
-  }, []);
-
-  return <div>{props.country.name === '' ? <p>Loading...</p> : <p>Yoyo: {props.country.name} </p>}</div>;
+  return displayText(closest);
 };
