@@ -21,6 +21,7 @@ entries = [
     "latitude",
     "longitude",
     "funfact",
+    "queryName",
 ]
 
 
@@ -30,7 +31,7 @@ def getEntry(entry, soup: BeautifulSoup):
     )
 
 
-def createCountryEntry(country):
+def createCountryEntry(country: str):
     # URL of the Wikipedia page containing the list of countries
     search = "".join(country.split())
     url = f"https://www.countryreports.org/country/{search}.htm"
@@ -47,6 +48,7 @@ def createCountryEntry(country):
         location = getEntry("Location", soup)
         currency = getEntry("Currency", soup)
         coords = geolocator.geocode(country)
+        queryName = country.lower().replace(" ", "_")
     except Exception as error:
         print(f"######### Failed querying: {country}, Error: {error}")
         return
@@ -62,6 +64,7 @@ def createCountryEntry(country):
                 coords.latitude,
                 coords.longitude,
                 facts[country],
+                queryName,
             ],
             csvFile,
         )
@@ -91,11 +94,11 @@ def createDatabase(dbFile, inputDataFile):
     if os.path.exists(dbFile):
         os.remove(dbFile)
 
+    columns = ",".join([entry for entry in entries])
+
     con = sqlite3.connect(dbFile)
     cur = con.cursor()
-    cur.execute(
-        "CREATE TABLE countries (id INTEGER PRIMARY KEY, name, capital, location, population, currency, latitude, longitude, funfact);"
-    )
+    cur.execute(f"CREATE TABLE countries (id INTEGER PRIMARY KEY, {columns});")
 
     with open(inputDataFile, "r") as fin:
         dr = csv.DictReader(fin)
@@ -109,12 +112,14 @@ def createDatabase(dbFile, inputDataFile):
                 i["latitude"],
                 i["longitude"],
                 i["funfact"],
+                i["queryName"],
             )
             for i in dr
         ]
 
+    values = ",".join(["?" for entry in entries])
     cur.executemany(
-        "INSERT INTO countries (name, capital, location, population, currency, latitude, longitude, funfact) VALUES (?, ?, ?, ?, ?, ?, ?, ?);",
+        f"INSERT INTO countries ({columns}) VALUES ({values});",
         to_db,
     )
     con.commit()
@@ -122,10 +127,10 @@ def createDatabase(dbFile, inputDataFile):
 
 
 if __name__ == "__main__":
-    if os.path.exists(csvFile):
-        os.remove(csvFile)
+    # if os.path.exists(csvFile):
+    #    os.remove(csvFile)
 
-    for country in countries:
-        createCountryEntry(country)
+    # for country in countries:
+    #    createCountryEntry(country)
 
     createDatabase(dbFile, csvFile)

@@ -4,7 +4,7 @@ import { dailyNumber } from './dailynumber';
 const URI = 'http://localhost:4000';
 
 async function fetchRandomCountry() {
-  const res = await fetch(`${URI}/country/get`).then((res) => res.json());
+  const res = await fetch(`${URI}/country/today`).then((res) => res.json());
   return res.data;
 }
 
