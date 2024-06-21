@@ -7,14 +7,16 @@ const cache = new NodeCache();
 const db = new Database('./countries.sqlite3');
 const apiSecret = process.env.API_SECRET;
 
-route.get('/distance', (req, res) => {
+route.get('/check', (req, res) => {
   try {
-    const from = getCountry(req.query.from);
-    const to = getCountry(req.query.to);
+    const target = getCountry(req.query.target);
+    const solution = getCountryOTD();
 
-    const distance = calculateDistance(from, to);
+    const correctGuess = target.name === solution.name;
 
-    res.status(200).json({ a: from, b: to, distance: distance });
+    const distance = calculateDistance(target, solution);
+
+    res.status(200).json({ correctGuess: correctGuess, distance: distance });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: 'Failed to calculate distance' });
