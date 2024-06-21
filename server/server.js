@@ -1,8 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const limit = require('express-rate-limit');
+const AuthenticationControl = require('./src/access_control');
 
 const app = express();
+const auth = new AuthenticationControl();
 
 const port = 4000;
 
@@ -14,12 +16,13 @@ const rateLimitMiddleware = limit({
   headers: true,
 });
 
-//app.set('trust proxy', 1);
+app.set('trust proxy', 1);
+//app.use(auth.authenticateApiKey);
 app.use(rateLimitMiddleware);
 app.use('/', express.static('metern', { index: '../index.html' }));
 app.use(cors());
 
-const countryRoute = require('./routes/country');
+const countryRoute = require('./src/country');
 
 app.use('/country', countryRoute);
 
