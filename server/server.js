@@ -19,9 +19,9 @@ app.use(rateLimitMiddleware);
 app.use('/', express.static('metern', { index: '../index.html' }));
 app.use(cors());
 
-const game = require('./routes/game');
+const countryRoute = require('./routes/country');
 
-app.use('/game', game);
+app.use('/country', countryRoute);
 
 app.listen({ port }, () => {
   console.log(`Server started on port ${port}`);
