@@ -17,7 +17,7 @@ const rateLimitMiddleware = limit({
 });
 
 app.set('trust proxy', 1);
-app.use(auth.authenticateApiKey);
+//app.use(auth.authenticateApiKey);
 app.use(rateLimitMiddleware);
 app.use('/', express.static('metern', { index: '../index.html' }));
 app.use(cors());
