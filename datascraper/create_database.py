@@ -127,10 +127,10 @@ def createDatabase(dbFile, inputDataFile):
 
 
 if __name__ == "__main__":
-    # if os.path.exists(csvFile):
-    #    os.remove(csvFile)
+    if os.path.exists(csvFile):
+        os.remove(csvFile)
 
-    # for country in countries:
-    #    createCountryEntry(country)
+    for country in countries:
+        createCountryEntry(country)
 
     createDatabase(dbFile, csvFile)

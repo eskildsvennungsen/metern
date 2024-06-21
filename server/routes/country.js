@@ -12,12 +12,12 @@ route.get('/distance', (req, res) => {
 
   const distance = calculateDistance(from, to);
 
-  res.json({ a: from, b: to, distance: distance });
+  res.json({ a: from, b: to, distance: distance }).status(200);
 });
 
 route.get('/random', (req, res) => {
   const country = getRandomCountry();
-  res.json({ data: country });
+  res.json({ data: country }).status(200);
 });
 
 route.get('/today', (req, res) => {
@@ -30,7 +30,7 @@ route.get('/today', (req, res) => {
     cacheData = country;
   }
 
-  res.json({ data: cacheData });
+  res.json({ data: cacheData }).status(200);
 });
 
 function createCountryOTDIfNotExist() {
