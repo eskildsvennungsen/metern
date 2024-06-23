@@ -26,7 +26,7 @@ const displayText = (closest) => {
   } else {
     return (
       <div>
-        <p>Closest guess: {closest.country.name}<br/>Distance: {closest.distance}</p>
+        <p>Closest guess: {closest.country.name}<br/>Distance: {closest.distance} km</p>
       </div>
     );
   }
