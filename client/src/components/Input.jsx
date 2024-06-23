@@ -1,6 +1,6 @@
 import React from 'react';
+import { apiURI } from '../routes/game';
 
-const apiURI = 'https://api.metern.no';
 export let inputPresent = false;
 
 export function resetInput() {
@@ -35,15 +35,14 @@ export const Input = (props) => {
       .catch((error) => {
         console.log(error);
       });
+
+      e.target.reset();
   };
 
   return (
-    <form className='opacity-100' method='post' onSubmit={handleSubmit}>
-      <label>
-        <input className='text-black text-center' name='newGuess' />
-      </label>
-      <hr />
-      <button type='submit'>Submit</button>
+    <form className='opacity-100 flex items-start gap-3 items-center' autoComplete="off" method='post' onSubmit={handleSubmit}>
+      <input id='guess-field' type='text' name='newGuess' className="block relative bg-white rounded-md px-3 pb-2.5 pt-3 w-full text-s text-gray-900 rounded-lg dark:text-black" placeholder="Your Guess" />
+      <button className='shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded' type='submit'>Submit</button>
     </form>
   );
 };
