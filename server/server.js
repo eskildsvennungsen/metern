@@ -16,11 +16,15 @@ const rateLimitMiddleware = limit({
   headers: true,
 });
 
+const corsSettings = {
+  origin: 'http://api.metern.no',
+};
+
 app.set('trust proxy', 1);
 //app.use(auth.authenticateApiKey);
 app.use(rateLimitMiddleware);
 app.use('/', express.static('metern', { index: '../index.html' }));
-app.use(cors());
+app.use(cors(corsSettings));
 
 const countryRoute = require('./src/country');
 

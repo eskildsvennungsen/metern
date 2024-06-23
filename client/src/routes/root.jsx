@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-const apiURI = 'http://localhost:4000';
+const apiURI = 'http://api.metern.no';
 
 const Root = () => {
   const [date, setDate] = useState(getDate());

@@ -4,7 +4,7 @@ import { Input } from '../components/Input';
 import { Presenter } from '../components/Presenter';
 import { MyGlobe } from '../components/MyGlobe';
 
-const apiURI = 'http://localhost:4000';
+const apiURI = 'http://api.metern.no';
 
 const Game = () => {
   const [country, setCountry] = useState(0);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const apiURI = 'http://localhost:4000';
+const apiURI = 'http://api.metern.no';
 export let inputPresent = false;
 
 export function resetInput() {
