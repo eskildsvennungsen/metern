@@ -21,7 +21,7 @@ export const Input = (props) => {
         return res.json();
       })
       .then((data) => {
-        const arr = props.data.guesses.concat({ country: guess, distance: data.distance });
+        const arr = props.data.guesses.concat({ country: data.country, distance: data.distance });
         props.data.setGuesses(arr);
       })
       .catch((error) => {

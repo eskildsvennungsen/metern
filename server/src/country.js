@@ -12,11 +12,9 @@ route.get('/check', (req, res) => {
     const target = getCountry(req.query.target);
     const solution = getCountryOTD();
 
-    const correctGuess = target.name === solution.name;
-
     const distance = calculateDistance(target, solution);
 
-    res.status(200).json({ correctGuess: correctGuess, distance: distance });
+    res.status(200).json({ country: target, distance: distance });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: 'Failed to calculate distance' });
