@@ -1,6 +1,11 @@
 import React from 'react';
 
 const apiURI = 'http://localhost:4000';
+export let inputPresent = false;
+
+export function resetInput() {
+  inputPresent = false;
+}
 
 export const Input = (props) => {
   const handleSubmit = async (e) => {
@@ -11,7 +16,7 @@ export const Input = (props) => {
     const form = e.target;
     const formData = new FormData(form);
     const formJson = Object.fromEntries(formData.entries());
-    const guess = formJson.newGuess;
+    const guess = formJson.newGuess.replaceAll(' ', '+');
 
     fetch(`${apiURI}/country/check?target=${guess}`)
       .then((res) => {
@@ -21,8 +26,11 @@ export const Input = (props) => {
         return res.json();
       })
       .then((data) => {
-        const arr = props.data.guesses.concat({ country: data.country, distance: data.distance });
+        const res = { country: data.country, distance: data.distance };
+        const arr = props.data.guesses.concat(res);
         props.data.setGuesses(arr);
+        props.data.setGuess(res);
+        inputPresent = true;
       })
       .catch((error) => {
         console.log(error);
