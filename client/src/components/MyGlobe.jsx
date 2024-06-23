@@ -59,6 +59,9 @@ export const MyGlobe = (props) => {
   //thisGlobe.current.pointOfView(MAP_CENTER, 10000);
 
   if (inputPresent) {
+    const guess = props.data.guess.country;
+    const rotaionPoint = { lat: guess.latitude, lng: guess.longitude, altitude: 1.8 };
+    thisGlobe.current.pointOfView(rotaionPoint, 800);
     assignColors();
     resetInput();
   }
@@ -73,6 +76,8 @@ export const MyGlobe = (props) => {
       polygonCapColor={(d) => d.properties.polygonCapColor || '#FED8B1'}
       polygonSideColor={() => 'rgba(255, 255, 255, 1)'}
       polygonStrokeColor={() => '#111'}
+      showAtmosphere={false}
+      altitude={1.8}
       onPolygonHover={setHoverD}
       polygonsTransitionDuration={300}
     />
