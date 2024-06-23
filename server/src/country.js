@@ -2,22 +2,18 @@ const express = require('express');
 const NodeCache = require('node-cache');
 const Database = require('better-sqlite3');
 
-const jwt = require('jsonwebtoken');
-require('dotenv').config();
-
 const route = express.Router();
 const cache = new NodeCache();
 const db = new Database('./countries.sqlite3');
-const apiSecret = process.env.API_SECRET;
 
-route.get('/distance', (req, res) => {
+route.get('/check', (req, res) => {
   try {
-    const from = getCountry(req.query.from);
-    const to = getCountry(req.query.to);
+    const target = getCountry(req.query.target);
+    const solution = getCountryOTD();
 
-    const distance = calculateDistance(from, to);
+    const distance = calculateDistance(target, solution);
 
-    res.status(200).json({ a: from, b: to, distance: distance });
+    res.status(200).json({ country: target, distance: distance });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: 'Failed to calculate distance' });
@@ -105,7 +101,7 @@ function getRandomCountry() {
 }
 
 function getCountry(name) {
-  name = name.toLowerCase().replace(' ', '_');
+  name = name.toLowerCase().replaceAll(' ', '_');
   return db.prepare('SELECT * FROM countries WHERE queryName = ? ').get(name);
 }
 
