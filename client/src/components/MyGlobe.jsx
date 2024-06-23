@@ -1,5 +1,5 @@
 import Globe from 'react-globe.gl';
-import globeImage from '../assets/plain.jpg';
+import globeImage from '../assets/water.jpg';
 import { useEffect, useState, useRef } from 'react';
 import { inputPresent, resetInput } from './Input';
 
