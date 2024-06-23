@@ -1,10 +1,10 @@
 import React from 'react';
 
 const apiURI = 'http://localhost:4000';
-export let input = false;
+export let inputPresent = false;
 
 export function resetInput() {
-  input = false;
+  inputPresent = false;
 }
 
 export const Input = (props) => {
@@ -30,7 +30,7 @@ export const Input = (props) => {
         const arr = props.data.guesses.concat(res);
         props.data.setGuesses(arr);
         props.data.setGuess(res);
-        input = true;
+        inputPresent = true;
       })
       .catch((error) => {
         console.log(error);
