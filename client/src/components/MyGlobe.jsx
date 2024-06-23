@@ -28,16 +28,16 @@ export const MyGlobe = (props) => {
     }
 
     const turningPoint = distanceCap * 0.4;
-    const normalizedPreTP = (distance - turningPoint) / (distanceCap - turningPoint);
-    const normalizedPostTP = distance / turningPoint;
     const coloBase = 150;
     let redValue = 0;
     let greenValue = 0;
 
     if (distance > turningPoint) {
+      const normalizedPreTP = (distance - turningPoint) / (distanceCap - turningPoint);
       redValue = coloBase;
       greenValue = Math.floor(coloBase * (1 - normalizedPreTP));
     } else {
+      const normalizedPostTP = distance / turningPoint;
       redValue = Math.floor(coloBase * normalizedPostTP);
       greenValue = coloBase;
     }
