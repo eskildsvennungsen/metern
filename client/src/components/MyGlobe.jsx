@@ -38,7 +38,9 @@ export const MyGlobe = (props) => {
       greenValue = Math.floor(coloBase * (1 - normalizedPreTP));
     } else {
       const normalizedPostTP = distance / turningPoint;
-      redValue = Math.floor(coloBase * normalizedPostTP);
+      const color = Math.floor(coloBase * normalizedPostTP);
+      const colorThreshold = 170;
+      redValue = color > colorThreshold ? color : colorThreshold;
       greenValue = coloBase;
     }
 
