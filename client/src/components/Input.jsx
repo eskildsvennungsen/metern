@@ -1,6 +1,11 @@
 import React from 'react';
 
 const apiURI = 'http://localhost:4000';
+export let input = false;
+
+export function resetInput() {
+  input = false;
+}
 
 export const Input = (props) => {
   const handleSubmit = async (e) => {
@@ -21,8 +26,11 @@ export const Input = (props) => {
         return res.json();
       })
       .then((data) => {
-        const arr = props.data.guesses.concat({ country: data.country, distance: data.distance });
+        const res = { country: data.country, distance: data.distance };
+        const arr = props.data.guesses.concat(res);
         props.data.setGuesses(arr);
+        props.data.setGuess(res);
+        input = true;
       })
       .catch((error) => {
         console.log(error);

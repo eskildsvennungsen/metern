@@ -1,6 +1,7 @@
 import Globe from 'react-globe.gl';
 import globeImage from '../assets/plain.jpg';
 import { useEffect, useState, useRef } from 'react';
+import { input, resetInput } from './Input';
 
 export const MyGlobe = (props) => {
   const thisGlobe = useRef();
@@ -8,12 +9,11 @@ export const MyGlobe = (props) => {
   const [hoverD, setHoverD] = useState();
 
   async function assignColors() {
-    props.data.guesses.map((guess) => {
-      countries.features.map((feature) => {
-        if (feature.properties.NAME_LONG.toLowerCase() === guess.country.name.toLowerCase()) {
-          feature.properties.polygonCapColor = distanceColor(guess.distance);
-        }
-      });
+    const guess = props.data.guess;
+    countries.features.map((feature) => {
+      if (feature.properties.NAME_LONG.toLowerCase() === guess.country.name.toLowerCase()) {
+        feature.properties.polygonCapColor = distanceColor(guess.distance);
+      }
     });
   }
 
@@ -56,7 +56,10 @@ export const MyGlobe = (props) => {
   //const MAP_CENTER = { lat: 37.6, lng: -16.6, altitude: 0.4 };
   //thisGlobe.current.pointOfView(MAP_CENTER, 10000);
 
-  assignColors();
+  if (input) {
+    assignColors();
+    resetInput();
+  }
 
   return (
     <Globe
