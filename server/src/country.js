@@ -20,6 +20,16 @@ route.get('/check', (req, res) => {
   }
 });
 
+route.get('/played', (req, res) => {
+  const timesPlayed = db.prepare(`SELECT COUNT(*) AS count FROM countryOTD`).get()['count'];
+  try {
+    res.status(200).json({ played: timesPlayed });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Failed to fetch times played' });
+  }
+});
+
 route.get('/random', (req, res) => {
   try {
     const country = getRandomCountry();
