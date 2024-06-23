@@ -16,7 +16,7 @@ export const Input = (props) => {
     const form = e.target;
     const formData = new FormData(form);
     const formJson = Object.fromEntries(formData.entries());
-    const guess = formJson.newGuess;
+    const guess = formJson.newGuess.replaceAll(' ', '+');
 
     fetch(`${apiURI}/country/check?target=${guess}`)
       .then((res) => {

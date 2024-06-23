@@ -11,7 +11,7 @@ export const MyGlobe = (props) => {
   async function assignColors() {
     const guess = props.data.guess;
     countries.features.map((feature) => {
-      if (feature.properties.NAME_LONG.toLowerCase() === guess.country.name.toLowerCase()) {
+      if (feature.properties.SOVEREIGNT.toLowerCase() === guess.country.name.toLowerCase()) {
         feature.properties.polygonCapColor = distanceColor(guess.distance);
       }
     });

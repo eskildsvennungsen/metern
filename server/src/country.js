@@ -101,7 +101,7 @@ function getRandomCountry() {
 }
 
 function getCountry(name) {
-  name = name.toLowerCase().replace(' ', '_');
+  name = name.toLowerCase().replaceAll(' ', '_');
   return db.prepare('SELECT * FROM countries WHERE queryName = ? ').get(name);
 }
 
