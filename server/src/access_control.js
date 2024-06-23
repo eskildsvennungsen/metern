@@ -1,9 +1,8 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-const apiSecret = process.env.API_KEY;
-
 class AuthenticationControl {
+  static apiSecret = process.env.API_KEY;
   authenticateApiKey(req, res, next) {
     const token = req.header.apiKey;
 
