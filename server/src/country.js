@@ -5,7 +5,6 @@ const Database = require('better-sqlite3');
 const route = express.Router();
 const cache = new NodeCache();
 const db = new Database('./countries.sqlite3');
-const apiSecret = process.env.API_SECRET;
 
 route.get('/check', (req, res) => {
   try {
