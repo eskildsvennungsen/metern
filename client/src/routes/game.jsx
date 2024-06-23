@@ -26,18 +26,30 @@ const Game = () => {
       setCountry(res.data);
     };
 
+    // Disable text selection for elements
+    // with class "no-select"
+    const noSelectElements =
+        document.querySelectorAll("#no-select");
+    noSelectElements.forEach((element) => {
+      element.style.webkitTouchCallout = "none";
+      element.style.webkitUserSelect = "none";
+      element.style.mozUserSelect = "none";
+      element.style.msUserSelect = "none";
+      element.style.userSelect = "none";
+    });
+
     fetchTodaysCountry();
   }, []);
 
   return (
-    <div className='overflow-hidden'>
-      <div className='bg-slate-700 text-white text-center p-5 m-5 rounded-md shadow-2xl z-50 absolute top-5 sd:w-full'>
+    <div id='no-select' className='overflow-hidden'>
+      <div className='bg-slate-700 text-white text-center p-5 m-5 rounded-md z-50 absolute left-0 right-0 md:left-1/3 md:right-1/3'>
         <Presenter data={data} />
       </div>
       <div className='w-3/4 bg-slate-300'>
         <MyGlobe data={data} />
       </div>
-      <div className='m-5 z-50 absolute bottom-0 sd:w-full'>
+      <div className='m-5 z-50 absolute bottom-0 left-0 right-0 md:left-1/3 md:right-1/3'>
         <Input data={data} />
       </div>
     </div>
