@@ -8,7 +8,7 @@ export const MyGlobe = (props) => {
   const [countries, setCountries] = useState({ features: [] });
   const [hoverD, setHoverD] = useState();
 
-  async function assignColors() {
+  function assignColors() {
     const guess = props.data.guess;
     countries.features.map((feature) => {
       if (feature.properties.SOVEREIGNT.toLowerCase() === guess.country.name.toLowerCase()) {
@@ -18,7 +18,7 @@ export const MyGlobe = (props) => {
   }
 
   function distanceColor(distance) {
-    const distanceCap = 13000; // KM, after 12k the color is just assigned red
+    const distanceCap = 13000; // distance in KM
     if (distance > distanceCap) {
       return 'rgba(150,0,0,1)';
     }
