@@ -4,7 +4,7 @@ import { Input } from '../components/Input';
 import { Presenter } from '../components/Presenter';
 import { MyGlobe } from '../components/MyGlobe';
 
-export const apiURI = 'http://localhost:4000';
+export const apiURI = 'https://api.metern.no';
 
 const Game = () => {
   const [country, setCountry] = useState(0);
@@ -34,7 +34,7 @@ const Game = () => {
       <div className='bg-slate-700 text-white text-center p-5 m-5 rounded-md shadow-2xl z-50 absolute top-5 sd:w-full'>
         <Presenter data={data} />
       </div>
-      <div>
+      <div className='w-3/4 bg-slate-300'>
         <MyGlobe data={data} />
       </div>
       <div className='m-5 z-50 absolute bottom-0 sd:w-full'>

@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import React from 'react';
-//import NoPage from './routes/nopage';
 import Root from './routes/root';
 import Game from './routes/game';
 import ReactDOM from 'react-dom/client';
