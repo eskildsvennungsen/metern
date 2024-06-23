@@ -40,8 +40,8 @@ const Root = () => {
         <div className='flex flex-col space-y-4'>
           <p className='text-9xl'>METERN</p>
           <p className='text-5xl'>GUESS TODAYS COUNTRY</p>
-          <div className='flex justify-content px-8 w-48'>
-            <Link to='/game' relative='path' className='bg-black text-white w-full pl-2'>
+          <div className='flex w-36'>
+            <Link to='/game' relative='path' className='bg-black pl-3 text-white w-full'>
               PLAY
             </Link>
           </div>

@@ -37,7 +37,7 @@ const Game = () => {
       <div className='bg-slate-700 text-white text-center rounded-md max-w-80 min-w-64 shadow-2xl p-5 z-50 absolute top-4 inset-x-10'>
         <Presenter data={data} />
       </div>
-      <div>
+      <div className='w-3/4 bg-slate-300'>
         <MyGlobe data={data} />
       </div>
       <div className='bg-slate-700 text-white text-center rounded-md max-w-80 min-w-64 shadow-2xl p-5 z-50 absolute bottom-4 inset-x-10'>
