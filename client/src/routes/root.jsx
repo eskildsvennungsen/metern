@@ -36,14 +36,18 @@ const Root = () => {
 
   return (
     <div className='bg-color-primary'>
-      <div>
-        <p className='text-9xl'>METERN</p>
-        <p className='text-5xl'>Gjett deg frem til dagens land.</p>
-        <Link to='/game' relative='path'>
-          Spill
-        </Link>
-        <p className='text-bold'>{date}</p>
-        <p>No. {played}</p>
+      <div className='flex justify-center items-center h-screen'>
+        <div className='flex flex-col space-y-4'>
+          <p className='text-9xl'>METERN</p>
+          <p className='text-5xl'>GUESS TODAYS COUNTRY</p>
+          <div className='flex justify-content px-8 w-48'>
+            <Link to='/game' relative='path' className='bg-black text-white w-full pl-2'>
+              PLAY
+            </Link>
+          </div>
+          <p className='font-extrabold'>{date}</p>
+          <p>No. {played}</p>
+        </div>
       </div>
     </div>
   );
