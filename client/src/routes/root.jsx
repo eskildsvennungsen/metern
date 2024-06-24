@@ -21,17 +21,16 @@ const Root = () => {
   }
 
   useEffect(() => {
-    async function getTimesPlayed() {
+    async function initData() {
       try {
-        const ammount = await fetch(`${apiURI}/country/played`)
+        await fetch(`${apiURI}/country/load`)
           .then((res) => res.json())
-          .then((data) => data.played);
-        setPlayed(ammount);
+          .then((data) => setPlayed(data.played));
       } catch (error) {
         console.log(error);
       }
     }
-    getTimesPlayed();
+    initData();
   });
 
   return (
