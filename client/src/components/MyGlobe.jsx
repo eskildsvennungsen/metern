@@ -10,7 +10,7 @@ export const MyGlobe = (props) => {
   const [width, setWidth] = useState(window.innerWidth);
   const [heigth, setHeight] = useState(window.innerHeight);
 
-  window.addEventListener("resize", handleResize);
+  window.addEventListener('resize', handleResize);
 
   function handleResize() {
     setWidth(window.innerWidth);
