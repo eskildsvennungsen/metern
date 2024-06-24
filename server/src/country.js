@@ -14,12 +14,12 @@ route.get('/check', (req, res) => {
   const cacheKey = 'solution';
   let solution = cache.get(cacheKey);
   const solutionNotAvailable = solution === undefined;
-  const outdatedSolution = solutionNotAvailiable ? true : solution.date !== getDate();
+  const outdatedSolution = solutionNotAvailable ? true : solution.date !== getDate();
 
   try {
     const target = getCountry(req.query.target);
 
-    if (solutionNotAvailiable || outdatedSolution) {
+    if (solutionNotAvailable || outdatedSolution) {
       solution = getCountryOTD();
       cache.set(cacheKey, solution);
     }
