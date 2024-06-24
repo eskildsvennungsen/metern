@@ -7,13 +7,10 @@ import { MyGlobe } from '../components/MyGlobe';
 export const apiURI = 'https://api.metern.no';
 
 const Game = () => {
-  const [country, setCountry] = useState(0);
   const [guess, setGuess] = useState(0);
   const [guesses, setGuesses] = useState([]);
 
   const data = {
-    country,
-    setCountry,
     guess,
     setGuess,
     guesses,
@@ -21,12 +18,10 @@ const Game = () => {
   };
 
   useEffect(() => {
-    const fetchTodaysCountry = async () => {
-      const res = await fetch(`${apiURI}/country/today`).then((res) => res.json());
-      setCountry(res.data);
+    const updateCountryOTD = async () => {
+      await fetch(`${apiURI}/country/load`).then((res) => res.json());
     };
-
-    fetchTodaysCountry();
+    updateCountryOTD();
   }, []);
 
   return (
