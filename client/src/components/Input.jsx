@@ -42,7 +42,6 @@ export const Input = (props) => {
   return (
     <form className='opacity-100 flex items-start gap-3 items-center' autoComplete="off" method='post' onSubmit={handleSubmit}>
       <input id='guess-field' type='text' name='newGuess' className="block relative bg-white rounded-md px-3 pb-2.5 pt-3 w-full text-s text-gray-900 rounded-lg dark:text-black" placeholder="Your Guess" />
-      <button className='shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded' type='submit'>Submit</button>
     </form>
   );
 };
