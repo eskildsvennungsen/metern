@@ -7,6 +7,15 @@ export const MyGlobe = (props) => {
   const thisGlobe = useRef();
   const [countries, setCountries] = useState({ features: [] });
   const [hoverD, setHoverD] = useState();
+  const [width, setWidth] = useState(window.innerWidth);
+  const [heigth, setHeight] = useState(window.innerHeight);
+
+  window.addEventListener('resize', handleResize);
+
+  function handleResize() {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  }
 
   function assignColors() {
     const guess = props.data.guess;
@@ -65,6 +74,8 @@ export const MyGlobe = (props) => {
   return (
     <Globe
       ref={thisGlobe}
+      width={width}
+      height={heigth}
       globeImageUrl={globeImage}
       backgroundImageUrl='//unpkg.com/three-globe/example/img/night-sky.png'
       polygonsData={countries.features.filter((d) => d.properties.ISO_A2 !== 'AQ')}
