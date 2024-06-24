@@ -27,7 +27,7 @@ const Game = () => {
     };
 
     // Disable text selection for elements
-    // with class "no-select"
+    // with id "no-select"
     const noSelectElements =
         document.querySelectorAll("#no-select");
     noSelectElements.forEach((element) => {
