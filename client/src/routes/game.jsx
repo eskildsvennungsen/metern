@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Input } from '../components/Input';
 import { Presenter } from '../components/Presenter';
 import { MyGlobe } from '../components/MyGlobe';
@@ -17,21 +17,8 @@ const Game = () => {
     setGuesses,
   };
 
-  useEffect(() => {
-    // Disable text selection for elements
-    // with id "no-select"
-    const noSelectElements = document.querySelectorAll('#no-select');
-    noSelectElements.forEach((element) => {
-      element.style.webkitTouchCallout = 'none';
-      element.style.webkitUserSelect = 'none';
-      element.style.mozUserSelect = 'none';
-      element.style.msUserSelect = 'none';
-      element.style.userSelect = 'none';
-    });
-  }, []);
-
   return (
-    <div id='no-select' className='overflow-hidden'>
+    <div className='overflow-hidden select-none'>
       <div className='bg-slate-700 text-white text-center p-5 m-5 rounded-md z-50 absolute left-0 right-0 md:left-1/3 md:right-1/3'>
         <Presenter data={data} />
       </div>
