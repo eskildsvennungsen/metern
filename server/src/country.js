@@ -6,10 +6,23 @@ const route = express.Router();
 const cache = new NodeCache();
 const db = new Database('./countries.sqlite3');
 
+function getDate() {
+  return new Date().toISOString().split('T')[0];
+}
+
 route.get('/check', (req, res) => {
+  const cacheKey = 'solution';
+  let solution = cache.get(cacheKey);
+  const solutionNotAvailiable = solution === undefined;
+  const outdatedSolution = solution.date !== getDate();
+
   try {
     const target = getCountry(req.query.target);
-    const solution = getCountryOTD();
+
+    if (solutionNotAvailiable || outdatedSolution) {
+      solution = getCountryOTD();
+      cache.set(cacheKey, solution);
+    }
 
     const distance = calculateDistance(target, solution);
 
@@ -18,6 +31,13 @@ route.get('/check', (req, res) => {
     console.log(error);
     res.status(500).json({ error: 'Failed to calculate distance' });
   }
+});
+
+route.get('/load', (req, res) => {
+  createCountryOTDTableIfNotExist();
+  const loadStatus = updateCountryOTDIfNotExist();
+  const responseStatus = loadStatus ? 200 : 500;
+  res.status(responseStatus).json({ loadSucceeded: loadStatus });
 });
 
 route.get('/played', (req, res) => {
@@ -40,25 +60,7 @@ route.get('/random', (req, res) => {
   }
 });
 
-route.get('/today', (req, res) => {
-  try {
-    const cacheKey = 'country';
-    let cacheData = cache.get(cacheKey);
-
-    if (!cacheData) {
-      const country = getCountryOTD();
-      cache.set(cacheKey, country);
-      cacheData = country;
-    }
-
-    res.status(200).json({ data: cacheData });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ error: 'Failed to fetch todays country' });
-  }
-});
-
-function createCountryOTDIfNotExist() {
+function createCountryOTDTableIfNotExist() {
   const createTableQuery = `
     CREATE TABLE IF NOT EXISTS countryOTD (
       id INTEGER PRIMARY KEY,
@@ -83,14 +85,8 @@ function addCountryOTD(date) {
 }
 
 function getCountryOTD() {
-  createCountryOTDIfNotExist();
-
-  const today = new Date().toISOString().split('T')[0];
-  const countryOTD = db.prepare('SELECT * FROM countryOTD where date = ?').get(today);
-
-  if (countryOTD === undefined) {
-    addCountryOTD(today);
-  }
+  createCountryOTDTableIfNotExist();
+  updateCountryOTDIfNotExist();
 
   const getCountryQuery = `
     SELECT * FROM countries
@@ -131,6 +127,17 @@ function calculateDistance(from, to) {
   const distance = Math.floor(y * earthRadius);
 
   return distance;
+}
+
+function updateCountryOTDIfNotExist() {
+  const today = getDate();
+  const countryOTD = db.prepare('SELECT * FROM countryOTD where date = ?').get(today);
+
+  if (!countryOTD) {
+    addCountryOTD(today);
+    return true;
+  }
+  return false;
 }
 
 module.exports = route;
