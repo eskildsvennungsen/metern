@@ -54,10 +54,6 @@ export const MyGlobe = (props) => {
       .then((data) => setCountries(data));
   }, []);
 
-  // will rotate the view to this point
-  //const MAP_CENTER = { lat: 37.6, lng: -16.6, altitude: 0.4 };
-  //thisGlobe.current.pointOfView(MAP_CENTER, 10000);
-
   if (inputPresent) {
     const guess = props.data.guess.country;
     const rotaionPoint = { lat: guess.latitude, lng: guess.longitude, altitude: 1.8 };
