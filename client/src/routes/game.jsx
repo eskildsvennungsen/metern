@@ -17,13 +17,6 @@ const Game = () => {
     setGuesses,
   };
 
-  useEffect(() => {
-    const updateCountryOTD = async () => {
-      await fetch(`${apiURI}/country/load`).then((res) => res.json());
-    };
-    updateCountryOTD();
-  }, []);
-
   return (
     <div className='overflow-hidden'>
       <div className='bg-slate-700 text-white text-center p-5 m-5 rounded-md shadow-2xl z-50 absolute top-5 sd:w-full'>

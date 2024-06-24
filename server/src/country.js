@@ -35,12 +35,8 @@ route.get('/check', (req, res) => {
 
 route.get('/load', (req, res) => {
   createCountryOTDTableIfNotExist();
-  const loadStatus = updateCountryOTDIfNotExist();
-  const responseStatus = loadStatus ? 200 : 500;
-  res.status(responseStatus).json({ loadSucceeded: loadStatus });
-});
+  updateCountryOTDIfNotExist();
 
-route.get('/played', (req, res) => {
   const timesPlayed = db.prepare(`SELECT COUNT(*) AS count FROM countryOTD`).get()['count'];
   try {
     res.status(200).json({ played: timesPlayed });
@@ -135,9 +131,7 @@ function updateCountryOTDIfNotExist() {
 
   if (!countryOTD) {
     addCountryOTD(today);
-    return true;
   }
-  return false;
 }
 
 module.exports = route;
