@@ -13,7 +13,7 @@ function getDate() {
 route.get('/check', (req, res) => {
   const cacheKey = 'solution';
   let solution = cache.get(cacheKey);
-  const solutionNotAvailiable = solution === undefined;
+  const solutionNotAvailable = solution === undefined;
   const outdatedSolution = solutionNotAvailiable ? true : solution.date !== getDate();
 
   try {
