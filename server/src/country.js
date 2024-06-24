@@ -14,7 +14,7 @@ route.get('/check', (req, res) => {
   const cacheKey = 'solution';
   let solution = cache.get(cacheKey);
   const solutionNotAvailiable = solution === undefined;
-  const outdatedSolution = solution.date !== getDate() || true;
+  const outdatedSolution = solutionNotAvailiable ? true : solution.date !== getDate();
 
   try {
     const target = getCountry(req.query.target);
@@ -90,6 +90,7 @@ function getCountryOTD() {
     WHERE countryOTD.date = ?
   `;
 
+  const today = getDate();
   const country = db.prepare(getCountryQuery).get(today);
 
   return country;
