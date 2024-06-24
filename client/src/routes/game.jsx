@@ -6,15 +6,6 @@ import { MyGlobe } from '../components/MyGlobe';
 
 export const apiURI = 'https://api.metern.no';
 
-const noSelectElements = document.querySelectorAll('#no-select');
-noSelectElements.forEach((element) => {
-  element.style.webkitTouchCallout = 'none';
-  element.style.webkitUserSelect = 'none';
-  element.style.mozUserSelect = 'none';
-  element.style.msUserSelect = 'none';
-  element.style.userSelect = 'none';
-});
-
 const Game = () => {
   const [guess, setGuess] = useState(0);
   const [guesses, setGuesses] = useState([]);
@@ -29,6 +20,14 @@ const Game = () => {
   useEffect(() => {
     // Disable text selection for elements
     // with id "no-select"
+    const noSelectElements = document.querySelectorAll('#no-select');
+    noSelectElements.forEach((element) => {
+      element.style.webkitTouchCallout = 'none';
+      element.style.webkitUserSelect = 'none';
+      element.style.mozUserSelect = 'none';
+      element.style.msUserSelect = 'none';
+      element.style.userSelect = 'none';
+    });
   }, []);
 
   return (
