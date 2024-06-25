@@ -12,7 +12,7 @@ services:
       - 'traefik.http.routers.client.rule=Host(`metern.no`, `www.metern.no`)'
       - 'traefik.http.routers.client.tls=true'
       - 'traefik.http.routers.client.tls.certresolver=production'
-      - 'traefik.http.services.client.loadbalancer.server.port=5173'
+      - 'traefik.http.services.client.loadbalancer.server.port=80'
     depends_on:
       - server
     restart: unless-stopped
