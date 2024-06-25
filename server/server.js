@@ -16,12 +16,8 @@ const rateLimitMiddleware = limit({
   headers: true,
 });
 
-const corsSettings = {
-  origin: 'http://localhost:5173',
-};
-
 //app.use(auth.authenticateApiKey);
-app.use(cors(corsSettings));
+app.use(cors());
 app.use(rateLimitMiddleware);
 app.use('/', express.static('metern', { index: '../index.html' }));
 app.set('trust proxy', 1);
