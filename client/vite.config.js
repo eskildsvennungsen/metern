@@ -8,6 +8,12 @@ export default defineConfig({
       usePolling: true,
     },
   },
+  preview: {
+    port: 5173,
+  },
+  build: {
+    port: 5173,
+  },
 
   plugins: [react()],
 });

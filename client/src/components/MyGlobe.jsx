@@ -1,5 +1,6 @@
 import Globe from 'react-globe.gl';
 import globeImage from '../assets/water.jpg';
+import GeoJson from '../assets/data.json';
 import { useEffect, useState, useRef } from 'react';
 import { inputPresent, resetInput } from './Input';
 
@@ -27,7 +28,7 @@ export const MyGlobe = (props) => {
   }
 
   function distanceColor(distance) {
-    const distanceCap = 13000; // distance in KM
+    const distanceCap = 5000; // distance in KM
     if (distance > distanceCap) {
       return 'rgba(150,0,0,1)';
     }
@@ -37,7 +38,7 @@ export const MyGlobe = (props) => {
     }
 
     const turningPoint = distanceCap * 0.4;
-    const coloBase = 150;
+    const coloBase = 255;
     let redValue = 0;
     let greenValue = 0;
 
@@ -48,7 +49,7 @@ export const MyGlobe = (props) => {
     } else {
       const normalizedPostTP = distance / turningPoint;
       const color = Math.floor(coloBase * normalizedPostTP);
-      const colorThreshold = 170;
+      const colorThreshold = 200;
       redValue = color > colorThreshold ? color : colorThreshold;
       greenValue = coloBase;
     }
@@ -57,10 +58,7 @@ export const MyGlobe = (props) => {
   }
 
   useEffect(() => {
-    // load data
-    fetch('../../dataset/ne_110m_admin_0_countries.geojson')
-      .then((res) => res.json())
-      .then((data) => setCountries(data));
+    setCountries(GeoJson);
   }, []);
 
   if (inputPresent) {
@@ -77,7 +75,7 @@ export const MyGlobe = (props) => {
       width={width}
       height={heigth}
       globeImageUrl={globeImage}
-      backgroundImageUrl='//unpkg.com/three-globe/example/img/night-sky.png'
+      backgroundColor='rgba(0,0,0,0)'
       polygonsData={countries.features.filter((d) => d.properties.ISO_A2 !== 'AQ')}
       polygonAltitude={(d) => (d === hoverD ? 0.03 : 0.01)}
       polygonCapColor={(d) => d.properties.polygonCapColor || '#FED8B1'}
