@@ -17,7 +17,7 @@ const rateLimitMiddleware = limit({
 });
 
 const corsSettings = {
-  origin: 'http://localhost:5173',
+  origin: 'https://metern.no',
 };
 
 //app.use(auth.authenticateApiKey);
