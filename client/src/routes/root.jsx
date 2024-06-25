@@ -38,7 +38,7 @@ const Root = () => {
       <div className='flex justify-center items-center h-screen px-5'>
         <div className='flex flex-col space-y-4'>
           <p className='text-7xl sm:text-9xl'>METERN</p>
-          <p className='text-4xl sm:text-5xl'>GUESS TODAYS COUNTRY</p>
+          <p className='text-4xl sm:text-5xl'>GUESS TODAY'S COUNTRY</p>
           <div className='flex w-36'>
             <Link to='/game' relative='path' className='bg-black pl-3 text-white w-full'>
               PLAY
