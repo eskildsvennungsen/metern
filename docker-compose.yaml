@@ -9,7 +9,7 @@ services:
     labels:
       - 'traefik.enable=true'
       - 'traefik.http.routers.client.entrypoints=web, websecure'
-      - 'traefik.http.routers.client.rule=Host(`metern.no`)'
+      - 'traefik.http.routers.client.rule=Host(`metern.no`, `www.metern.no`)'
       - 'traefik.http.routers.client.tls=true'
       - 'traefik.http.routers.client.tls.certresolver=production'
       - 'traefik.http.services.client.loadbalancer.server.port=5173'
