@@ -4,8 +4,6 @@ import { Input } from '../components/Input';
 import { Presenter } from '../components/Presenter';
 import { MyGlobe } from '../components/MyGlobe';
 
-export const apiURI = 'https://api.metern.no';
-
 const Game = () => {
   const [guess, setGuess] = useState(0);
   const [guesses, setGuesses] = useState([]);

@@ -5,6 +5,8 @@ import Game from './routes/game';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
+export const apiURI = 'https://api.metern.no';
+
 const router = createBrowserRouter([
   {
     path: '/',
