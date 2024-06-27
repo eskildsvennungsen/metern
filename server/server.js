@@ -16,8 +16,9 @@ const rateLimitMiddleware = limit({
   headers: true,
 });
 
+const domains = ['https://metern.no', 'https://www.metern.no']
 const corsSettings = {
-  origin: 'https://metern.no',
+  origin: domains,
 };
 
 //app.use(auth.authenticateApiKey);
