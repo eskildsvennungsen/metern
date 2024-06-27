@@ -5,23 +5,32 @@ import requests
 import csv
 import os
 import sqlite3
+from collections import defaultdict
 
 fileName = "countries"
-dbFile = f"{fileName}.sqlite3"
-csvFile = f"{fileName}.csv"
+dbFileName = f"{fileName}.sqlite3"
+csvFileName = f"{fileName}.csv"
 
 geolocator = Nominatim(user_agent="metern")
 
-entries = [
+basis = [
     "name",
+    "iso3",
+    "iso2",
     "capital",
-    "location",
-    "population",
     "currency",
+    "currency_name",
+    "currency_symbol",
+    "tld",
+    "native",
+    "region",
+    "region_id",
+    "subregion",
+    "nationality",
     "latitude",
     "longitude",
-    "funfact",
-    "queryName",
+    "emoji",
+    "emojiU",
 ]
 
 
@@ -47,10 +56,15 @@ def createCountryEntry(country: str):
         population = getEntry("Population", soup)
         location = getEntry("Location", soup)
         currency = getEntry("Currency", soup)
-        coords = geolocator.geocode(country)
-        queryName = country.lower().replace(" ", "_")
     except Exception as error:
         print(f"######### Failed querying: {country}, Error: {error}")
+        return
+
+    try:
+        coords = [0, 0]  # wikiPage.coordinates
+        queryName = country.lower().replace(" ", "_")
+    except Exception as error:
+        print(f"######### Failed fetching geodata: {country}, Error: {error}")
         return
 
     try:
@@ -90,34 +104,21 @@ def writeToCsv(input, fname):
     print(fixed_input)
 
 
-def createDatabase(dbFile, inputDataFile):
-    if os.path.exists(dbFile):
-        os.remove(dbFile)
+def createDatabase(csvFileName, dbFileName, colTags):
+    if os.path.exists(dbFileName):
+        os.remove(dbFileName)
 
-    columns = ",".join([entry for entry in entries])
+    columns = ",".join([entry for entry in colTags])
 
-    con = sqlite3.connect(dbFile)
+    con = sqlite3.connect(dbFileName)
     cur = con.cursor()
     cur.execute(f"CREATE TABLE countries (id INTEGER PRIMARY KEY, {columns});")
 
-    with open(inputDataFile, "r") as fin:
+    with open(csvFileName, "r") as fin:
         dr = csv.DictReader(fin)
-        to_db = [
-            (
-                i["name"],
-                i["capital"],
-                i["location"],
-                i["population"],
-                i["currency"],
-                i["latitude"],
-                i["longitude"],
-                i["funfact"],
-                i["queryName"],
-            )
-            for i in dr
-        ]
+        to_db = [tuple(i[tag] for tag in colTags) for i in dr]
 
-    values = ",".join(["?" for entry in entries])
+    values = ",".join(["?" for entry in colTags])
     cur.executemany(
         f"INSERT INTO countries ({columns}) VALUES ({values});",
         to_db,
@@ -127,10 +128,10 @@ def createDatabase(dbFile, inputDataFile):
 
 
 if __name__ == "__main__":
-    if os.path.exists(csvFile):
-        os.remove(csvFile)
+    #    if os.path.exists(csvFile):
+    #        os.remove(csvFile)
+    #
+    #    for country in countries:
+    #        createCountryEntry(country)
 
-    for country in countries:
-        createCountryEntry(country)
-
-    createDatabase(dbFile, csvFile)
+    createDatabase("basis.csv", "test.sqlite3", basis)
