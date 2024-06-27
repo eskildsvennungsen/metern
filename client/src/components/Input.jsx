@@ -1,5 +1,5 @@
 import React from 'react';
-import { apiURI } from '../routes/game';
+import { apiURI } from '../main';
 
 export let inputPresent = false;
 
@@ -36,12 +36,23 @@ export const Input = (props) => {
         console.log(error);
       });
 
-      e.target.reset();
+    e.target.reset();
   };
 
   return (
-    <form className='opacity-100 flex items-start gap-3 items-center' autoComplete="off" method='post' onSubmit={handleSubmit}>
-      <input id='guess-field' type='text' name='newGuess' className="block relative bg-white rounded-md px-3 pb-2.5 pt-3 w-full text-s text-gray-900 rounded-lg dark:text-black" placeholder="Your Guess" />
+    <form
+      className='opacity-100 flex items-start gap-3 items-center'
+      autoComplete='off'
+      method='post'
+      onSubmit={handleSubmit}
+    >
+      <input
+        id='guess-field'
+        type='text'
+        name='newGuess'
+        className='block relative bg-white rounded-md px-3 pb-2.5 pt-3 w-full text-s text-gray-900 rounded-lg dark:text-black'
+        placeholder='Your Guess'
+      />
     </form>
   );
 };
