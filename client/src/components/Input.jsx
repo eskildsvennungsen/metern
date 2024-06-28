@@ -33,6 +33,7 @@ export const Input = (props) => {
       .then((data) => {
         const res = { country: data.country, distance: data.distance };
         props.data.setGuess(res);
+        props.data.setGuesses((x) => [...x, res]);
         evaluateClosestGuess(res);
         inputPresent = true;
       })
