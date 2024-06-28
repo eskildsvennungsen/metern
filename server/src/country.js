@@ -58,8 +58,8 @@ route.get('/random', (req, res) => {
 
 route.get('/countries', (req, res) => {
   try {
-    const countries = getCountryNames().map((obj) => { return obj.name });
-    res.status(200).json({ data: countries });
+    const countries = db.prepare('SELECT name as label, queryName as value FROM countries').all();
+    res.status(200).json(countries);
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: 'Failed to fetch names for all countries' });
@@ -116,10 +116,6 @@ function getRandomCountry() {
 function getCountry(name) {
   name = name.toLowerCase().replaceAll(' ', '_');
   return db.prepare('SELECT * FROM countries WHERE queryName = ? ').get(name);
-}
-
-function getCountryNames() {
-  return db.prepare('SELECT name FROM countries').all();
 }
 
 function calculateDistance(from, to) {
