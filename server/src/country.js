@@ -130,6 +130,7 @@ function calculateDistance(from, to) {
   const x =
     Math.pow(Math.sin(deltaLat / 2), 2) +
     Math.cos(deg2rad(from.latitude)) * Math.cos(deg2rad(from.latitude)) * Math.pow(Math.sin(deltaLon / 2), 2);
+
   const y = 2 * Math.atan2(Math.sqrt(x), Math.sqrt(1 - x));
   const distance = Math.floor(y * earthRadius);
 
