@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Input } from '../components/Input';
-import { Presenter } from '../components/Presenter';
 import { MyGlobe } from '../components/MyGlobe';
+import { VictoryBox } from '../components/VictoryBox';
+import { InfoBox } from '../components/InfoBox';
 
 const Game = () => {
   const [guess, setGuess] = useState(0);
-  const [guesses, setGuesses] = useState([]);
-  const [gameState, setGameState] = useState(true);
+  const [closest, setClosest] = useState({ country: 0, distance: 1000000 });
+  const [victory, setVictory] = useState(false);
 
   const data = {
     guess,
     setGuess,
-    guesses,
-    setGuesses,
-    gameState,
-    setGameState,
+    closest,
+    setClosest,
+    victory,
+    setVictory,
   };
 
   return (
@@ -24,16 +25,8 @@ const Game = () => {
         <MyGlobe data={data} />
       </div>
       <div className='bottom-0 absolute w-5/6 sm:w-96'>
-        {gameState && (
-          <div className='mb-2'>
-            <Input data={data} />
-          </div>
-        )}
-        {guesses.length > 0 && (
-          <div className='bg-white text-gray-900 text-center py-5 rounded-t-sm'>
-            <Presenter data={data} />
-          </div>
-        )}
+        {!victory && <Input data={data} />}
+        {victory ? <VictoryBox data={data} /> : <InfoBox data={data} />}
       </div>
     </div>
   );

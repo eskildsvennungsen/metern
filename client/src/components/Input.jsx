@@ -8,6 +8,15 @@ export function resetInput() {
 }
 
 export const Input = (props) => {
+  const evaluateClosestGuess = (inQuestion) => {
+    if (inQuestion.distance < props.data.closest.distance) {
+      if (inQuestion.distance === 0) {
+        props.data.setVictory(true);
+      }
+      props.data.setClosest(inQuestion);
+    }
+  };
+
   const handleSubmit = async (e) => {
     // Prevent the browser from reloading the page
     e.preventDefault();
@@ -27,9 +36,8 @@ export const Input = (props) => {
       })
       .then((data) => {
         const res = { country: data.country, distance: data.distance };
-        const arr = props.data.guesses.concat(res);
-        props.data.setGuesses(arr);
         props.data.setGuess(res);
+        evaluateClosestGuess(res);
         inputPresent = true;
       })
       .catch((error) => {
@@ -41,7 +49,7 @@ export const Input = (props) => {
 
   return (
     <form
-      className='opacity-100 flex items-start gap-3 items-center'
+      className='opacity-100 flex items-start gap-3 items-center mb-2'
       autoComplete='off'
       method='post'
       onSubmit={handleSubmit}
