@@ -44,7 +44,7 @@ export const Input = (props) => {
       })
       .then((data) => {
         data.map((country) => {
-          options.push({ label: country.queryName });
+          options.push({ label: country.name });
         });
 
       })
