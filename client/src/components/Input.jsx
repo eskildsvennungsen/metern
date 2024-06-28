@@ -9,7 +9,7 @@ export function resetInput() {
 }
 
 export const Input = (props) => {
-  const [options] = useState([]);
+  const [options, setOptions] = useState([]);
 
   const handleSubmit = (input) => {
     const guess = input.label.replaceAll(' ', '+').toLowerCase();
@@ -42,10 +42,7 @@ export const Input = (props) => {
         return res.json();
       })
       .then((data) => {
-        data.map((country) => {
-          options.push({ label: country });
-        });
-
+        setOptions(data);
       })
       .catch((error) => {
         console.log(error);

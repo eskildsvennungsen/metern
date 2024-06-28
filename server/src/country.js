@@ -58,7 +58,8 @@ route.get('/random', (req, res) => {
 
 route.get('/countries', (req, res) => {
   try {
-    const countries = getCountryNames().map((obj) => { return obj.name });
+    let countries = [];
+    getCountryNames().map((obj) => { countries.push({ label: obj.name }) });
     res.status(200).json({ data: countries });
   } catch (error) {
     console.log(error);
