@@ -1,19 +1,37 @@
 services:
+  client:
+    container_name: metern-frontend
+    build:
+      context: './client'
+      target: client
+    networks:
+      - reverse_proxy
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.client.entrypoints=web, websecure'
+      - 'traefik.http.routers.client.rule=Host(`metern.no`) || Host(`www.metern.no`)'
+      - 'traefik.http.routers.client.tls=true'
+      - 'traefik.http.routers.client.tls.certresolver=production'
+      - 'traefik.http.services.client.loadbalancer.server.port=80'
+    depends_on:
+      - server
+    restart: unless-stopped
+
   server:
     container_name: metern-backend
     build:
       context: './server'
       target: 'server'
-    command: npm run dev
+    command: npm run start
     networks:
       - reverse_proxy
     labels:
       - 'traefik.enable=true'
-      - 'traefik.http.routers.metern.entrypoints=web, websecure'
-      - 'traefik.http.routers.metern.rule=Host(`api.metern.no`)'
-      - 'traefik.http.routers.metern.tls=true'
-      - 'traefik.http.routers.metern.tls.certresolver=production'
-      - 'traefik.http.services.metern.loadbalancer.server.port=4000'
+      - 'traefik.http.routers.server.entrypoints=web, websecure'
+      - 'traefik.http.routers.server.rule=Host(`api.metern.no`)'
+      - 'traefik.http.routers.server.tls=true'
+      - 'traefik.http.routers.server.tls.certresolver=production'
+      - 'traefik.http.services.server.loadbalancer.server.port=4000'
     restart: unless-stopped
 
 networks:
