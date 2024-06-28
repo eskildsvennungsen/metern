@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { apiURI } from '../main';
+import GeoJson from '../assets/data.json';
+import Select from "react-select";
 
 export let inputPresent = false;
 
@@ -8,15 +10,10 @@ export function resetInput() {
 }
 
 export const Input = (props) => {
-  const handleSubmit = async (e) => {
-    // Prevent the browser from reloading the page
-    e.preventDefault();
+  const [options] = useState([]);
 
-    // Read the form data
-    const form = e.target;
-    const formData = new FormData(form);
-    const formJson = Object.fromEntries(formData.entries());
-    const guess = formJson.newGuess.replaceAll(' ', '+');
+  const handleSubmit = (input) => {
+    const guess = input.value.replaceAll(' ', '+');
 
     fetch(`${apiURI}/country/check?target=${guess}`)
       .then((res) => {
@@ -35,24 +32,27 @@ export const Input = (props) => {
       .catch((error) => {
         console.log(error);
       });
-
-    e.target.reset();
   };
 
+  useEffect(() => {
+    GeoJson.features.map((feature) => {
+      options.push({ label: feature.properties.NAME, value: feature.properties.NAME.toLowerCase() });
+    });
+  }, []);
+
   return (
-    <form
-      className='opacity-100 flex items-start gap-3 items-center'
-      autoComplete='off'
-      method='post'
-      onSubmit={handleSubmit}
-    >
-      <input
-        id='guess-field'
-        type='text'
-        name='newGuess'
-        className='block relative bg-white rounded-md px-3 pb-2.5 pt-3 w-full text-s text-gray-900 rounded-lg dark:text-black'
-        placeholder='Your Guess'
-      />
-    </form>
+    <Select
+      menuPlacement='top'
+      placeholder='Make a guess'
+      onChange={handleSubmit}
+      options={options}
+      openMenuOnClick={false}
+      styles={{
+        menuList: base => ({
+          ...base,
+          maxHeight: '20vh'
+        })
+      }}
+    />
   );
 };
