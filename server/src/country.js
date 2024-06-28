@@ -119,7 +119,7 @@ function getCountry(name) {
 }
 
 function getCountryNames() {
-  return db.prepare('SELECT name FROM countries');
+  return db.prepare('SELECT name FROM countries').all();
 }
 
 function calculateDistance(from, to) {
