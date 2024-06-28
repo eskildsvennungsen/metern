@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { apiURI } from '../main';
-import GeoJson from '../assets/data.json';
 import Select from "react-select";
 
 export let inputPresent = false;
@@ -44,7 +43,7 @@ export const Input = (props) => {
       })
       .then((data) => {
         data.map((country) => {
-          options.push({ label: country.name });
+          options.push({ label: country });
         });
 
       })
