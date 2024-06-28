@@ -13,7 +13,7 @@ export const Input = (props) => {
   const [options] = useState([]);
 
   const handleSubmit = (input) => {
-    const guess = input.value.replaceAll(' ', '+');
+    const guess = input.label.replaceAll(' ', '+').toLowerCase();
 
     fetch(`${apiURI}/country/check?target=${guess}`)
       .then((res) => {
@@ -34,10 +34,27 @@ export const Input = (props) => {
       });
   };
 
+  const populateOptions = () => {
+    fetch(`${apiURI}/country/countries`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Response was not ok: ' + res.statusText);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        data.map((country) => {
+          options.push({ label: country.queryName });
+        });
+
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   useEffect(() => {
-    GeoJson.features.map((feature) => {
-      options.push({ label: feature.properties.NAME, value: feature.properties.NAME.toLowerCase() });
-    });
+    populateOptions();
   }, []);
 
   return (

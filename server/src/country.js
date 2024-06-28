@@ -56,6 +56,16 @@ route.get('/random', (req, res) => {
   }
 });
 
+route.get('/countries', (req, res) => {
+  try {
+    const countries = getCountryNames();
+    res.status(200).json({ data: countries });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Failed to fetch names for all countries' });
+  }
+});
+
 function createCountryOTDTableIfNotExist() {
   const createTableQuery = `
     CREATE TABLE IF NOT EXISTS countryOTD (
@@ -106,6 +116,10 @@ function getRandomCountry() {
 function getCountry(name) {
   name = name.toLowerCase().replaceAll(' ', '_');
   return db.prepare('SELECT * FROM countries WHERE queryName = ? ').get(name);
+}
+
+function getCountryNames() {
+  return db.prepare('SELECT name FROM countries');
 }
 
 function calculateDistance(from, to) {
