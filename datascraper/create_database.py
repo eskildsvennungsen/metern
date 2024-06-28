@@ -31,6 +31,8 @@ basis = [
     "longitude",
     "emoji",
     "emojiU",
+    "funfact",
+    "queryName",
 ]
 
 
@@ -134,4 +136,4 @@ if __name__ == "__main__":
     #    for country in countries:
     #        createCountryEntry(country)
 
-    createDatabase("basis.csv", "test.sqlite3", basis)
+    createDatabase("new.csv", "countries.sqlite3", basis)
