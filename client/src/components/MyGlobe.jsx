@@ -79,7 +79,7 @@ export const MyGlobe = (props) => {
       polygonsData={countries.features.filter((d) => d.properties.ISO_A2 !== 'AQ')}
       polygonAltitude={(d) => (d === hoverD ? 0.03 : 0.01)}
       polygonCapColor={(d) => d.properties.polygonCapColor || '#FED8B1'}
-      polygonSideColor={() => 'rgba(255, 255, 255, 1)'}
+      polygonSideColor={() => '#b08b64'}
       polygonStrokeColor={() => '#111'}
       showAtmosphere={false}
       altitude={1.5}
