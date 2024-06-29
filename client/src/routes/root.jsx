@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from '../assets/METERN.svg';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { apiURI } from '../main';
@@ -34,17 +35,21 @@ const Root = () => {
 
   return (
     <div className='bg-color-primary'>
-      <div className='flex justify-center items-center h-screen px-5'>
-        <div className='flex flex-col space-y-4'>
-          <p className='text-7xl sm:text-9xl'>METERN</p>
-          <p className='text-4xl sm:text-5xl'>GUESS TODAY'S COUNTRY</p>
-          <div className='flex w-36'>
-            <Link to='/game' relative='path' className='bg-black pl-3 text-white w-full'>
-              PLAY
-            </Link>
+      <div className='flex justify-center items-center h-screen px-10'>
+        <div className='flex flex-col space-y-8'>
+          <div>
+            <img src={Logo} alt='METERN' className='w-full' />
+            <p className='text-4xl sm:text-5xl'>GUESS TODAY'S COUNTRY</p>
           </div>
-          <p className='font-extrabold'>{date}</p>
-          <p>No. {played}</p>
+          <div className='space-y-1'>
+            <div className='grid justify-items-center w-36 bg-black pl-3 py-2 w-1/2'>
+              <Link to='/game' relative='path' className='text-white w-full text-xl'>
+                PLAY
+              </Link>
+            </div>
+            <p className='font-extrabold'>{date}</p>
+            <p>No. {played}</p>
+          </div>
         </div>
       </div>
     </div>
