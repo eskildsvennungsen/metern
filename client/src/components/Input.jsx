@@ -32,6 +32,8 @@ export const Input = (props) => {
       })
       .then((data) => {
         const res = { country: data.country, distance: data.distance };
+        const guessed = props.data.guesses.some((e) => e.country.iso3 == res.country.iso3);
+        if (guessed) return;
         props.data.setGuess(res);
         props.data.setGuesses((x) => [...x, res]);
         evaluateClosestGuess(res);
