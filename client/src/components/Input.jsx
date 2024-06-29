@@ -11,6 +11,15 @@ export function resetInput() {
 export const Input = (props) => {
   const [options, setOptions] = useState([]);
 
+  const evaluateClosestGuess = (inQuestion) => {
+    if (inQuestion.distance < props.data.closest.distance) {
+      if (inQuestion.distance === 0) {
+        props.data.setVictory(true);
+      }
+      props.data.setClosest(inQuestion);
+    }
+  };
+
   const handleSubmit = (input) => {
     const guess = input.label.replaceAll(' ', '+').toLowerCase();
 
@@ -23,9 +32,11 @@ export const Input = (props) => {
       })
       .then((data) => {
         const res = { country: data.country, distance: data.distance };
-        const arr = props.data.guesses.concat(res);
-        props.data.setGuesses(arr);
+        const guessed = props.data.guesses.some((e) => e.country.iso3 == res.country.iso3);
+        if (guessed) return;
         props.data.setGuess(res);
+        props.data.setGuesses((x) => [...x, res]);
+        evaluateClosestGuess(res);
         inputPresent = true;
       })
       .catch((error) => {
