@@ -21,7 +21,7 @@ export const MyGlobe = (props) => {
   function assignColors() {
     const guess = props.data.guess;
     countries.features.map((feature) => {
-      if (feature.properties.SOVEREIGNT.toLowerCase() === guess.country.name.toLowerCase()) {
+      if (feature.properties.iso_a3 === guess.country.iso3) {
         feature.properties.polygonCapColor = distanceColor(guess.distance);
       }
     });
