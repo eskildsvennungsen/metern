@@ -27,7 +27,7 @@ const Game = () => {
       <div className='w-fill bg-stone-950 absolute'>
         <MyGlobe data={data} />
       </div>
-      <div className='bottom-0 absolute w-11/12 sm:w-5/6 sm:max-w-xl'>
+      <div className='bottom-0 absolute w-full sm:w-5/6 sm:max-w-xl'>
         {!victory && <Input data={data} />}
         {victory ? <VictoryBox data={data} /> : <InfoBox data={data} />}
       </div>
