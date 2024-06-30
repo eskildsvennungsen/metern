@@ -4,7 +4,7 @@ import { Input } from '../components/Input';
 import { MyGlobe } from '../components/MyGlobe';
 import { VictoryBox } from '../components/VictoryBox';
 import { InfoBox } from '../components/InfoBox';
-import { Menu } from '../components/Menu';
+import Starfield from '../components/Stars';
 
 const Game = () => {
   const [guess, setGuess] = useState(0);
