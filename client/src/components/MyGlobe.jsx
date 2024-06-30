@@ -7,7 +7,6 @@ import { inputPresent, resetInput } from './Input';
 export const MyGlobe = (props) => {
   const thisGlobe = useRef();
   const [countries, setCountries] = useState({ features: [] });
-  const [hoverD, setHoverD] = useState();
   const [width, setWidth] = useState(window.innerWidth);
   const [heigth, setHeight] = useState(window.innerHeight);
 
@@ -57,10 +56,6 @@ export const MyGlobe = (props) => {
     return `rgba(${redValue},${greenValue},0,1)`;
   }
 
-  useEffect(() => {
-    setCountries(GeoJson);
-  }, []);
-
   if (inputPresent) {
     const guess = props.data.guess.country;
     const rotaionPoint = { lat: guess.latitude, lng: guess.longitude, altitude: 1.5 };
@@ -68,6 +63,10 @@ export const MyGlobe = (props) => {
     assignColors();
     resetInput();
   }
+
+  useEffect(() => {
+    setCountries(GeoJson);
+  }, []);
 
   return (
     <Globe
@@ -77,14 +76,12 @@ export const MyGlobe = (props) => {
       globeImageUrl={globeImage}
       backgroundColor='rgba(0,0,0,0)'
       polygonsData={countries.features.filter((d) => d.properties.ISO_A2 !== 'AQ')}
-      polygonAltitude={(d) => (d === hoverD ? 0.03 : 0.01)}
       polygonCapColor={(d) => d.properties.polygonCapColor || '#FED8B1'}
       polygonSideColor={() => '#b08b64'}
       polygonStrokeColor={() => '#111'}
       showAtmosphere={false}
-      altitude={1.5}
-      onPolygonHover={setHoverD}
-      polygonsTransitionDuration={300}
+      altitude={1.8}
+      animateIn={false}
     />
   );
 };

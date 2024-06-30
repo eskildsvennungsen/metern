@@ -27,7 +27,7 @@ export const VictoryBox = (props) => {
   }, []);
 
   return (
-    <div className='flex flex-col bg-white rounded-t-md'>
+    <div className='flex flex-col bg-white sm:rounded-b-lg'>
       <div className='m-3 divide-y divide-slate-300'>
         <div className='flex justify-between items-center max-h-24 pb-2 '>
           <div className='flex items-center gap-3'>
