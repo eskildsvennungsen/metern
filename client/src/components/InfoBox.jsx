@@ -7,7 +7,7 @@ export const InfoBox = (props) => {
 
   if (guess) {
     return (
-      <div className='bg-white p-3 rounded'>
+      <div className='bg-white p-3 border-b-lg'>
         <div className='flex justify-between mb-2 border-dashed border-b-2 border-sky-500 pb-2'>
           <p>
             Closest: {closest.country.name} {closest.country.emoji}

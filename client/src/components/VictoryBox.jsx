@@ -16,7 +16,7 @@ export const VictoryBox = (props) => {
   }, []);
 
   return (
-    <div className='flex flex-col bg-white rounded'>
+    <div className='flex flex-col bg-white border-b-lg'>
       <div className='m-3'>
         <div className='flex justify-between items-center max-h-24 pb-2'>
           <p className='font-bold text-xl'>{country.name} is correct!</p>
