@@ -27,9 +27,18 @@ export const Menu = (props) => {
             <ul className="grid gap-2 p-2">
               <li className="w-full p-[0.08rem] rounded-xl">
                 { 
-                  props.data.guesses.length > 0 ?
-                  <InfoBox data={props.data} /> :
-                  <p>Her vil land du gjetter dukke opp etter hvert..</p>  
+                  props.data.guesses.length == 0 ?
+                  <p>Her vil land du gjetter dukke opp etter hvert..</p> :
+                  <div className='grid grid-cols-3 gap-2 max-h-24 overflow-y-auto'>
+                    {props.data.guesses.map((curr) => {
+                      return (
+                        <div className='flex justify-between p-2 bg-sky-200 rounded-lg' key={curr.country.iso3}>
+                          <p>{curr.country.name}</p>
+                          <span>{curr.country.emoji}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
                 }
               </li>
             </ul>
