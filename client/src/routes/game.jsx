@@ -5,6 +5,7 @@ import { MyGlobe } from '../components/MyGlobe';
 import { VictoryBox } from '../components/VictoryBox';
 import { InfoBox } from '../components/InfoBox';
 import { Menu } from '../components/Menu';
+import Starfield from '../components/Stars';
 
 const Game = () => {
   const [guess, setGuess] = useState(0);
@@ -25,6 +26,7 @@ const Game = () => {
 
   return (
     <div className='flex justify-center overflow-hidden select-none'>
+      <Starfield starCount={5000} starColor={[255, 255, 255]} speedFactor={0.005} />
       <div className='absolute top-0 right-0 w-auto max-h-100 z-50'>
         <Menu data={data}/>
       </div>
@@ -32,6 +34,7 @@ const Game = () => {
         {victory ? <VictoryBox data={data} /> : <InfoBox data={data} />}
       </div>
       <div className='w-fill bg-stone-950 absolute'>
+      <div className='w-fill bg-transparent absolute'>
         <MyGlobe data={data} />
       </div>
       <div className='bottom-5 fixed w-2/3 sm:w-5/6 sm:max-w-xl'>

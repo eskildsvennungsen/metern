@@ -10,9 +10,9 @@ export const InfoBox = (props) => {
       <div className='bg-white p-3 border-b-lg'>
         <div className='flex justify-between mb-2 border-dashed border-b-2 border-sky-500 pb-2'>
           <p>
-            Closest: {closest.country.name} {closest.country.emoji}
+            Nærmest: {closest.country.name} {closest.country.emoji}
           </p>
-          <p>Distance: {closest.distance} km</p>
+          <p>Avstand: {closest.distance} km</p>
         </div>
         <div className='grid grid-cols-3 gap-2 max-h-24 overflow-y-auto'>
           {guesses.map((curr) => {
