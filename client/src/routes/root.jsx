@@ -27,7 +27,7 @@ const Root = () => {
     try {
       const today = new Date();
       const day = today.getDate();
-      const month = norskeMåneder[today.getMonth()];
+      const month = norwegianMonths[today.getMonth()];
       const year = today.getFullYear();
       return `${day} ${month}, ${year}`;
     } catch (error) {
