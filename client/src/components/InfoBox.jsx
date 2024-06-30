@@ -14,7 +14,7 @@ export const InfoBox = (props) => {
           </p>
           <p>Avstand: {closest.distance} km</p>
         </div>
-        <div className='grid grid-cols-3 gap-2 max-h-24 overflow-y-auto'>
+        <div className='grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-24 overflow-y-auto'>
           {guesses.map((curr) => {
             return (
               <div className='flex justify-between p-2 bg-sky-200 rounded-lg' key={curr.country.iso3}>

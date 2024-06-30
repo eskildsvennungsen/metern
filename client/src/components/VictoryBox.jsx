@@ -38,7 +38,7 @@ export const VictoryBox = (props) => {
             onClick={() => setState(!state)}
             className='bg-sky-600 px-3 py-1 rounded-l-3xl text-white hover:ring-2'
           >
-            {state ? 'Statestikke' : 'Info'}
+            {state ? 'Ledertavle' : 'Info'}
           </button>
         </div>
         {state ? <VictoryBoxInfo country={country} /> : <VictoryBoxStats data={data} guesses={guesses} />}
