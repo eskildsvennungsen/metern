@@ -29,12 +29,10 @@ const Game = () => {
       <div className='absolute top-0 w-full sm:w-5/6 sm:max-w-xl z-50'>
         {victory ? <VictoryBox data={data} /> : <InfoBox data={data} />}
       </div>
-      <div className='w-fill bg-stone-950 absolute'>
+      <div className='w-fill bg-transparent absolute'>
         <MyGlobe data={data} />
       </div>
-      <div className='bottom-5 fixed w-2/3 sm:w-5/6 sm:max-w-xl'>
-        {!victory && <Input data={data} />}
-      </div>
+      <div className='bottom-5 fixed w-2/3 sm:w-5/6 sm:max-w-xl'>{!victory && <Input data={data} />}</div>
     </div>
   );
 };
