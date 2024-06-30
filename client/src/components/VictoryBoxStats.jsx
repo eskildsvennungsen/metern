@@ -1,5 +1,5 @@
 export const VictoryBoxStats = (props) => {
-  props.data.avgGuesses = Number(props.data.avgGuesses.toFixed(1));
+  props.data.avgGuesses = Math.ceil(Number(props.data.avgGuesses.toFixed(1)));
 
   const numberOne = () => {
     return (
@@ -15,18 +15,18 @@ export const VictoryBoxStats = (props) => {
       <ul className='mt-3 ml-5 max-w-md space-y-1 list-disc'>
         <li>
           Du var <span className='px-2 bg-sky-800 text-white rounded-md'>nr. {props.data.ammount}</span> til å gjette
-          dagens land
+          dagens land.
         </li>
         <li>
-          Dette greide du på <span className='px-2 bg-sky-800 text-white rounded-md'>{props.guesses} forsøk</span>
-        </li>
-        <li>
-          Gjennomsnittelig mengde forsøk er{' '}
-          <span className='px-2 bg-sky-800 text-white rounded-md'>{props.data.avgGuesses} forsøk</span>
+          Dette greide du på <span className='px-2 bg-sky-800 text-white rounded-md'>{props.guesses} forsøk</span>.
         </li>
         <li>
           Tilsammen har <span className='px-2 bg-sky-800 text-white rounded-md'>{props.data.totGuesses} forsøk</span>{' '}
-          blitt gjort
+          blitt gjort i dag.
+        </li>
+        <li>
+          Spillere har i gjennomsnitt brukt{' '}
+          <span className='px-2 bg-sky-800 text-white rounded-md'>{props.data.avgGuesses} forsøk</span> på dette landet.
         </li>
       </ul>
     );
