@@ -56,8 +56,6 @@ route.put('/comp', (req, res) => {
   const total = todayStats.totGuesses + usrGuesses;
   const avg = total / ammount;
 
-  console.log(ammount, total, avg);
-
   const updateQuery = `
     UPDATE completions
     SET ammount = ?, totGuesses = ?, avgGuesses = ?
