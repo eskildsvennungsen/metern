@@ -1,43 +1,25 @@
 import { useEffect, useState } from 'react';
+import { VictoryBoxInfo } from './VictoryBoxInfo';
 
 export const VictoryBox = (props) => {
-  const [flag, setFlag] = useState();
   const country = props.data.guess.country;
+  const [state, setState] = useState(true);
+  const [flag, setFlag] = useState();
 
   useEffect(() => {
     const iso2 = country.iso2.toLowerCase();
-    async function getFlag() {
-      const res = await fetch(`https://flagcdn.com/w80/${iso2}.png`);
-      const flagBlob = await res.blob();
-      const flag = URL.createObjectURL(flagBlob);
-      setFlag(flag);
-    }
-    getFlag();
+    setFlag(`https://flagcdn.com/${iso2}.svg`);
   }, []);
 
   return (
     <div className='flex flex-col bg-white rounded-t-md'>
       <div className='m-3'>
         <div className='flex justify-between items-center max-h-24 pb-2'>
-          <p className='font-bold text-xl'>{country.name} is correct!</p>
-          <img src={flag} className='rounded-sm' />
+          <p className='font-bold text-xl'>{country.name} er korrekt!</p>
+          <img src={flag} width='60' className='rounded-sm' />
         </div>
-        <div className='text-left'>
-          <div className='mb-2'>
-            <p className='border-b-2 border-stone-950'>Did you know</p>
-            <p className='px-1 bg-green-200 rounded-b-sm'>{country.funfact}</p>
-          </div>
-          <div className='mb-2'>
-            <p className='border-b-2 border-stone-950'>Capital</p>
-            <p className='px-1 bg-green-200 rounded-b-sm'>{country.capital}</p>
-          </div>
-          <div>
-            <p className='border-b-2 border-stone-950'>Currency</p>
-            <p className='px-1 bg-green-200 rounded-b-sm'>
-              {country.currency_name} ({country.currency_symbol}, {country.currency})
-            </p>
-          </div>
-        </div>
+        <button onClick={() => setState(!state)}>{state ? 'Statestikke' : 'Info'}</button>
+        {state ? <VictoryBoxInfo country={country} /> : <div>yo</div>}
       </div>
     </div>
   );
