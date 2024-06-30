@@ -9,7 +9,7 @@ const Root = () => {
   const [played, setPlayed] = useState('');
 
   function getDate() {
-    const norskeMåneder = [
+    const norwegianMonths = [
       'Januar',
       'Februar',
       'Mars',
