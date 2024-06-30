@@ -63,7 +63,6 @@ route.put('/comp', (req, res) => {
     const minutes = time.getMinutes();
     const seconds = time.getSeconds();
     const timestamp = `${hour}:${minutes}:${seconds}`;
-    console.log(timestamp);
     const updateQuery = `
       UPDATE completions
       SET todSolved = ?
