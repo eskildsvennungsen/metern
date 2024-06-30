@@ -50,4 +50,4 @@ def createDatabase(csvFileName, dbFileName, colTags):
 
 
 if __name__ == "__main__":
-    createDatabase("db_data.csv", "countries.sqlite3", basis)
+    createDatabase("db_data_norwegian.csv", "countries.sqlite3", basis)
