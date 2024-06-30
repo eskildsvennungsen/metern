@@ -15,6 +15,7 @@ route.use((req, res, next) => {
     CREATE TABLE IF NOT EXISTS completions (
       id INTEGER PRIMARY KEY,
       date DATE,
+      todSolved TIME,
       ammount INT,
       totGuesses BIGINT,
       avgGuesses FLOAT
@@ -49,6 +50,20 @@ route.put('/comp', (req, res) => {
     return res.status(400).json({ error: 'Fuck off' });
   }
 
+  if (ammount < 1) {
+    const time = new Date();
+    const hour = time.getHours();
+    const minutes = time.getMinutes();
+    const seconds = time.getSeconds();
+    const timestamp = `${hour}:${minutes}:${seconds}`;
+    const updateQuery = `
+      UPDATE completions
+      SET time = ?
+      WHERE date = ?
+      `;
+    db.prepare(updateQuery).run(ammount, total, avg, today);
+  }
+
   const today = getDate();
   const todayStats = db.prepare('SELECT * FROM completions where date = ?').get(today);
 
@@ -61,7 +76,7 @@ route.put('/comp', (req, res) => {
     SET ammount = ?, totGuesses = ?, avgGuesses = ?
     WHERE date = ?
     `;
-  db.prepare(updateQuery).run(ammount, total, avg, today);
+  //db.prepare(updateQuery).run(ammount, total, avg, today);
 
   return res.status(200).json({ ammount: ammount, totGuesses: total, avgGuesses: avg });
 });
