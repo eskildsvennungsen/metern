@@ -25,7 +25,8 @@ const Game = () => {
 
   return (
     <div className='flex justify-center overflow-hidden select-none'>
-      <div className='absolute top-0 w-2/3 sm:w-5/6 sm:max-w-xl z-50'>
+      <Starfield starCount={5000} starColor={[255, 255, 255]} speedFactor={0.005} />
+      <div className='absolute top-0 w-full sm:w-5/6 sm:max-w-xl z-50'>
         {victory ? <VictoryBox data={data} /> : <InfoBox data={data} />}
       </div>
       <div className='w-fill bg-stone-950 absolute'>
