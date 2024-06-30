@@ -3,9 +3,12 @@ export const VictoryBoxStats = (props) => {
 
   const numberOne = () => {
     return (
-      <div className='mx-auto w-max text-xl mt-3'>
-        <span className='font-bold bg-emerald-700 text-white px-3 py-1 rounded-md'>Gratulerer!</span> Du er dagens
-        første til å gjette riktig.
+      <div className='flex justify-center w-full text-lg mt-3 text-wrap leading-8'>
+        <p>
+          <span className='font-bold bg-emerald-700 text-white px-1 py-0.5 rounded-md'>Gratulerer!</span> Du er dagens
+          første til å gjette riktig. Det tok deg{' '}
+          <span className='font-bold bg-emerald-700 text-white px-1 py-0.5 rounded-md'>{props.guesses} forsøk</span>.
+        </p>
       </div>
     );
   };
