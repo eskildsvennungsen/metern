@@ -67,7 +67,7 @@ export const Input = (props) => {
   return (
     <Select
       menuPlacement='top'
-      placeholder='Make a guess'
+      placeholder='Land...'
       onChange={handleSubmit}
       options={options}
       openMenuOnClick={false}

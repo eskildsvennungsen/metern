@@ -16,7 +16,7 @@ const rateLimitMiddleware = limit({
   headers: true,
 });
 
-const domains = ['https://metern.no', 'https://www.metern.no']
+const domains = ['https://metern.no', 'https://www.metern.no'];
 const corsSettings = {
   origin: domains,
 };
@@ -28,8 +28,10 @@ app.use('/', express.static('metern', { index: '../index.html' }));
 app.set('trust proxy', 1);
 
 const countryRoute = require('./src/country');
+const usrRoute = require('./src/usr');
 
 app.use('/country', countryRoute);
+app.use('/usr', usrRoute);
 
 app.listen({ port }, () => {
   console.log(`Server started on port ${port}`);
