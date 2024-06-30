@@ -25,9 +25,6 @@ const Game = () => {
 
   return (
     <div className='flex justify-center overflow-hidden select-none'>
-      <div className='absolute top-0 right-0 w-auto max-h-100 z-50'>
-        <Menu data={data}/>
-      </div>
       <div className='absolute top-0 w-2/3 sm:w-5/6 sm:max-w-xl z-50'>
         {victory ? <VictoryBox data={data} /> : <InfoBox data={data} />}
       </div>
