@@ -26,10 +26,10 @@ route.use((req, res, next) => {
 
   if (todayStats === undefined) {
     const addCountryOTDQuery = `
-    INSERT INTO completions (date, ammount, totGuesses, avgGuesses)
-    VALUES (?, ?, ?, ?)
+    INSERT INTO completions (date, todSolved, ammount, totGuesses, avgGuesses)
+    VALUES (?, ?, ?, ?, ?)
     `;
-    db.prepare(addCountryOTDQuery).run(today, 0, 0, 0);
+    db.prepare(addCountryOTDQuery).run(today, '00:00:00', 0, 0, 0);
   }
 
   next();
@@ -50,20 +50,6 @@ route.put('/comp', (req, res) => {
     return res.status(400).json({ error: 'Fuck off' });
   }
 
-  if (ammount < 1) {
-    const time = new Date();
-    const hour = time.getHours();
-    const minutes = time.getMinutes();
-    const seconds = time.getSeconds();
-    const timestamp = `${hour}:${minutes}:${seconds}`;
-    const updateQuery = `
-      UPDATE completions
-      SET time = ?
-      WHERE date = ?
-      `;
-    db.prepare(updateQuery).run(ammount, total, avg, today);
-  }
-
   const today = getDate();
   const todayStats = db.prepare('SELECT * FROM completions where date = ?').get(today);
 
@@ -71,12 +57,27 @@ route.put('/comp', (req, res) => {
   const total = todayStats.totGuesses + usrGuesses;
   const avg = total / ammount;
 
+  if (ammount === 1) {
+    const time = new Date();
+    const hour = time.getHours();
+    const minutes = time.getMinutes();
+    const seconds = time.getSeconds();
+    const timestamp = `${hour}:${minutes}:${seconds}`;
+    console.log(timestamp);
+    const updateQuery = `
+      UPDATE completions
+      SET todSolved = ?
+      WHERE date = ?
+      `;
+    db.prepare(updateQuery).run(timestamp, today);
+  }
+
   const updateQuery = `
     UPDATE completions
     SET ammount = ?, totGuesses = ?, avgGuesses = ?
     WHERE date = ?
     `;
-  //db.prepare(updateQuery).run(ammount, total, avg, today);
+  db.prepare(updateQuery).run(ammount, total, avg, today);
 
   return res.status(200).json({ ammount: ammount, totGuesses: total, avgGuesses: avg });
 });
