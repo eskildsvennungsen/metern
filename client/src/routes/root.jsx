@@ -9,10 +9,25 @@ const Root = () => {
   const [played, setPlayed] = useState('');
 
   function getDate() {
+    const norskeMåneder = [
+      'Januar',
+      'Februar',
+      'Mars',
+      'April',
+      'Mai',
+      'Juni',
+      'Juli',
+      'August',
+      'September',
+      'Oktober',
+      'November',
+      'Desember',
+    ];
+
     try {
       const today = new Date();
       const day = today.getDate();
-      const month = today.toLocaleString('default', { month: 'long' });
+      const month = norskeMåneder[today.getMonth()];
       const year = today.getFullYear();
       return `${day} ${month}, ${year}`;
     } catch (error) {
@@ -39,16 +54,16 @@ const Root = () => {
         <div className='flex flex-col space-y-8'>
           <div>
             <img src={Logo} alt='METERN' className='w-full' />
-            <p className='text-4xl sm:text-5xl'>GUESS TODAY'S COUNTRY</p>
+            <p className='text-4xl sm:text-5xl'>GJETT DAGENS LAND</p>
           </div>
           <div className='space-y-1'>
             <div className='grid justify-items-center w-36 bg-black pl-3 py-2 w-1/2'>
               <Link to='/game' relative='path' className='text-white w-full text-xl'>
-                PLAY
+                SPILL
               </Link>
             </div>
             <p className='font-extrabold'>{date}</p>
-            <p>No. {played}</p>
+            <p>Nr. {played}</p>
           </div>
         </div>
       </div>
