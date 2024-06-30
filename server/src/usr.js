@@ -64,7 +64,8 @@ route.put('/comp', (req, res) => {
     WHERE date = ?
     `;
   db.prepare(updateQuery).run(ammount, total, avg, today);
-  res.json({ ammount: ammount, totGuesses: total, avgGuesses: avg });
+
+  return res.status(200).json({ ammount: ammount, totGuesses: total, avgGuesses: avg });
 });
 
 module.exports = route;
