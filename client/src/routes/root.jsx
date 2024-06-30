@@ -49,8 +49,8 @@ const Root = () => {
   });
 
   return (
-    <div className='bg-color-primary'>
-      <div className='flex justify-center items-center h-screen px-10'>
+    <div className='bg-color-primary h-screen'>
+      <div className='flex justify-center items-center px-10 h-full m-auto'>
         <div className='flex flex-col space-y-8'>
           <div>
             <img src={Logo} alt='METERN' className='w-full' />
