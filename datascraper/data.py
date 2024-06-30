@@ -193,6 +193,20 @@ facts = {
     "Yemen": "Yemen is home to the ancient skyscraper city of Shibam, known as the 'Manhattan of the Desert.'",
     "Zambia": "Zambia is home to Victoria Falls, one of the largest and most famous waterfalls in the world.",
     "Zimbabwe": "Zimbabwe is home to the Great Zimbabwe Ruins, the remains of an ancient city from the Kingdom of Zimbabwe.",
+    "Cayman Islands": "The Cayman Islands are home to some of the best diving sites in the world, with over 365 dive spots, one for every day of the year.",
+    "Congo": "The Republic of the Congo is home to the Congo River, the second longest river in Africa and the second largest river in the world by discharge volume.",
+    "Faroe Islands": "The Faroe Islands have a tradition of ‘grindadráp,’ a community-driven whale hunting practice that dates back centuries.",
+    "French Guiana": "French Guiana is home to the Guiana Space Centre, a major European spaceport used by the European Space Agency.",
+    "Gibraltar": "Gibraltar is famous for the Rock of Gibraltar, a limestone promontory and a key strategic location at the entrance to the Mediterranean Sea.",
+    "Greenland": "Greenland is the world's largest island that is not a continent and is mostly covered by an ice sheet that is the second largest in the world.",
+    "Ivory Coast": "The Ivory Coast is the world's largest producer of cocoa beans, which are used to make chocolate.",
+    "Jersey": "Jersey is known for its unique breed of dairy cattle, the Jersey cow, which is famous for its rich and creamy milk.",
+    "Kosovo": "Kosovo declared its independence from Serbia in 2008, making it one of the youngest countries in the world.",
+    "Montserrat": "Montserrat is known as the 'Emerald Isle of the Caribbean' due to its Irish heritage and lush green landscape.",
+    "Myanmar": "Myanmar is home to the Shwedagon Pagoda, one of the most sacred Buddhist pagodas, which is believed to contain relics of four Buddhas.",
+    "New Caledonia": "New Caledonia is surrounded by the second longest double barrier coral reef in the world, and it is a UNESCO World Heritage site.",
+    "Puerto Rico": "Puerto Rico has the world's largest single-dish radio telescope, the Arecibo Observatory, which was used for radio astronomy and atmospheric studies.",
+    "United States": "The United States is home to the Grand Canyon, one of the most famous natural landmarks in the world, stretching 277 miles long and over a mile deep.",
 }
 
 countries = [

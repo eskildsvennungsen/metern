@@ -20,7 +20,7 @@ export const MyGlobe = (props) => {
   function assignColors() {
     const guess = props.data.guess;
     countries.features.map((feature) => {
-      if (feature.properties.SOVEREIGNT.toLowerCase() === guess.country.name.toLowerCase()) {
+      if (feature.properties.iso_a3 === guess.country.iso3) {
         feature.properties.polygonCapColor = distanceColor(guess.distance);
       }
     });
@@ -58,7 +58,7 @@ export const MyGlobe = (props) => {
 
   if (inputPresent) {
     const guess = props.data.guess.country;
-    const rotaionPoint = { lat: guess.latitude, lng: guess.longitude, altitude: 1.8 };
+    const rotaionPoint = { lat: guess.latitude, lng: guess.longitude, altitude: 1.5 };
     thisGlobe.current.pointOfView(rotaionPoint, 800);
     assignColors();
     resetInput();
