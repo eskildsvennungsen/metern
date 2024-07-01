@@ -5,7 +5,7 @@ export const InfoBox = (props) => {
 
   guesses.sort((a, b) => a.distance - b.distance);
 
-  if (guess) {
+  if (guess || guesses.length > 0) {
     return (
       <div className='bg-white p-3 sm:rounded-b-lg'>
         <div className='flex justify-between mb-2 border-dashed border-b-2 border-sky-500 pb-2'>

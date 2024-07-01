@@ -4,24 +4,17 @@ import GeoJson from '../assets/data.json';
 import { useEffect, useState, useRef } from 'react';
 import { inputPresent, resetInput } from './Input';
 
+const countries = GeoJson;
+
 export const MyGlobe = (props) => {
   const thisGlobe = useRef();
-  const [countries, setCountries] = useState({ features: [] });
   const [width, setWidth] = useState(window.innerWidth);
   const [heigth, setHeight] = useState(window.innerHeight);
 
-  window.addEventListener('resize', handleResize);
-
-  function handleResize() {
-    setWidth(window.innerWidth);
-    setHeight(window.innerHeight);
-  }
-
-  function assignColors() {
-    const guess = props.data.guess;
+  function assignColors(e) {
     countries.features.map((feature) => {
-      if (feature.properties.iso_a3 === guess.country.iso3) {
-        feature.properties.polygonCapColor = distanceColor(guess.distance);
+      if (feature.properties.iso_a3 === e.country.iso3) {
+        feature.properties.polygonCapColor = distanceColor(e.distance);
       }
     });
   }
@@ -56,17 +49,33 @@ export const MyGlobe = (props) => {
     return `rgba(${redValue},${greenValue},0,1)`;
   }
 
-  if (inputPresent) {
-    const guess = props.data.guess.country;
-    const rotaionPoint = { lat: guess.latitude, lng: guess.longitude, altitude: 1.5 };
-    thisGlobe.current.pointOfView(rotaionPoint, 800);
-    assignColors();
-    resetInput();
-  }
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+
+    function handleResize() {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+    }
+    handleResize();
+  }, []);
 
   useEffect(() => {
-    setCountries(GeoJson);
+    if (props.data.guesses.length === 0) return;
+    props.data.guesses.map((item) => assignColors(item));
+    rotateTo(props.data.guesses[0].latitude, props.data.guesses[0].longitude);
   }, []);
+
+  function rotateTo(lat, long) {
+    const rotaionPoint = { lat: lat, lng: long, altitude: 1.5 };
+    thisGlobe.current.pointOfView(rotaionPoint, 800);
+  }
+
+  if (inputPresent) {
+    const guess = props.data.guess;
+    assignColors(guess);
+    resetInput();
+    rotateTo(guess.country.latitude, guess.country.longitude);
+  }
 
   return (
     <Globe
