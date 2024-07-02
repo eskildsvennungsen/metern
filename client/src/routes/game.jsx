@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { Input } from '../components/Input';
+import { Input, evaluateClosestGuess } from '../components/Input';
 import { MyGlobe } from '../components/MyGlobe';
 import { VictoryBox } from '../components/VictoryBox';
 import { InfoBox } from '../components/InfoBox';
-import Starfield from '../components/Stars';
 import { apiURI } from '../main';
+import Starfield from '../components/Stars';
 
 function getDate() {
   return new Date().toISOString().split('T')[0];
@@ -16,6 +16,7 @@ const Game = () => {
   const [guesses, setGuesses] = useState([]);
   const [closest, setClosest] = useState({ country: 0, distance: 1000000 });
   const [victory, setVictory] = useState(false);
+  const [loadStorage, setLoadStorage] = useState(false);
   const [storage, setStorage] = useState(() => {
     const data = localStorage.getItem('guesses');
     return data ? JSON.parse(data) : { countries: [], date: getDate() };
@@ -31,6 +32,7 @@ const Game = () => {
     victory,
     setVictory,
     storage,
+    loadStorage,
   };
 
   useEffect(() => {
@@ -63,20 +65,23 @@ const Game = () => {
           return `iso3[]=${value.iso3}`;
         })
         .join('&');
-      return await fetch(`${apiURI}/country/get?${query}`)
+
+      const iso3 = storage.countries.map((e) => e.iso3);
+
+      await fetch(`${apiURI}/country/get?${query}`)
         .then((res) => res.json())
         .then((guesses) => {
-          let closest = 100000;
-          const load = guesses.map((e) => {
+          let load = guesses.map((e) => {
             const distance = storage.countries.filter((item) => item.iso3 === e.iso3)[0].distance;
-            if (distance < closest) {
-              closest = { country: e, distance: distance };
-            }
-            return { country: e, distance: distance };
+            const tmp = { country: e, distance: distance };
+            evaluateClosestGuess(tmp, data);
+            return tmp;
           });
+          load.sort((a, b) => iso3.indexOf(a.country.iso3) - iso3.indexOf(b.country.iso3));
           setGuesses(load);
-          setClosest(closest);
         });
+
+      setLoadStorage(true);
     };
     loadStorage();
   }, []);

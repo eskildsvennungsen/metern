@@ -4,15 +4,16 @@ import { VictoryBoxStats } from './VictoryBoxStats';
 import { apiURI } from '../main';
 
 export const VictoryBox = (props) => {
-  const country = props.data.guess.country;
+  const country = props.data.closest.country;
   const guesses = props.data.guesses.length;
   const [state, setState] = useState(true);
   const [flag, setFlag] = useState();
   const [data, setData] = useState(0);
 
   async function getData() {
+    const method = props.data.guess === 0 ? 'GET' : 'PUT';
     const loadedData = await fetch(`${apiURI}/usr/comp?guesses=${guesses}`, {
-      method: 'PUT',
+      method: method,
     }).then((res) => res.json());
     setData(loadedData);
   }

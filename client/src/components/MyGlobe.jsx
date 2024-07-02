@@ -2,7 +2,6 @@ import Globe from 'react-globe.gl';
 import globeImage from '../assets/water.jpg';
 import GeoJson from '../assets/data.json';
 import { useEffect, useState, useRef } from 'react';
-import { inputPresent, resetInput } from './Input';
 
 const countries = GeoJson;
 
@@ -60,21 +59,22 @@ export const MyGlobe = (props) => {
   }, []);
 
   useEffect(() => {
-    if (props.data.guesses.length === 0) return;
-    props.data.guesses.map((item) => assignColors(item));
-    rotateTo(props.data.guesses[0].latitude, props.data.guesses[0].longitude);
-  }, []);
+    if (!props.data.loadStorage) return;
+    const data = props.data.guesses;
+    data.map((item) => assignColors(item));
+    rotateTo(data.at(-1).country.latitude, data.at(-1).country.longitude);
+  }, [props.data.loadStorage]);
+
+  useEffect(() => {
+    if (props.data.guess === 0) return;
+    const guess = props.data.guess;
+    assignColors(guess);
+    rotateTo(guess.country.latitude, guess.country.longitude);
+  }, [props.data.guess]);
 
   function rotateTo(lat, long) {
     const rotaionPoint = { lat: lat, lng: long, altitude: 1.5 };
     thisGlobe.current.pointOfView(rotaionPoint, 800);
-  }
-
-  if (inputPresent) {
-    const guess = props.data.guess;
-    assignColors(guess);
-    resetInput();
-    rotateTo(guess.country.latitude, guess.country.longitude);
   }
 
   return (
