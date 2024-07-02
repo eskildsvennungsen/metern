@@ -19,7 +19,7 @@ route.get('/get', (req, res) => {
 
   try {
     const rows = db.prepare(query).all(...iso3Array);
-    return res.json(rows);
+    return res.status(200).json(rows);
   } catch (error) {
     console.error('Error executing query', error);
     return res.status(500).send('Internal Server Error');
