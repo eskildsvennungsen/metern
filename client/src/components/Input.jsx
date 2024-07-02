@@ -20,14 +20,20 @@ export const Input = (props) => {
         const guessed = props.data.guesses.some((e) => e.country.iso3 == res.country.iso3);
         if (guessed) return;
         const newGuesses = [...props.data.guesses, res];
+
+        if (newGuesses.length === 1) {
+          if (res.distance === 0) props.data.setVictory(true);
+          props.data.setClosest(res);
+        } else {
+          props.data.setClosest(
+            [...newGuesses].reduce((low, curr) => {
+              if (curr['distance'] === 0) props.data.setVictory(true);
+              return curr['distance'] < low['distance'] ? curr : low;
+            })
+          );
+        }
         props.data.setGuess(res);
         props.data.setGuesses(newGuesses);
-        props.data.setClosest(
-          [...newGuesses].reduce((low, curr) => {
-            if (curr['distance'] === 0) props.data.setVictory(true);
-            return curr['distance'] < low['distance'] ? curr : low;
-          })
-        );
       })
       .catch((error) => {
         console.log(error);

@@ -7,7 +7,7 @@ import { InfoBox } from '../components/InfoBox';
 import { apiURI } from '../main';
 import Starfield from '../components/Stars';
 
-function getDate() {
+export function getDate() {
   return new Date().toISOString().split('T')[0];
 }
 
@@ -35,6 +35,43 @@ const Game = () => {
     loadStorage,
   };
 
+  async function getStorageDbEntries() {
+    const query = storage.countries
+      .map((value) => {
+        return `iso3[]=${value.iso3}`;
+      })
+      .join('&');
+
+    const iso3 = storage.countries.map((e) => e.iso3);
+
+    const data = await fetch(`${apiURI}/country/get?${query}`)
+      .then((res) => res.json())
+      .then((guesses) => {
+        let load = guesses
+          .map((e) => {
+            const distance = storage.countries.filter((item) => item.iso3 === e.iso3)[0].distance;
+            return { country: e, distance: distance };
+          })
+          .sort((a, b) => iso3.indexOf(a.country.iso3) - iso3.indexOf(b.country.iso3));
+        return load;
+      });
+
+    if (data.length === 1) {
+      if (data[0].distance === 0) setVictory(true);
+      setClosest(data[0]);
+    } else {
+      setClosest(
+        [...data].reduce((low, curr) => {
+          if (curr['distance'] === 0) props.data.setVictory(true);
+          return curr['distance'] < low['distance'] ? curr : low;
+        })
+      );
+    }
+
+    setGuesses(data);
+    setLoadStorage(true);
+  }
+
   useEffect(() => {
     if (guess === 0) return;
 
@@ -56,39 +93,9 @@ const Game = () => {
       };
       setStorage(x);
       localStorage.setItem('guesses', JSON.stringify(x));
-      return;
+    } else {
+      getStorageDbEntries();
     }
-
-    const loadStorage = async () => {
-      const query = storage.countries
-        .map((value) => {
-          return `iso3[]=${value.iso3}`;
-        })
-        .join('&');
-
-      const iso3 = storage.countries.map((e) => e.iso3);
-
-      const data = await fetch(`${apiURI}/country/get?${query}`)
-        .then((res) => res.json())
-        .then((guesses) => {
-          let load = guesses
-            .map((e) => {
-              const distance = storage.countries.filter((item) => item.iso3 === e.iso3)[0].distance;
-              return { country: e, distance: distance };
-            })
-            .sort((a, b) => iso3.indexOf(a.country.iso3) - iso3.indexOf(b.country.iso3));
-          return load;
-        });
-      setClosest(
-        [...data].reduce((low, curr) => {
-          if (curr['distance'] === 0) setVictory(true);
-          return curr['distance'] < low['distance'] ? curr : low;
-        })
-      );
-      setGuesses(data);
-      setLoadStorage(true);
-    };
-    loadStorage();
   }, []);
 
   return (
