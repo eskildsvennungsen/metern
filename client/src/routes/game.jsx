@@ -62,7 +62,7 @@ const Game = () => {
     } else {
       setClosest(
         [...data].reduce((low, curr) => {
-          if (curr['distance'] === 0) props.data.setVictory(true);
+          if (curr['distance'] === 0) setVictory(true);
           return curr['distance'] < low['distance'] ? curr : low;
         })
       );

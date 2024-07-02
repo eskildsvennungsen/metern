@@ -26,7 +26,6 @@ export const VictoryBox = (props) => {
     if (!data) return;
 
     const today = getDate();
-    console.log(stats.date, today);
     if (stats.date === today) return;
 
     const x = {
