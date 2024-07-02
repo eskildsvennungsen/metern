@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { Input, evaluateClosestGuess } from '../components/Input';
+import { Input } from '../components/Input';
 import { MyGlobe } from '../components/MyGlobe';
 import { VictoryBox } from '../components/VictoryBox';
 import { InfoBox } from '../components/InfoBox';
@@ -68,19 +68,24 @@ const Game = () => {
 
       const iso3 = storage.countries.map((e) => e.iso3);
 
-      await fetch(`${apiURI}/country/get?${query}`)
+      const data = await fetch(`${apiURI}/country/get?${query}`)
         .then((res) => res.json())
         .then((guesses) => {
-          let load = guesses.map((e) => {
-            const distance = storage.countries.filter((item) => item.iso3 === e.iso3)[0].distance;
-            const tmp = { country: e, distance: distance };
-            evaluateClosestGuess(tmp, data);
-            return tmp;
-          });
-          load.sort((a, b) => iso3.indexOf(a.country.iso3) - iso3.indexOf(b.country.iso3));
-          setGuesses(load);
+          let load = guesses
+            .map((e) => {
+              const distance = storage.countries.filter((item) => item.iso3 === e.iso3)[0].distance;
+              return { country: e, distance: distance };
+            })
+            .sort((a, b) => iso3.indexOf(a.country.iso3) - iso3.indexOf(b.country.iso3));
+          return load;
         });
-
+      setClosest(
+        [...data].reduce((low, curr) => {
+          if (curr['distance'] === 0) setVictory(true);
+          return curr['distance'] < low['distance'] ? curr : low;
+        })
+      );
+      setGuesses(data);
       setLoadStorage(true);
     };
     loadStorage();

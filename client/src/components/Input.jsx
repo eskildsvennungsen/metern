@@ -2,15 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { apiURI } from '../main';
 import Select from 'react-select';
 
-export const evaluateClosestGuess = (a, b) => {
-  if (a.distance < b.closest.distance) {
-    if (a.distance === 0) {
-      b.setVictory(true);
-    }
-    b.setClosest(a);
-  }
-};
-
 export const Input = (props) => {
   const [options, setOptions] = useState([]);
 
@@ -28,9 +19,15 @@ export const Input = (props) => {
         const res = { country: data.country, distance: data.distance };
         const guessed = props.data.guesses.some((e) => e.country.iso3 == res.country.iso3);
         if (guessed) return;
+        const newGuesses = [...props.data.guesses, res];
         props.data.setGuess(res);
-        props.data.setGuesses((x) => [...x, res]);
-        evaluateClosestGuess(res, props.data);
+        props.data.setGuesses(newGuesses);
+        props.data.setClosest(
+          [...newGuesses].reduce((low, curr) => {
+            if (curr['distance'] === 0) props.data.setVictory(true);
+            return curr['distance'] < low['distance'] ? curr : low;
+          })
+        );
       })
       .catch((error) => {
         console.log(error);
