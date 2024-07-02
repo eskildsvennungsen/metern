@@ -10,6 +10,22 @@ function getDate() {
   return new Date().toISOString().split('T')[0];
 }
 
+route.get('/get', (req, res) => {
+  const iso3Array = req.query.iso3 || [];
+  if (iso3Array.length < 1) return res.status(400);
+
+  const placeholders = iso3Array.map(() => '?').join(',');
+  const query = `SELECT * FROM countries WHERE iso3 IN (${placeholders})`;
+
+  try {
+    const rows = db.prepare(query).all(...iso3Array);
+    return res.status(200).json(rows);
+  } catch (error) {
+    console.error('Error executing query', error);
+    return res.status(500).send('Internal Server Error');
+  }
+});
+
 route.get('/check', (req, res) => {
   const cacheKey = 'solution';
   let solution = cache.get(cacheKey);
