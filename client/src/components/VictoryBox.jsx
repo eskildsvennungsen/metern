@@ -66,7 +66,8 @@ export const VictoryBox = (props) => {
         </div>
         {state ? <VictoryBoxInfo country={country} /> : <VictoryBoxStats data={data} stats={stats} />}
         <br />
-        <a href={shareable} target="_blank" rel="noreferrer">Share on SMS</a>      </div>
+        <a href={shareable} target="_blank" rel="noreferrer">Del via SMS</a>      
+        </div>
     </div>
   );
 };
