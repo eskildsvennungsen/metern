@@ -31,29 +31,28 @@ def transformBorderDatabase(csvFileName):
     with open(csvFileName, "r") as f:
         dr = csv.DictReader(f)
         for row in dr:
-            borders.append(row[0])
+            borders.append(row)
 
     with open("db_data_norwegian.csv", "r") as f:
         dr = csv.DictReader(f)
         for row in dr:
-            db.append(row[0])
+            db.append(row)
 
     primary_key = 1
     new = []
     for i in db:
         current = {"iso2": i["iso2"], "key": primary_key}
-
         found = 0
         for j in borders:
             if j["country_code"] == current["iso2"]:
                 j["country_code"] = current["key"]
                 found += 1
 
-            if j["country_border_code"] == current["iso2"]:
+            elif j["country_border_code"] == current["iso2"]:
                 j["country_border_code"] = current["key"]
                 found += 1
 
-            if found == 2:
+            if found > 0:
                 new.append(j)
                 found = 0
 
