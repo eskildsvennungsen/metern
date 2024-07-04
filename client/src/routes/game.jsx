@@ -57,12 +57,12 @@ const Game = () => {
       });
 
     if (data.length === 1) {
-      if (data[0].distance === 0) setVictory(true);
+      if (data[0].distance === -1) setVictory(true);
       setClosest(data[0]);
     } else {
       setClosest(
         [...data].reduce((low, curr) => {
-          if (curr['distance'] === 0) setVictory(true);
+          if (curr['distance'] === -1) setVictory(true);
           return curr['distance'] < low['distance'] ? curr : low;
         })
       );

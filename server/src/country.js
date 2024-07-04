@@ -40,7 +40,15 @@ route.get('/check', (req, res) => {
       cache.set(cacheKey, solution);
     }
 
-    const distance = calculateDistance(target, solution);
+    let distance;
+    const borders = borderingSolution(target, solution);
+    if (target.id === solution.countryId) {
+      distance = -1;
+    } else if (borders) {
+      distance = 0;
+    } else {
+      distance = calculateDistance(target, solution);
+    }
 
     res.status(200).json({ country: target, distance: distance });
   } catch (error) {
@@ -160,6 +168,19 @@ function updateCountryOTDIfNotExist() {
   if (!countryOTD) {
     addCountryOTD(today);
   }
+}
+
+function borderingSolution(target, solution) {
+  if (target.id === solution.countryId) return false;
+
+  const query = `
+    SELECT *
+    FROM borders 
+    WHERE country_code = ? AND country_border_code = ?
+  `;
+
+  const result = db.prepare(query).all(solution.countryId.toString(), target.id.toString());
+  return result.length > 0;
 }
 
 module.exports = route;
