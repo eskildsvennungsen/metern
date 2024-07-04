@@ -22,12 +22,12 @@ export const Input = (props) => {
         const newGuesses = [...props.data.guesses, res];
 
         if (newGuesses.length === 1) {
-          if (res.distance === 0) props.data.setVictory(true);
+          if (res.distance === -1) props.data.setVictory(true);
           props.data.setClosest(res);
         } else {
           props.data.setClosest(
             [...newGuesses].reduce((low, curr) => {
-              if (curr['distance'] === 0) props.data.setVictory(true);
+              if (curr['distance'] === -1) props.data.setVictory(true);
               return curr['distance'] < low['distance'] ? curr : low;
             })
           );
