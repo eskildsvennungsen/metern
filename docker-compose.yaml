@@ -6,6 +6,8 @@ services:
       target: client
     networks:
       - reverse_proxy
+    environment:
+      TZ: Europe/Oslo
     labels:
       - 'traefik.enable=true'
       - 'traefik.http.routers.client.entrypoints=web, websecure'
@@ -25,6 +27,8 @@ services:
     command: npm run start
     networks:
       - reverse_proxy
+    environment:
+      TZ: Europe/Oslo
     labels:
       - 'traefik.enable=true'
       - 'traefik.http.routers.server.entrypoints=web, websecure'
