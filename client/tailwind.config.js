@@ -4,7 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        'color-primary': '#FED8B1',
+        coco: '#2A2B2A',
+        khaki: '#706C61',
+        creme: '#F8F4E3',
+        cherry: '#E5446D',
+        orange: '#FF8966',
       },
     },
   },

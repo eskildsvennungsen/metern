@@ -49,21 +49,26 @@ const Root = () => {
   });
 
   return (
-    <div className='bg-color-primary h-screen'>
+    <div className='bg-creme h-[100dvh]'>
       <div className='flex justify-center items-center px-10 h-full m-auto'>
-        <div className='flex flex-col space-y-8'>
+        <div className='flex flex-col space-y-8 w-max-4/5'>
           <div>
             <img src={Logo} alt='METERN' className='w-full' />
-            <p className='text-4xl sm:text-5xl'>GJETT DAGENS LAND</p>
+            <p className='font-semibold text-3xl sm:text-6xl text-khaki'>GJETT DAGENS LAND</p>
           </div>
-          <div className='space-y-1'>
-            <div className='grid justify-items-center w-36 bg-black pl-3 py-2 w-1/2'>
-              <Link to='/game' relative='path' className='text-white w-full text-xl'>
+          <div className='space-y-1 text-khaki'>
+            <div className='grid justify-items-center w-36 bg-coco pl-3 py-2 w-1/2'>
+              <Link to='/game' relative='path' className='w-full text-2xl font-black text-cherry'>
                 SPILL
               </Link>
             </div>
             <p className='font-extrabold'>{date}</p>
             <p>Nr. {played}</p>
+          </div>
+        </div>
+        <div className='flex justify-center absolute bottom-0 bg-coco w-full h-10'>
+          <div className='my-auto text-creme'>
+            Kontakt: <span className='text-orange'>eskild@metern.no</span>
           </div>
         </div>
       </div>
