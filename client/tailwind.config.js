@@ -6,7 +6,7 @@ export default {
       colors: {
         coco: '#2A2B2A',
         khaki: '#706C61',
-        creme: '#F8F4E3',
+        cream: '#F8F4E3',
         cherry: '#E5446D',
         orange: '#FF8966',
       },
