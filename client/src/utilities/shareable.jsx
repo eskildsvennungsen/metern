@@ -14,27 +14,32 @@ const squares = {
     'orange': '🟧',
     'yellow': '🟨',
     'green':  '🟩',
-    'crown':  '👑'
+    'crown':  '👑',
+    'poop':   '💩',
+    'x':      '❌'
 };
 
 export const constructShareable = (guesses) => {
     const correctCountry = guesses.pop().country;
     const goal = { 'latitude': correctCountry.latitude, 'longitude': correctCountry.longitude };
-    let msg = 'sms:?body=https://metern.no%0a%0a';
+    let results = [];
 
     guesses.forEach(country => {
         const guess = { 'latitude': country.country.latitude, 'longitude': country.country.longitude };
         const bearing = getBearing(goal, guess);
 
-        msg += getSquare(country.distance) + " - ";
-        msg += getDirection(bearing);
-        msg += '%0a';
+        results.push({ square: getSquare(country.distance), direction: getDirection(bearing) });
     });
-    // add the correct guess squares
-    msg += squares.green + " - ";
-    msg += squares.crown;
 
-    return msg;
+    if (results.length > 9) {
+        let failedResult = results.slice(0, 8);
+        failedResult.push({ square: squares.x, direction: squares.poop });
+        return failedResult;
+    }
+
+    results.push({ square: squares.green, direction: squares.crown });
+    
+    return results;
 };
 
 const getDirection = (degrees) => {
@@ -56,6 +61,6 @@ const getBearing = (goal, guess) => {
 const getSquare = (distance) => {
     if (distance > 5000) return squares.red;
     else if (distance > 1000) return squares.orange;
-    else if (distance == 0) return squares.yellow;
-    else return squares.crown;
+    else if (distance > 0) return squares.yellow;
+    else return squares.green;
 }

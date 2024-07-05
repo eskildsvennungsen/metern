@@ -3,14 +3,13 @@ import { VictoryBoxInfo } from './VictoryBoxInfo';
 import { VictoryBoxStats } from './VictoryBoxStats';
 import { getDate } from '../routes/game';
 import { apiURI } from '../main';
-import { constructShareable } from '../utilities/shareable';
+import { Share } from './Share';
 
 export const VictoryBox = (props) => {
   const country = props.data.closest.country;
   const [state, setState] = useState(true);
   const [flag, setFlag] = useState();
   const [data, setData] = useState();
-  const [shareable, setShareable] = useState();
   const [stats, setStats] = useState(() => {
     const stat = localStorage.getItem('stats');
     return stat ? JSON.parse(stat) : { number: 0, guesses: 0, date: '' };
@@ -22,7 +21,6 @@ export const VictoryBox = (props) => {
       method: method,
     }).then((res) => res.json());
     setData(loadedData);
-    setShareable(constructShareable(props.data.guesses));
   }
 
   useEffect(() => {
@@ -65,8 +63,9 @@ export const VictoryBox = (props) => {
           </button>
         </div>
         {state ? <VictoryBoxInfo country={country} /> : <VictoryBoxStats data={data} stats={stats} />}
-        <br />
-        <a href={shareable} target="_blank" rel="noreferrer">Del via SMS</a>      
+        <div className='flex items-center content-center pt-5'>
+          <Share data={props.data} stats={stats} />
+        </div>
         </div>
     </div>
   );
