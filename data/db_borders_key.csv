@@ -1,0 +1,1262 @@
+country_code,country_name,country_border_code,country_border_name
+1,Afghanistan,30,China
+1,Afghanistan,69,Iran (Islamic Republic of)
+1,Afghanistan,115,Pakistan
+1,Afghanistan,147,Tajikistan
+1,Afghanistan,156,Turkmenistan
+1,Afghanistan,163,Uzbekistan
+30,China,1,Afghanistan
+69,Iran (Islamic Republic of),1,Afghanistan
+115,Pakistan,1,Afghanistan
+147,Tajikistan,1,Afghanistan
+156,Turkmenistan,1,Afghanistan
+163,Uzbekistan,1,Afghanistan
+2,Albania,57,Greece
+2,Albania,99,Montenegro
+2,Albania,112,North Macedonia
+2,Albania,130,Serbia
+57,Greece,2,Albania
+99,Montenegro,2,Albania
+112,North Macedonia,2,Albania
+130,Serbia,2,Albania
+3,Algeria,88,Libya
+3,Algeria,94,Mali
+3,Algeria,95,Mauritania
+3,Algeria,100,Morocco
+3,Algeria,109,Niger
+3,Algeria,154,Tunisia
+3,Algeria,EH,Western Sahara
+EH,Western Sahara,3,Algeria
+88,Libya,3,Algeria
+100,Morocco,3,Algeria
+94,Mali,3,Algeria
+95,Mauritania,3,Algeria
+109,Niger,3,Algeria
+154,Tunisia,3,Algeria
+4,Angola,32,Congo
+4,Angola,38,Congo (the Democratic Republic of the)
+4,Angola,103,Namibia
+4,Angola,168,Zambia
+38,Congo (the Democratic Republic of the),4,Angola
+32,Congo,4,Angola
+103,Namibia,4,Angola
+168,Zambia,4,Angola
+5,Argentina,16,Bolivia (Plurinational State Of)
+5,Argentina,19,Brazil
+5,Argentina,29,Chile
+5,Argentina,118,Paraguay
+5,Argentina,162,Uruguay
+16,Bolivia (Plurinational State Of),5,Argentina
+19,Brazil,5,Argentina
+29,Chile,5,Argentina
+118,Paraguay,5,Argentina
+162,Uruguay,5,Argentina
+6,Armenia,9,Azerbaijan
+6,Armenia,54,Georgia
+6,Armenia,69,Iran (Islamic Republic of)
+6,Armenia,155,Turkey
+9,Azerbaijan,6,Armenia
+54,Georgia,6,Armenia
+69,Iran (Islamic Republic of),6,Armenia
+155,Turkey,6,Armenia
+7,Australia,,
+8,Austria,37,Czechia
+8,Austria,55,Germany
+8,Austria,65,Hungary
+8,Austria,73,Italy
+8,Austria,LI,Liechtenstein
+8,Austria,132,Slovakia
+8,Austria,133,Slovenia
+8,Austria,144,Switzerland
+144,Switzerland,8,Austria
+37,Czechia,8,Austria
+55,Germany,8,Austria
+65,Hungary,8,Austria
+73,Italy,8,Austria
+LI,Liechtenstein,8,Austria
+133,Slovenia,8,Austria
+132,Slovakia,8,Austria
+6,Armenia,9,Azerbaijan
+9,Azerbaijan,6,Armenia
+9,Azerbaijan,54,Georgia
+9,Azerbaijan,69,Iran (Islamic Republic of)
+9,Azerbaijan,126,Russian Federation
+9,Azerbaijan,155,Turkey
+54,Georgia,9,Azerbaijan
+69,Iran (Islamic Republic of),9,Azerbaijan
+126,Russian Federation,9,Azerbaijan
+155,Turkey,9,Azerbaijan
+10,Bangladesh,67,India
+10,Bangladesh,102,Myanmar
+67,India,10,Bangladesh
+102,Myanmar,10,Bangladesh
+11,Belarus,84,Latvia
+11,Belarus,89,Lithuania
+11,Belarus,121,Poland
+11,Belarus,126,Russian Federation
+11,Belarus,158,Ukraine
+89,Lithuania,11,Belarus
+84,Latvia,11,Belarus
+121,Poland,11,Belarus
+126,Russian Federation,11,Belarus
+158,Ukraine,11,Belarus
+12,Belgium,52,France
+12,Belgium,55,Germany
+12,Belgium,90,Luxembourg
+12,Belgium,105,Netherlands
+55,Germany,12,Belgium
+52,France,12,Belgium
+90,Luxembourg,12,Belgium
+105,Netherlands,12,Belgium
+13,Belize,59,Guatemala
+13,Belize,96,Mexico
+59,Guatemala,13,Belize
+96,Mexico,13,Belize
+22,Burkina Faso,14,Benin
+14,Benin,22,Burkina Faso
+14,Benin,109,Niger
+14,Benin,110,Nigeria
+14,Benin,152,Togo
+109,Niger,14,Benin
+110,Nigeria,14,Benin
+152,Togo,14,Benin
+15,Bhutan,30,China
+15,Bhutan,67,India
+30,China,15,Bhutan
+67,India,15,Bhutan
+5,Argentina,16,Bolivia (Plurinational State Of)
+16,Bolivia (Plurinational State Of),5,Argentina
+16,Bolivia (Plurinational State Of),19,Brazil
+16,Bolivia (Plurinational State Of),29,Chile
+16,Bolivia (Plurinational State Of),118,Paraguay
+16,Bolivia (Plurinational State Of),119,Peru
+19,Brazil,16,Bolivia (Plurinational State Of)
+29,Chile,16,Bolivia (Plurinational State Of)
+119,Peru,16,Bolivia (Plurinational State Of)
+118,Paraguay,16,Bolivia (Plurinational State Of)
+17,Bosnia and Herzegovina,34,Croatia
+17,Bosnia and Herzegovina,99,Montenegro
+17,Bosnia and Herzegovina,130,Serbia
+34,Croatia,17,Bosnia and Herzegovina
+99,Montenegro,17,Bosnia and Herzegovina
+130,Serbia,17,Bosnia and Herzegovina
+18,Botswana,103,Namibia
+18,Botswana,136,South Africa
+18,Botswana,168,Zambia
+18,Botswana,169,Zimbabwe
+103,Namibia,18,Botswana
+136,South Africa,18,Botswana
+168,Zambia,18,Botswana
+169,Zimbabwe,18,Botswana
+5,Argentina,19,Brazil
+16,Bolivia (Plurinational State Of),19,Brazil
+19,Brazil,5,Argentina
+19,Brazil,16,Bolivia (Plurinational State Of)
+19,Brazil,31,Colombia
+19,Brazil,GF,French Guiana
+19,Brazil,62,Guyana
+19,Brazil,118,Paraguay
+19,Brazil,119,Peru
+19,Brazil,142,Suriname
+19,Brazil,162,Uruguay
+19,Brazil,165,Venezuela (Bolivarian Republic of)
+31,Colombia,19,Brazil
+GF,French Guiana,19,Brazil
+62,Guyana,19,Brazil
+119,Peru,19,Brazil
+118,Paraguay,19,Brazil
+142,Suriname,19,Brazil
+162,Uruguay,19,Brazil
+165,Venezuela (Bolivarian Republic of),19,Brazil
+20,Brunei Darussalam,93,Malaysia
+93,Malaysia,20,Brunei Darussalam
+21,Bulgaria,57,Greece
+21,Bulgaria,112,North Macedonia
+21,Bulgaria,125,Romania
+21,Bulgaria,130,Serbia
+21,Bulgaria,155,Turkey
+57,Greece,21,Bulgaria
+112,North Macedonia,21,Bulgaria
+125,Romania,21,Bulgaria
+130,Serbia,21,Bulgaria
+155,Turkey,21,Bulgaria
+22,Burkina Faso,14,Benin
+22,Burkina Faso,74,Cote d’Ivoire
+22,Burkina Faso,56,Ghana
+22,Burkina Faso,94,Mali
+22,Burkina Faso,109,Niger
+22,Burkina Faso,152,Togo
+14,Benin,22,Burkina Faso
+74,Cote d’Ivoire,22,Burkina Faso
+56,Ghana,22,Burkina Faso
+94,Mali,22,Burkina Faso
+109,Niger,22,Burkina Faso
+152,Togo,22,Burkina Faso
+23,Burundi,38,Congo (the Democratic Republic of the)
+23,Burundi,127,Rwanda
+23,Burundi,148,Tanzania (the United Republic of)
+38,Congo (the Democratic Republic of the),23,Burundi
+127,Rwanda,23,Burundi
+148,Tanzania (the United Republic of),23,Burundi
+24,Cambodia,83,Lao People's Democratic Republic
+24,Cambodia,149,Thailand
+24,Cambodia,166,Viet Nam
+83,Lao People's Democratic Republic,24,Cambodia
+149,Thailand,24,Cambodia
+166,Viet Nam,24,Cambodia
+27,Central African Republic,25,Cameroon
+32,Congo,25,Cameroon
+25,Cameroon,27,Central African Republic
+25,Cameroon,28,Chad
+25,Cameroon,32,Congo
+25,Cameroon,45,Equatorial Guinea
+25,Cameroon,53,Gabon
+25,Cameroon,110,Nigeria
+53,Gabon,25,Cameroon
+45,Equatorial Guinea,25,Cameroon
+110,Nigeria,25,Cameroon
+28,Chad,25,Cameroon
+26,Canada,161,United States of America
+161,United States of America,26,Canada
+38,Congo (the Democratic Republic of the),27,Central African Republic
+27,Central African Republic,25,Cameroon
+27,Central African Republic,28,Chad
+27,Central African Republic,32,Congo
+27,Central African Republic,38,Congo (the Democratic Republic of the)
+27,Central African Republic,138,South Sudan
+27,Central African Republic,141,Sudan
+32,Congo,27,Central African Republic
+25,Cameroon,27,Central African Republic
+141,Sudan,27,Central African Republic
+138,South Sudan,27,Central African Republic
+28,Chad,27,Central African Republic
+27,Central African Republic,28,Chad
+25,Cameroon,28,Chad
+88,Libya,28,Chad
+109,Niger,28,Chad
+110,Nigeria,28,Chad
+141,Sudan,28,Chad
+28,Chad,25,Cameroon
+28,Chad,27,Central African Republic
+28,Chad,88,Libya
+28,Chad,109,Niger
+28,Chad,110,Nigeria
+28,Chad,141,Sudan
+5,Argentina,29,Chile
+16,Bolivia (Plurinational State Of),29,Chile
+29,Chile,5,Argentina
+29,Chile,16,Bolivia (Plurinational State Of)
+29,Chile,119,Peru
+119,Peru,29,Chile
+1,Afghanistan,30,China
+15,Bhutan,30,China
+30,China,1,Afghanistan
+30,China,15,Bhutan
+30,China,HK,Hong Kong
+30,China,67,India
+30,China,78,Kazakhstan
+30,China,111,Korea (Democratic People's Republic of)
+30,China,82,Kyrgyzstan
+30,China,83,Lao People's Democratic Republic
+30,China,MO,Macao
+30,China,98,Mongolia
+30,China,102,Myanmar
+30,China,104,Nepal
+30,China,115,Pakistan
+30,China,126,Russian Federation
+30,China,147,Tajikistan
+30,China,166,Viet Nam
+HK,Hong Kong,30,China
+67,India,30,China
+82,Kyrgyzstan,30,China
+111,Korea (Democratic People's Republic of),30,China
+78,Kazakhstan,30,China
+83,Lao People's Democratic Republic,30,China
+102,Myanmar,30,China
+98,Mongolia,30,China
+MO,Macao,30,China
+104,Nepal,30,China
+115,Pakistan,30,China
+126,Russian Federation,30,China
+147,Tajikistan,30,China
+166,Viet Nam,30,China
+19,Brazil,31,Colombia
+31,Colombia,19,Brazil
+31,Colombia,42,Ecuador
+31,Colombia,116,Panama
+31,Colombia,119,Peru
+31,Colombia,165,Venezuela (Bolivarian Republic of)
+42,Ecuador,31,Colombia
+116,Panama,31,Colombia
+119,Peru,31,Colombia
+165,Venezuela (Bolivarian Republic of),31,Colombia
+4,Angola,32,Congo
+38,Congo (the Democratic Republic of the),32,Congo
+27,Central African Republic,32,Congo
+32,Congo,4,Angola
+32,Congo,25,Cameroon
+32,Congo,27,Central African Republic
+32,Congo,38,Congo (the Democratic Republic of the)
+32,Congo,53,Gabon
+25,Cameroon,32,Congo
+53,Gabon,32,Congo
+33,Costa Rica,108,Nicaragua
+33,Costa Rica,116,Panama
+108,Nicaragua,33,Costa Rica
+116,Panama,33,Costa Rica
+17,Bosnia and Herzegovina,34,Croatia
+34,Croatia,17,Bosnia and Herzegovina
+34,Croatia,65,Hungary
+34,Croatia,99,Montenegro
+34,Croatia,130,Serbia
+34,Croatia,133,Slovenia
+65,Hungary,34,Croatia
+99,Montenegro,34,Croatia
+130,Serbia,34,Croatia
+133,Slovenia,34,Croatia
+35,Cuba,,
+36,Cyprus,,
+8,Austria,37,Czechia
+37,Czechia,8,Austria
+37,Czechia,55,Germany
+37,Czechia,121,Poland
+37,Czechia,132,Slovakia
+55,Germany,37,Czechia
+121,Poland,37,Czechia
+132,Slovakia,37,Czechia
+4,Angola,38,Congo (the Democratic Republic of the)
+23,Burundi,38,Congo (the Democratic Republic of the)
+38,Congo (the Democratic Republic of the),4,Angola
+38,Congo (the Democratic Republic of the),23,Burundi
+38,Congo (the Democratic Republic of the),27,Central African Republic
+38,Congo (the Democratic Republic of the),32,Congo
+38,Congo (the Democratic Republic of the),127,Rwanda
+38,Congo (the Democratic Republic of the),138,South Sudan
+38,Congo (the Democratic Republic of the),148,Tanzania (the United Republic of)
+38,Congo (the Democratic Republic of the),157,Uganda
+38,Congo (the Democratic Republic of the),168,Zambia
+27,Central African Republic,38,Congo (the Democratic Republic of the)
+32,Congo,38,Congo (the Democratic Republic of the)
+127,Rwanda,38,Congo (the Democratic Republic of the)
+138,South Sudan,38,Congo (the Democratic Republic of the)
+148,Tanzania (the United Republic of),38,Congo (the Democratic Republic of the)
+157,Uganda,38,Congo (the Democratic Republic of the)
+168,Zambia,38,Congo (the Democratic Republic of the)
+55,Germany,39,Denmark
+39,Denmark,55,Germany
+40,Djibouti,46,Eritrea
+40,Djibouti,49,Ethiopia
+40,Djibouti,135,Somalia
+46,Eritrea,40,Djibouti
+49,Ethiopia,40,Djibouti
+135,Somalia,40,Djibouti
+41,Dominican Republic,63,Haiti
+63,Haiti,41,Dominican Republic
+31,Colombia,42,Ecuador
+42,Ecuador,31,Colombia
+42,Ecuador,119,Peru
+119,Peru,42,Ecuador
+43,Egypt,72,Israel
+43,Egypt,88,Libya
+43,Egypt,PS,Palestine
+43,Egypt,141,Sudan
+72,Israel,43,Egypt
+88,Libya,43,Egypt
+PS,Palestine,43,Egypt
+141,Sudan,43,Egypt
+59,Guatemala,44,El Salvador
+64,Honduras,44,El Salvador
+44,El Salvador,59,Guatemala
+44,El Salvador,64,Honduras
+25,Cameroon,45,Equatorial Guinea
+53,Gabon,45,Equatorial Guinea
+45,Equatorial Guinea,25,Cameroon
+45,Equatorial Guinea,53,Gabon
+40,Djibouti,46,Eritrea
+46,Eritrea,40,Djibouti
+46,Eritrea,49,Ethiopia
+46,Eritrea,141,Sudan
+49,Ethiopia,46,Eritrea
+141,Sudan,46,Eritrea
+47,Estonia,84,Latvia
+47,Estonia,126,Russian Federation
+84,Latvia,47,Estonia
+126,Russian Federation,47,Estonia
+101,Mozambique,48,Eswatini
+48,Eswatini,101,Mozambique
+48,Eswatini,136,South Africa
+136,South Africa,48,Eswatini
+40,Djibouti,49,Ethiopia
+46,Eritrea,49,Ethiopia
+49,Ethiopia,40,Djibouti
+49,Ethiopia,46,Eritrea
+49,Ethiopia,79,Kenya
+49,Ethiopia,135,Somalia
+49,Ethiopia,138,South Sudan
+49,Ethiopia,141,Sudan
+79,Kenya,49,Ethiopia
+141,Sudan,49,Ethiopia
+135,Somalia,49,Ethiopia
+138,South Sudan,49,Ethiopia
+50,Fiji,,
+51,Finland,113,Norway
+51,Finland,126,Russian Federation
+51,Finland,143,Sweden
+113,Norway,51,Finland
+126,Russian Federation,51,Finland
+143,Sweden,51,Finland
+AD,Andorra,52,France
+12,Belgium,52,France
+144,Switzerland,52,France
+55,Germany,52,France
+139,Spain,52,France
+52,France,AD,Andorra
+52,France,12,Belgium
+52,France,55,Germany
+52,France,73,Italy
+52,France,90,Luxembourg
+52,France,MC,Monaco
+52,France,139,Spain
+52,France,144,Switzerland
+73,Italy,52,France
+90,Luxembourg,52,France
+MC,Monaco,52,France
+32,Congo,53,Gabon
+25,Cameroon,53,Gabon
+53,Gabon,25,Cameroon
+53,Gabon,32,Congo
+53,Gabon,45,Equatorial Guinea
+45,Equatorial Guinea,53,Gabon
+6,Armenia,54,Georgia
+9,Azerbaijan,54,Georgia
+54,Georgia,6,Armenia
+54,Georgia,9,Azerbaijan
+54,Georgia,126,Russian Federation
+54,Georgia,155,Turkey
+126,Russian Federation,54,Georgia
+155,Turkey,54,Georgia
+8,Austria,55,Germany
+12,Belgium,55,Germany
+144,Switzerland,55,Germany
+37,Czechia,55,Germany
+55,Germany,8,Austria
+55,Germany,12,Belgium
+55,Germany,37,Czechia
+55,Germany,39,Denmark
+55,Germany,52,France
+55,Germany,90,Luxembourg
+55,Germany,105,Netherlands
+55,Germany,121,Poland
+55,Germany,144,Switzerland
+39,Denmark,55,Germany
+52,France,55,Germany
+90,Luxembourg,55,Germany
+105,Netherlands,55,Germany
+121,Poland,55,Germany
+22,Burkina Faso,56,Ghana
+74,Cote d’Ivoire,56,Ghana
+56,Ghana,22,Burkina Faso
+56,Ghana,74,Cote d’Ivoire
+56,Ghana,152,Togo
+152,Togo,56,Ghana
+2,Albania,57,Greece
+21,Bulgaria,57,Greece
+57,Greece,2,Albania
+57,Greece,21,Bulgaria
+57,Greece,112,North Macedonia
+57,Greece,155,Turkey
+112,North Macedonia,57,Greece
+155,Turkey,57,Greece
+58,Greenland,,
+13,Belize,59,Guatemala
+59,Guatemala,13,Belize
+59,Guatemala,44,El Salvador
+59,Guatemala,64,Honduras
+59,Guatemala,96,Mexico
+64,Honduras,59,Guatemala
+96,Mexico,59,Guatemala
+44,El Salvador,59,Guatemala
+74,Cote d’Ivoire,60,Guinea
+60,Guinea,74,Cote d’Ivoire
+60,Guinea,61,Guinea-Bissau
+60,Guinea,87,Liberia
+60,Guinea,94,Mali
+60,Guinea,129,Senegal
+60,Guinea,131,Sierra Leone
+61,Guinea-Bissau,60,Guinea
+87,Liberia,60,Guinea
+94,Mali,60,Guinea
+131,Sierra Leone,60,Guinea
+129,Senegal,60,Guinea
+60,Guinea,61,Guinea-Bissau
+61,Guinea-Bissau,60,Guinea
+61,Guinea-Bissau,129,Senegal
+129,Senegal,61,Guinea-Bissau
+19,Brazil,62,Guyana
+62,Guyana,19,Brazil
+62,Guyana,142,Suriname
+62,Guyana,165,Venezuela (Bolivarian Republic of)
+142,Suriname,62,Guyana
+165,Venezuela (Bolivarian Republic of),62,Guyana
+41,Dominican Republic,63,Haiti
+63,Haiti,41,Dominican Republic
+59,Guatemala,64,Honduras
+64,Honduras,44,El Salvador
+64,Honduras,59,Guatemala
+64,Honduras,108,Nicaragua
+108,Nicaragua,64,Honduras
+44,El Salvador,64,Honduras
+8,Austria,65,Hungary
+34,Croatia,65,Hungary
+65,Hungary,8,Austria
+65,Hungary,34,Croatia
+65,Hungary,125,Romania
+65,Hungary,130,Serbia
+65,Hungary,132,Slovakia
+65,Hungary,133,Slovenia
+65,Hungary,158,Ukraine
+125,Romania,65,Hungary
+130,Serbia,65,Hungary
+133,Slovenia,65,Hungary
+132,Slovakia,65,Hungary
+158,Ukraine,65,Hungary
+66,Iceland,,
+10,Bangladesh,67,India
+15,Bhutan,67,India
+30,China,67,India
+67,India,10,Bangladesh
+67,India,15,Bhutan
+67,India,30,China
+67,India,102,Myanmar
+67,India,104,Nepal
+67,India,115,Pakistan
+102,Myanmar,67,India
+104,Nepal,67,India
+115,Pakistan,67,India
+68,Indonesia,93,Malaysia
+68,Indonesia,117,Papua New Guinea
+68,Indonesia,151,Timor-Leste
+93,Malaysia,68,Indonesia
+117,Papua New Guinea,68,Indonesia
+151,Timor-Leste,68,Indonesia
+1,Afghanistan,69,Iran (Islamic Republic of)
+6,Armenia,69,Iran (Islamic Republic of)
+9,Azerbaijan,69,Iran (Islamic Republic of)
+70,Iraq,69,Iran (Islamic Republic of)
+69,Iran (Islamic Republic of),1,Afghanistan
+69,Iran (Islamic Republic of),6,Armenia
+69,Iran (Islamic Republic of),9,Azerbaijan
+69,Iran (Islamic Republic of),70,Iraq
+69,Iran (Islamic Republic of),115,Pakistan
+69,Iran (Islamic Republic of),155,Turkey
+69,Iran (Islamic Republic of),156,Turkmenistan
+115,Pakistan,69,Iran (Islamic Republic of)
+156,Turkmenistan,69,Iran (Islamic Republic of)
+155,Turkey,69,Iran (Islamic Republic of)
+70,Iraq,69,Iran (Islamic Republic of)
+70,Iraq,77,Jordan
+70,Iraq,81,Kuwait
+70,Iraq,128,Saudi Arabia
+70,Iraq,145,Syrian Arab Republic
+70,Iraq,155,Turkey
+69,Iran (Islamic Republic of),70,Iraq
+77,Jordan,70,Iraq
+81,Kuwait,70,Iraq
+128,Saudi Arabia,70,Iraq
+145,Syrian Arab Republic,70,Iraq
+155,Turkey,70,Iraq
+160,United Kingdom of Great Britain and Northern Ireland,71,Ireland
+71,Ireland,160,United Kingdom of Great Britain and Northern Ireland
+43,Egypt,72,Israel
+72,Israel,43,Egypt
+72,Israel,77,Jordan
+72,Israel,85,Lebanon
+72,Israel,PS,Palestine
+72,Israel,145,Syrian Arab Republic
+77,Jordan,72,Israel
+85,Lebanon,72,Israel
+PS,Palestine,72,Israel
+145,Syrian Arab Republic,72,Israel
+8,Austria,73,Italy
+144,Switzerland,73,Italy
+52,France,73,Italy
+73,Italy,8,Austria
+73,Italy,52,France
+73,Italy,SM,San Marino
+73,Italy,133,Slovenia
+73,Italy,144,Switzerland
+73,Italy,VA,Holy See
+133,Slovenia,73,Italy
+SM,San Marino,73,Italy
+VA,Holy See,73,Italy
+22,Burkina Faso,74,Cote d’Ivoire
+74,Cote d’Ivoire,22,Burkina Faso
+74,Cote d’Ivoire,56,Ghana
+74,Cote d’Ivoire,60,Guinea
+74,Cote d’Ivoire,87,Liberia
+74,Cote d’Ivoire,94,Mali
+56,Ghana,74,Cote d’Ivoire
+60,Guinea,74,Cote d’Ivoire
+87,Liberia,74,Cote d’Ivoire
+94,Mali,74,Cote d’Ivoire
+75,Jamaica,,
+76,Japan,,
+72,Israel,77,Jordan
+70,Iraq,77,Jordan
+77,Jordan,70,Iraq
+77,Jordan,72,Israel
+77,Jordan,PS,Palestine
+77,Jordan,128,Saudi Arabia
+77,Jordan,145,Syrian Arab Republic
+PS,Palestine,77,Jordan
+128,Saudi Arabia,77,Jordan
+145,Syrian Arab Republic,77,Jordan
+30,China,78,Kazakhstan
+82,Kyrgyzstan,78,Kazakhstan
+78,Kazakhstan,30,China
+78,Kazakhstan,82,Kyrgyzstan
+78,Kazakhstan,126,Russian Federation
+78,Kazakhstan,156,Turkmenistan
+78,Kazakhstan,163,Uzbekistan
+126,Russian Federation,78,Kazakhstan
+156,Turkmenistan,78,Kazakhstan
+163,Uzbekistan,78,Kazakhstan
+49,Ethiopia,79,Kenya
+79,Kenya,49,Ethiopia
+79,Kenya,135,Somalia
+79,Kenya,138,South Sudan
+79,Kenya,148,Tanzania (the United Republic of)
+79,Kenya,157,Uganda
+135,Somalia,79,Kenya
+138,South Sudan,79,Kenya
+148,Tanzania (the United Republic of),79,Kenya
+157,Uganda,79,Kenya
+70,Iraq,81,Kuwait
+81,Kuwait,70,Iraq
+81,Kuwait,128,Saudi Arabia
+128,Saudi Arabia,81,Kuwait
+30,China,82,Kyrgyzstan
+82,Kyrgyzstan,30,China
+82,Kyrgyzstan,78,Kazakhstan
+82,Kyrgyzstan,147,Tajikistan
+82,Kyrgyzstan,163,Uzbekistan
+78,Kazakhstan,82,Kyrgyzstan
+147,Tajikistan,82,Kyrgyzstan
+163,Uzbekistan,82,Kyrgyzstan
+30,China,83,Lao People's Democratic Republic
+24,Cambodia,83,Lao People's Democratic Republic
+83,Lao People's Democratic Republic,30,China
+83,Lao People's Democratic Republic,24,Cambodia
+83,Lao People's Democratic Republic,102,Myanmar
+83,Lao People's Democratic Republic,149,Thailand
+83,Lao People's Democratic Republic,166,Viet Nam
+102,Myanmar,83,Lao People's Democratic Republic
+149,Thailand,83,Lao People's Democratic Republic
+166,Viet Nam,83,Lao People's Democratic Republic
+11,Belarus,84,Latvia
+47,Estonia,84,Latvia
+89,Lithuania,84,Latvia
+84,Latvia,11,Belarus
+84,Latvia,47,Estonia
+84,Latvia,89,Lithuania
+84,Latvia,126,Russian Federation
+126,Russian Federation,84,Latvia
+72,Israel,85,Lebanon
+85,Lebanon,72,Israel
+85,Lebanon,145,Syrian Arab Republic
+145,Syrian Arab Republic,85,Lebanon
+86,Lesotho,136,South Africa
+136,South Africa,86,Lesotho
+74,Cote d’Ivoire,87,Liberia
+60,Guinea,87,Liberia
+87,Liberia,74,Cote d’Ivoire
+87,Liberia,60,Guinea
+87,Liberia,131,Sierra Leone
+131,Sierra Leone,87,Liberia
+3,Algeria,88,Libya
+43,Egypt,88,Libya
+88,Libya,3,Algeria
+88,Libya,28,Chad
+88,Libya,43,Egypt
+88,Libya,109,Niger
+88,Libya,141,Sudan
+88,Libya,154,Tunisia
+109,Niger,88,Libya
+141,Sudan,88,Libya
+28,Chad,88,Libya
+154,Tunisia,88,Libya
+11,Belarus,89,Lithuania
+89,Lithuania,11,Belarus
+89,Lithuania,84,Latvia
+89,Lithuania,121,Poland
+89,Lithuania,126,Russian Federation
+84,Latvia,89,Lithuania
+121,Poland,89,Lithuania
+126,Russian Federation,89,Lithuania
+12,Belgium,90,Luxembourg
+55,Germany,90,Luxembourg
+52,France,90,Luxembourg
+90,Luxembourg,12,Belgium
+90,Luxembourg,55,Germany
+90,Luxembourg,52,France
+91,Madagascar,,
+92,Malawi,101,Mozambique
+92,Malawi,148,Tanzania (the United Republic of)
+92,Malawi,168,Zambia
+101,Mozambique,92,Malawi
+148,Tanzania (the United Republic of),92,Malawi
+168,Zambia,92,Malawi
+20,Brunei Darussalam,93,Malaysia
+68,Indonesia,93,Malaysia
+93,Malaysia,20,Brunei Darussalam
+93,Malaysia,68,Indonesia
+93,Malaysia,149,Thailand
+149,Thailand,93,Malaysia
+22,Burkina Faso,94,Mali
+74,Cote d’Ivoire,94,Mali
+3,Algeria,94,Mali
+60,Guinea,94,Mali
+94,Mali,3,Algeria
+94,Mali,22,Burkina Faso
+94,Mali,74,Cote d’Ivoire
+94,Mali,60,Guinea
+94,Mali,95,Mauritania
+94,Mali,109,Niger
+94,Mali,129,Senegal
+95,Mauritania,94,Mali
+109,Niger,94,Mali
+129,Senegal,94,Mali
+3,Algeria,95,Mauritania
+EH,Western Sahara,95,Mauritania
+94,Mali,95,Mauritania
+95,Mauritania,3,Algeria
+95,Mauritania,94,Mali
+95,Mauritania,129,Senegal
+95,Mauritania,EH,Western Sahara
+129,Senegal,95,Mauritania
+13,Belize,96,Mexico
+59,Guatemala,96,Mexico
+96,Mexico,13,Belize
+96,Mexico,59,Guatemala
+96,Mexico,161,United States of America
+161,United States of America,96,Mexico
+97,Moldova (the Republic of),125,Romania
+97,Moldova (the Republic of),158,Ukraine
+125,Romania,97,Moldova (the Republic of)
+158,Ukraine,97,Moldova (the Republic of)
+30,China,98,Mongolia
+98,Mongolia,30,China
+98,Mongolia,126,Russian Federation
+126,Russian Federation,98,Mongolia
+2,Albania,99,Montenegro
+17,Bosnia and Herzegovina,99,Montenegro
+34,Croatia,99,Montenegro
+99,Montenegro,2,Albania
+99,Montenegro,17,Bosnia and Herzegovina
+99,Montenegro,34,Croatia
+99,Montenegro,130,Serbia
+130,Serbia,99,Montenegro
+3,Algeria,100,Morocco
+EH,Western Sahara,100,Morocco
+139,Spain,100,Morocco
+100,Morocco,3,Algeria
+100,Morocco,139,Spain
+100,Morocco,EH,Western Sahara
+92,Malawi,101,Mozambique
+101,Mozambique,92,Malawi
+101,Mozambique,48,Eswatini
+101,Mozambique,136,South Africa
+101,Mozambique,148,Tanzania (the United Republic of)
+101,Mozambique,168,Zambia
+101,Mozambique,169,Zimbabwe
+48,Eswatini,101,Mozambique
+148,Tanzania (the United Republic of),101,Mozambique
+136,South Africa,101,Mozambique
+168,Zambia,101,Mozambique
+169,Zimbabwe,101,Mozambique
+10,Bangladesh,102,Myanmar
+30,China,102,Myanmar
+67,India,102,Myanmar
+83,Lao People's Democratic Republic,102,Myanmar
+102,Myanmar,10,Bangladesh
+102,Myanmar,30,China
+102,Myanmar,67,India
+102,Myanmar,83,Lao People's Democratic Republic
+102,Myanmar,149,Thailand
+149,Thailand,102,Myanmar
+4,Angola,103,Namibia
+18,Botswana,103,Namibia
+103,Namibia,4,Angola
+103,Namibia,18,Botswana
+103,Namibia,136,South Africa
+103,Namibia,168,Zambia
+136,South Africa,103,Namibia
+168,Zambia,103,Namibia
+30,China,104,Nepal
+67,India,104,Nepal
+104,Nepal,30,China
+104,Nepal,67,India
+12,Belgium,105,Netherlands
+55,Germany,105,Netherlands
+105,Netherlands,12,Belgium
+105,Netherlands,55,Germany
+106,New Caledonia,,
+107,New Zealand,,
+33,Costa Rica,108,Nicaragua
+64,Honduras,108,Nicaragua
+108,Nicaragua,33,Costa Rica
+108,Nicaragua,64,Honduras
+22,Burkina Faso,109,Niger
+14,Benin,109,Niger
+3,Algeria,109,Niger
+88,Libya,109,Niger
+94,Mali,109,Niger
+109,Niger,3,Algeria
+109,Niger,14,Benin
+109,Niger,22,Burkina Faso
+109,Niger,28,Chad
+109,Niger,88,Libya
+109,Niger,94,Mali
+109,Niger,110,Nigeria
+110,Nigeria,109,Niger
+28,Chad,109,Niger
+14,Benin,110,Nigeria
+25,Cameroon,110,Nigeria
+109,Niger,110,Nigeria
+110,Nigeria,14,Benin
+110,Nigeria,25,Cameroon
+110,Nigeria,28,Chad
+110,Nigeria,109,Niger
+28,Chad,110,Nigeria
+30,China,111,Korea (Democratic People's Republic of)
+111,Korea (Democratic People's Republic of),30,China
+111,Korea (Democratic People's Republic of),137,Korea (the Republic of)
+111,Korea (Democratic People's Republic of),126,Russian Federation
+137,Korea (the Republic of),111,Korea (Democratic People's Republic of)
+126,Russian Federation,111,Korea (Democratic People's Republic of)
+2,Albania,112,North Macedonia
+21,Bulgaria,112,North Macedonia
+57,Greece,112,North Macedonia
+112,North Macedonia,2,Albania
+112,North Macedonia,21,Bulgaria
+112,North Macedonia,57,Greece
+112,North Macedonia,130,Serbia
+130,Serbia,112,North Macedonia
+51,Finland,113,Norway
+113,Norway,51,Finland
+113,Norway,126,Russian Federation
+113,Norway,143,Sweden
+126,Russian Federation,113,Norway
+143,Sweden,113,Norway
+159,United Arab Emirates,114,Oman
+114,Oman,159,United Arab Emirates
+114,Oman,128,Saudi Arabia
+114,Oman,167,Yemen
+128,Saudi Arabia,114,Oman
+167,Yemen,114,Oman
+1,Afghanistan,115,Pakistan
+30,China,115,Pakistan
+67,India,115,Pakistan
+69,Iran (Islamic Republic of),115,Pakistan
+115,Pakistan,1,Afghanistan
+115,Pakistan,30,China
+115,Pakistan,67,India
+115,Pakistan,69,Iran (Islamic Republic of)
+31,Colombia,116,Panama
+33,Costa Rica,116,Panama
+116,Panama,31,Colombia
+116,Panama,33,Costa Rica
+68,Indonesia,117,Papua New Guinea
+117,Papua New Guinea,68,Indonesia
+5,Argentina,118,Paraguay
+16,Bolivia (Plurinational State Of),118,Paraguay
+19,Brazil,118,Paraguay
+118,Paraguay,5,Argentina
+118,Paraguay,16,Bolivia (Plurinational State Of)
+118,Paraguay,19,Brazil
+16,Bolivia (Plurinational State Of),119,Peru
+19,Brazil,119,Peru
+29,Chile,119,Peru
+31,Colombia,119,Peru
+42,Ecuador,119,Peru
+119,Peru,16,Bolivia (Plurinational State Of)
+119,Peru,19,Brazil
+119,Peru,29,Chile
+119,Peru,31,Colombia
+119,Peru,42,Ecuador
+120,Philippines,,
+11,Belarus,121,Poland
+37,Czechia,121,Poland
+55,Germany,121,Poland
+89,Lithuania,121,Poland
+121,Poland,11,Belarus
+121,Poland,37,Czechia
+121,Poland,55,Germany
+121,Poland,89,Lithuania
+121,Poland,126,Russian Federation
+121,Poland,132,Slovakia
+121,Poland,158,Ukraine
+126,Russian Federation,121,Poland
+132,Slovakia,121,Poland
+158,Ukraine,121,Poland
+139,Spain,122,Portugal
+122,Portugal,139,Spain
+123,Puerto Rico,,
+124,Qatar,128,Saudi Arabia
+128,Saudi Arabia,124,Qatar
+21,Bulgaria,125,Romania
+65,Hungary,125,Romania
+97,Moldova (the Republic of),125,Romania
+125,Romania,21,Bulgaria
+125,Romania,65,Hungary
+125,Romania,97,Moldova (the Republic of)
+125,Romania,130,Serbia
+125,Romania,158,Ukraine
+130,Serbia,125,Romania
+158,Ukraine,125,Romania
+9,Azerbaijan,126,Russian Federation
+11,Belarus,126,Russian Federation
+30,China,126,Russian Federation
+47,Estonia,126,Russian Federation
+51,Finland,126,Russian Federation
+54,Georgia,126,Russian Federation
+111,Korea (Democratic People's Republic of),126,Russian Federation
+78,Kazakhstan,126,Russian Federation
+89,Lithuania,126,Russian Federation
+84,Latvia,126,Russian Federation
+98,Mongolia,126,Russian Federation
+113,Norway,126,Russian Federation
+121,Poland,126,Russian Federation
+126,Russian Federation,9,Azerbaijan
+126,Russian Federation,11,Belarus
+126,Russian Federation,30,China
+126,Russian Federation,47,Estonia
+126,Russian Federation,51,Finland
+126,Russian Federation,54,Georgia
+126,Russian Federation,78,Kazakhstan
+126,Russian Federation,111,Korea (Democratic People's Republic of)
+126,Russian Federation,84,Latvia
+126,Russian Federation,89,Lithuania
+126,Russian Federation,98,Mongolia
+126,Russian Federation,113,Norway
+126,Russian Federation,121,Poland
+126,Russian Federation,158,Ukraine
+158,Ukraine,126,Russian Federation
+23,Burundi,127,Rwanda
+38,Congo (the Democratic Republic of the),127,Rwanda
+127,Rwanda,23,Burundi
+127,Rwanda,38,Congo (the Democratic Republic of the)
+127,Rwanda,148,Tanzania (the United Republic of)
+127,Rwanda,157,Uganda
+148,Tanzania (the United Republic of),127,Rwanda
+157,Uganda,127,Rwanda
+159,United Arab Emirates,128,Saudi Arabia
+70,Iraq,128,Saudi Arabia
+77,Jordan,128,Saudi Arabia
+81,Kuwait,128,Saudi Arabia
+114,Oman,128,Saudi Arabia
+124,Qatar,128,Saudi Arabia
+128,Saudi Arabia,70,Iraq
+128,Saudi Arabia,77,Jordan
+128,Saudi Arabia,81,Kuwait
+128,Saudi Arabia,114,Oman
+128,Saudi Arabia,124,Qatar
+128,Saudi Arabia,159,United Arab Emirates
+128,Saudi Arabia,167,Yemen
+167,Yemen,128,Saudi Arabia
+GM,Gambia (the),129,Senegal
+60,Guinea,129,Senegal
+61,Guinea-Bissau,129,Senegal
+94,Mali,129,Senegal
+95,Mauritania,129,Senegal
+129,Senegal,GM,Gambia (the)
+129,Senegal,60,Guinea
+129,Senegal,61,Guinea-Bissau
+129,Senegal,94,Mali
+129,Senegal,95,Mauritania
+2,Albania,130,Serbia
+17,Bosnia and Herzegovina,130,Serbia
+21,Bulgaria,130,Serbia
+34,Croatia,130,Serbia
+65,Hungary,130,Serbia
+99,Montenegro,130,Serbia
+112,North Macedonia,130,Serbia
+125,Romania,130,Serbia
+130,Serbia,2,Albania
+130,Serbia,17,Bosnia and Herzegovina
+130,Serbia,21,Bulgaria
+130,Serbia,34,Croatia
+130,Serbia,65,Hungary
+130,Serbia,99,Montenegro
+130,Serbia,112,North Macedonia
+130,Serbia,125,Romania
+60,Guinea,131,Sierra Leone
+87,Liberia,131,Sierra Leone
+131,Sierra Leone,60,Guinea
+131,Sierra Leone,87,Liberia
+8,Austria,132,Slovakia
+37,Czechia,132,Slovakia
+65,Hungary,132,Slovakia
+121,Poland,132,Slovakia
+132,Slovakia,8,Austria
+132,Slovakia,37,Czechia
+132,Slovakia,65,Hungary
+132,Slovakia,121,Poland
+132,Slovakia,158,Ukraine
+158,Ukraine,132,Slovakia
+8,Austria,133,Slovenia
+34,Croatia,133,Slovenia
+65,Hungary,133,Slovenia
+73,Italy,133,Slovenia
+133,Slovenia,8,Austria
+133,Slovenia,34,Croatia
+133,Slovenia,65,Hungary
+133,Slovenia,73,Italy
+134,Solomon Islands,,
+40,Djibouti,135,Somalia
+49,Ethiopia,135,Somalia
+79,Kenya,135,Somalia
+135,Somalia,40,Djibouti
+135,Somalia,49,Ethiopia
+135,Somalia,79,Kenya
+18,Botswana,136,South Africa
+86,Lesotho,136,South Africa
+101,Mozambique,136,South Africa
+103,Namibia,136,South Africa
+48,Eswatini,136,South Africa
+136,South Africa,18,Botswana
+136,South Africa,86,Lesotho
+136,South Africa,101,Mozambique
+136,South Africa,103,Namibia
+136,South Africa,48,Eswatini
+136,South Africa,169,Zimbabwe
+169,Zimbabwe,136,South Africa
+111,Korea (Democratic People's Republic of),137,Korea (the Republic of)
+137,Korea (the Republic of),111,Korea (Democratic People's Republic of)
+38,Congo (the Democratic Republic of the),138,South Sudan
+27,Central African Republic,138,South Sudan
+49,Ethiopia,138,South Sudan
+79,Kenya,138,South Sudan
+141,Sudan,138,South Sudan
+138,South Sudan,27,Central African Republic
+138,South Sudan,38,Congo (the Democratic Republic of the)
+138,South Sudan,49,Ethiopia
+138,South Sudan,79,Kenya
+138,South Sudan,141,Sudan
+138,South Sudan,157,Uganda
+157,Uganda,138,South Sudan
+AD,Andorra,139,Spain
+139,Spain,AD,Andorra
+139,Spain,52,France
+139,Spain,GI,Gibraltar
+139,Spain,100,Morocco
+139,Spain,122,Portugal
+52,France,139,Spain
+GI,Gibraltar,139,Spain
+100,Morocco,139,Spain
+122,Portugal,139,Spain
+140,Sri Lanka,,
+27,Central African Republic,141,Sudan
+43,Egypt,141,Sudan
+46,Eritrea,141,Sudan
+49,Ethiopia,141,Sudan
+88,Libya,141,Sudan
+141,Sudan,27,Central African Republic
+141,Sudan,28,Chad
+141,Sudan,43,Egypt
+141,Sudan,49,Ethiopia
+141,Sudan,46,Eritrea
+141,Sudan,88,Libya
+141,Sudan,138,South Sudan
+138,South Sudan,141,Sudan
+28,Chad,141,Sudan
+19,Brazil,142,Suriname
+GF,French Guiana,142,Suriname
+62,Guyana,142,Suriname
+142,Suriname,19,Brazil
+142,Suriname,GF,French Guiana
+142,Suriname,62,Guyana
+51,Finland,143,Sweden
+113,Norway,143,Sweden
+143,Sweden,51,Finland
+143,Sweden,113,Norway
+8,Austria,144,Switzerland
+144,Switzerland,8,Austria
+144,Switzerland,52,France
+144,Switzerland,55,Germany
+144,Switzerland,73,Italy
+144,Switzerland,LI,Liechtenstein
+55,Germany,144,Switzerland
+52,France,144,Switzerland
+73,Italy,144,Switzerland
+LI,Liechtenstein,144,Switzerland
+72,Israel,145,Syrian Arab Republic
+70,Iraq,145,Syrian Arab Republic
+77,Jordan,145,Syrian Arab Republic
+85,Lebanon,145,Syrian Arab Republic
+145,Syrian Arab Republic,70,Iraq
+145,Syrian Arab Republic,72,Israel
+145,Syrian Arab Republic,77,Jordan
+145,Syrian Arab Republic,85,Lebanon
+145,Syrian Arab Republic,155,Turkey
+155,Turkey,145,Syrian Arab Republic
+146,Taiwan (Province of China),,
+1,Afghanistan,147,Tajikistan
+30,China,147,Tajikistan
+82,Kyrgyzstan,147,Tajikistan
+147,Tajikistan,1,Afghanistan
+147,Tajikistan,30,China
+147,Tajikistan,82,Kyrgyzstan
+147,Tajikistan,163,Uzbekistan
+163,Uzbekistan,147,Tajikistan
+23,Burundi,148,Tanzania (the United Republic of)
+38,Congo (the Democratic Republic of the),148,Tanzania (the United Republic of)
+79,Kenya,148,Tanzania (the United Republic of)
+92,Malawi,148,Tanzania (the United Republic of)
+101,Mozambique,148,Tanzania (the United Republic of)
+127,Rwanda,148,Tanzania (the United Republic of)
+148,Tanzania (the United Republic of),23,Burundi
+148,Tanzania (the United Republic of),38,Congo (the Democratic Republic of the)
+148,Tanzania (the United Republic of),79,Kenya
+148,Tanzania (the United Republic of),92,Malawi
+148,Tanzania (the United Republic of),101,Mozambique
+148,Tanzania (the United Republic of),127,Rwanda
+148,Tanzania (the United Republic of),157,Uganda
+148,Tanzania (the United Republic of),168,Zambia
+157,Uganda,148,Tanzania (the United Republic of)
+168,Zambia,148,Tanzania (the United Republic of)
+24,Cambodia,149,Thailand
+83,Lao People's Democratic Republic,149,Thailand
+102,Myanmar,149,Thailand
+93,Malaysia,149,Thailand
+149,Thailand,24,Cambodia
+149,Thailand,83,Lao People's Democratic Republic
+149,Thailand,93,Malaysia
+149,Thailand,102,Myanmar
+150,Bahamas,,
+68,Indonesia,151,Timor-Leste
+151,Timor-Leste,68,Indonesia
+22,Burkina Faso,152,Togo
+14,Benin,152,Togo
+56,Ghana,152,Togo
+152,Togo,14,Benin
+152,Togo,22,Burkina Faso
+152,Togo,56,Ghana
+153,Trinidad and Tobago,,
+3,Algeria,154,Tunisia
+88,Libya,154,Tunisia
+154,Tunisia,3,Algeria
+154,Tunisia,88,Libya
+6,Armenia,155,Turkey
+9,Azerbaijan,155,Turkey
+21,Bulgaria,155,Turkey
+54,Georgia,155,Turkey
+57,Greece,155,Turkey
+70,Iraq,155,Turkey
+69,Iran (Islamic Republic of),155,Turkey
+145,Syrian Arab Republic,155,Turkey
+155,Turkey,6,Armenia
+155,Turkey,9,Azerbaijan
+155,Turkey,21,Bulgaria
+155,Turkey,54,Georgia
+155,Turkey,57,Greece
+155,Turkey,69,Iran (Islamic Republic of)
+155,Turkey,70,Iraq
+155,Turkey,145,Syrian Arab Republic
+1,Afghanistan,156,Turkmenistan
+69,Iran (Islamic Republic of),156,Turkmenistan
+78,Kazakhstan,156,Turkmenistan
+156,Turkmenistan,1,Afghanistan
+156,Turkmenistan,69,Iran (Islamic Republic of)
+156,Turkmenistan,78,Kazakhstan
+156,Turkmenistan,163,Uzbekistan
+163,Uzbekistan,156,Turkmenistan
+38,Congo (the Democratic Republic of the),157,Uganda
+79,Kenya,157,Uganda
+127,Rwanda,157,Uganda
+138,South Sudan,157,Uganda
+148,Tanzania (the United Republic of),157,Uganda
+157,Uganda,38,Congo (the Democratic Republic of the)
+157,Uganda,79,Kenya
+157,Uganda,127,Rwanda
+157,Uganda,138,South Sudan
+157,Uganda,148,Tanzania (the United Republic of)
+11,Belarus,158,Ukraine
+65,Hungary,158,Ukraine
+97,Moldova (the Republic of),158,Ukraine
+121,Poland,158,Ukraine
+125,Romania,158,Ukraine
+126,Russian Federation,158,Ukraine
+132,Slovakia,158,Ukraine
+158,Ukraine,11,Belarus
+158,Ukraine,65,Hungary
+158,Ukraine,97,Moldova (the Republic of)
+158,Ukraine,121,Poland
+158,Ukraine,125,Romania
+158,Ukraine,126,Russian Federation
+158,Ukraine,132,Slovakia
+159,United Arab Emirates,114,Oman
+159,United Arab Emirates,128,Saudi Arabia
+114,Oman,159,United Arab Emirates
+128,Saudi Arabia,159,United Arab Emirates
+160,United Kingdom of Great Britain and Northern Ireland,71,Ireland
+71,Ireland,160,United Kingdom of Great Britain and Northern Ireland
+26,Canada,161,United States of America
+96,Mexico,161,United States of America
+161,United States of America,26,Canada
+161,United States of America,96,Mexico
+5,Argentina,162,Uruguay
+19,Brazil,162,Uruguay
+162,Uruguay,5,Argentina
+162,Uruguay,19,Brazil
+1,Afghanistan,163,Uzbekistan
+82,Kyrgyzstan,163,Uzbekistan
+78,Kazakhstan,163,Uzbekistan
+147,Tajikistan,163,Uzbekistan
+156,Turkmenistan,163,Uzbekistan
+163,Uzbekistan,1,Afghanistan
+163,Uzbekistan,78,Kazakhstan
+163,Uzbekistan,82,Kyrgyzstan
+163,Uzbekistan,147,Tajikistan
+163,Uzbekistan,156,Turkmenistan
+164,Vanuatu,,
+19,Brazil,165,Venezuela (Bolivarian Republic of)
+31,Colombia,165,Venezuela (Bolivarian Republic of)
+62,Guyana,165,Venezuela (Bolivarian Republic of)
+165,Venezuela (Bolivarian Republic of),19,Brazil
+165,Venezuela (Bolivarian Republic of),31,Colombia
+165,Venezuela (Bolivarian Republic of),62,Guyana
+30,China,166,Viet Nam
+24,Cambodia,166,Viet Nam
+83,Lao People's Democratic Republic,166,Viet Nam
+166,Viet Nam,24,Cambodia
+166,Viet Nam,30,China
+166,Viet Nam,83,Lao People's Democratic Republic
+114,Oman,167,Yemen
+128,Saudi Arabia,167,Yemen
+167,Yemen,114,Oman
+167,Yemen,128,Saudi Arabia
+4,Angola,168,Zambia
+18,Botswana,168,Zambia
+38,Congo (the Democratic Republic of the),168,Zambia
+92,Malawi,168,Zambia
+101,Mozambique,168,Zambia
+103,Namibia,168,Zambia
+148,Tanzania (the United Republic of),168,Zambia
+168,Zambia,4,Angola
+168,Zambia,18,Botswana
+168,Zambia,38,Congo (the Democratic Republic of the)
+168,Zambia,92,Malawi
+168,Zambia,101,Mozambique
+168,Zambia,103,Namibia
+168,Zambia,148,Tanzania (the United Republic of)
+168,Zambia,169,Zimbabwe
+169,Zimbabwe,168,Zambia
+18,Botswana,169,Zimbabwe
+101,Mozambique,169,Zimbabwe
+136,South Africa,169,Zimbabwe
+168,Zambia,169,Zimbabwe
+169,Zimbabwe,18,Botswana
+169,Zimbabwe,101,Mozambique
+169,Zimbabwe,136,South Africa
+169,Zimbabwe,168,Zambia

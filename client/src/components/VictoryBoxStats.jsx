@@ -7,7 +7,10 @@ export const VictoryBoxStats = (props) => {
         <p>
           <span className='font-bold bg-emerald-700 text-white px-1 py-0.5 rounded-md'>Gratulerer!</span> Du er dagens
           første til å gjette riktig. Det tok deg{' '}
-          <span className='font-bold bg-emerald-700 text-white px-1 py-0.5 rounded-md'>{props.guesses} forsøk</span>.
+          <span className='font-bold bg-emerald-700 text-white px-1 py-0.5 rounded-md'>
+            {props.stats.guesses} forsøk
+          </span>
+          .
         </p>
       </div>
     );

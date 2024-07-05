@@ -14,7 +14,7 @@ export const InfoBox = (props) => {
           <p>
             Nærmest: {props.data.closest.country.name} {props.data.closest.country.emoji}
           </p>
-          <p>Avstand: {props.data.closest.distance} km</p>
+          <p>Avstand: {props.data.closest.distance === 0 ? 'grenser' : <>{props.data.closest.distance} km</>}</p>
         </div>
         <div className='grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-24 overflow-y-auto'>
           {sortedGuesses.map((curr) => {

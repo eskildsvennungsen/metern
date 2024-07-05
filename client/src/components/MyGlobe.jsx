@@ -24,7 +24,7 @@ export const MyGlobe = (props) => {
       return 'rgba(150,0,0,1)';
     }
 
-    if (distance === 0) {
+    if (distance === -1) {
       return 'rgba(111,232,90,1)';
     }
 
