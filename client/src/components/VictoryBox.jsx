@@ -47,7 +47,7 @@ export const VictoryBox = (props) => {
   }, []);
 
   return (
-    <div className='flex flex-col bg-white sm:rounded-b-lg'>
+    <div className='flex flex-col bg-cream text-coco sm:rounded-b-lg'>
       <div className='m-3 divide-y divide-slate-300'>
         <div className='flex justify-between items-center max-h-24 pb-2 '>
           <div className='flex items-center gap-3'>
@@ -56,9 +56,9 @@ export const VictoryBox = (props) => {
           </div>
           <button
             onClick={() => setState(!state)}
-            className='bg-sky-600 px-3 py-1 rounded-l-3xl text-white hover:ring-2'
+            className='bg-coco px-3 py-1 font-semibold text-cream hover:text-cherry text-sm sm:text-xl'
           >
-            {state ? 'Ledertavle' : 'Info'}
+            {state ? 'LEDERTAVLE' : 'INFO'}
           </button>
         </div>
         {state ? <VictoryBoxInfo country={country} /> : <VictoryBoxStats data={data} stats={stats} />}

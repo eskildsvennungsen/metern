@@ -90,7 +90,7 @@ const HelpMenu = ({ showHelp }) => {
           <p className='text-2xl text-orange'>Hva er dette?</p>
           <p className='text-wrap text-lg'>
             Dette er en slags quiz som er laget for å skjerpe dine geografiske ferdigheter! Hver dag trekkes det et
-            tilfeldig land, dette landet er likt for ALLE som spiller. Hvor mange forsøk bruker du på å finne frem?
+            tilfeldig land. Dette landet er likt for ALLE som spiller. Hvor mange forsøk bruker du på å finne frem?
           </p>
         </div>
         <div>
