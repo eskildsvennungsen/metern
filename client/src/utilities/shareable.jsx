@@ -18,7 +18,7 @@ const squares = {
   poop: '💩',
   sweat: '😓',
   lmao: '🤣',
-  pin: '📍'
+  pin: '📍',
 };
 
 export const constructShareable = (guesses) => {
@@ -35,12 +35,15 @@ export const constructShareable = (guesses) => {
 
   if (results.length > 9) {
     let failedResult = results.slice(0, 9);
-    let lastEntry = { square: squares.pin, direction: squares.sweat }
-    if (results.length >= 18) {
-      lastEntry.direction = squares.poop;
-    } else if (results.length >= 25) {
-      lastEntry.direction = squares.lmao;
+    let icon;
+    if (results.length >= 10) {
+      icon = squares.pin;
+    } else if (results.lengt >= 18 && results.length < 25) {
+      icon = squares.poop;
+    } else {
+      icon = squares.lmao;
     }
+    const lastEntry = { square: squares.pin, direction: icon };
     failedResult.push(lastEntry);
     return failedResult;
   }
