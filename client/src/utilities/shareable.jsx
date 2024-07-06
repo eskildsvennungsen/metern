@@ -34,7 +34,7 @@ export const constructShareable = (guesses) => {
   });
 
   if (results.length > 9) {
-    let failedResult = results.slice(0, 8);
+    let failedResult = results.slice(0, 9);
     let lastEntry = { square: squares.pin, direction: squares.sweat }
     if (results.length >= 18) {
       lastEntry.direction = squares.poop;
