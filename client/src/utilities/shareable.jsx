@@ -16,7 +16,7 @@ const squares = {
     'green':  '🟩',
     'crown':  '👑',
     'poop':   '💩',
-    'o':      '⭕️',
+    'pin':    '📍',
     'x':      '❌'
 };
 
@@ -38,7 +38,7 @@ export const constructShareable = (guesses) => {
         return failedResult;
     }
 
-    results.push({ square: squares.o, direction: squares.crown });
+    results.push({ square: squares.pin, direction: squares.crown });
     
     return results;
 };
