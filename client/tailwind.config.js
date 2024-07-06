@@ -10,6 +10,15 @@ export default {
         cherry: '#E5446D',
         orange: '#FF8966',
       },
+      animation: {
+        fade: 'fadeOut 4s ease-in-out',
+      },
+      keyframes: theme => ({
+        fadeOut: {
+          '0%': { opacity: 1 },
+          '100%': { opacity: 0 },
+        },
+      }),
     },
   },
   plugins: [],

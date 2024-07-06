@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { constructShareable } from "../utilities/shareable";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { apiURI } from "../main";
+import { apiURI } from '../main';
 
 export const Share = (props) => {
     const [results, setResults] = useState();
@@ -30,12 +30,16 @@ export const Share = (props) => {
 
     return (
         <div className='w-screen font-black text-coco p-2'>
-            <CopyToClipboard text={results} onCopy={() => setCopied(true)}>
-                <button className='outline outline-3 outline-coco outline-offset-0 w-1/3 sm:w-1/4 py-2 text-l hover:bg-green-100 focus:bg-green-200 my-auto'>
+            <CopyToClipboard text={results} onCopy={() => setCopied(!copied)}>
+                <button className='outline outline-3 outline-coco outline-offset-0 w-1/2 sm:w-1/4 py-2 text-l hover:bg-green-100 my-auto'>
                     DEL RESULTAT
                 </button>
             </CopyToClipboard>
-            {copied ? <span className='px-6'>Kopiert!</span> : null}
+            {copied ? 
+                <span className='px-6 delay-300 animate-fade opacity-0' onAnimationEnd={() => setCopied(false)}>
+                    Kopiert!
+                </span>
+            : null}
         </div>
     );
 };
