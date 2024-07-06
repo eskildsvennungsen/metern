@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { apiURI } from '../main';
-import Select from 'react-select';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 
 export const Input = (props) => {
   const [options, setOptions] = useState([]);
@@ -61,18 +63,37 @@ export const Input = (props) => {
   }, []);
 
   return (
-    <Select
-      menuPlacement='top'
-      placeholder='Land...'
-      onChange={handleSubmit}
-      options={options}
-      openMenuOnClick={false}
-      styles={{
-        menuList: (base) => ({
-          ...base,
-          maxHeight: '20vh',
-        }),
-      }}
-    />
+    <div className='w-fill bg-white p-1.5 rounded-md'>
+      <Autocomplete
+        id='country'
+        options={options}
+        autoHighlight
+        clearOnEscape
+        slotProps={{ clearIndicator: { type: 'button' } }}
+        getOptionLabel={(option) => option.label}
+        renderOption={(props, option) => {
+          const { key, ...optionProps } = props;
+          return (
+            <Box key={key} component='li' {...optionProps}>
+              {option.label}
+            </Box>
+          );
+        }}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label='Velg et land'
+            inputProps={{
+              ...params.inputProps,
+              autoComplete: 'new-password', // disable autocomplete and autofill
+            }}
+          />
+        )}
+        onChange={(e, v) => {
+          if (v === null) return;
+          handleSubmit(v);
+        }}
+      />
+    </div>
   );
 };
