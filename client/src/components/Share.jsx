@@ -32,7 +32,7 @@ export const Share = (props) => {
         <div className='w-screen font-black text-coco p-2'>
             <CopyToClipboard text={results} onCopy={() => setCopied(true)}>
                 <button className='outline outline-3 outline-coco outline-offset-0 w-1/3 sm:w-1/4 py-2 text-l hover:bg-green-100 focus:bg-green-200 my-auto'>
-                    Del resultat
+                    DEL RESULTAT
                 </button>
             </CopyToClipboard>
             {copied ? <span className='px-6'>Kopiert!</span> : null}
