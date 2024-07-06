@@ -44,14 +44,14 @@ export const constructShareable = (guesses) => {
 };
 
 const getDirection = (degrees) => {
-    if (degrees >  350.0  || degrees <  10.0)   return directions.N; 
-    if (degrees >  80.0   && degrees <  100.0)  return directions.E; 
-    if (degrees >  170.0  && degrees <  190.0)  return directions.S; 
-    if (degrees >  260.0  && degrees <  280.0)  return directions.W; 
-    if (degrees >= 10.0   && degrees <= 80.0)   return directions.NE; 
-    if (degrees >= 100.0  && degrees <= 170.0)  return directions.SE; 
-    if (degrees >= 190.0  && degrees <= 260.0)  return directions.SW; 
-    if (degrees >= 260.0  && degrees <= 350.0)  return directions.NW;
+    if (degrees >  337.5  || degrees <  22.5)   return directions.N; 
+    if (degrees >= 22.5   && degrees <= 67.5)   return directions.NE; 
+    if (degrees >  67.5   && degrees <  112.5)  return directions.E; 
+    if (degrees >= 112.5  && degrees <= 157.5)  return directions.SE; 
+    if (degrees >  157.5  && degrees <  202.5)  return directions.S; 
+    if (degrees >= 202.5  && degrees <= 247.5)  return directions.SW; 
+    if (degrees >  247.5  && degrees <  292.5)  return directions.W; 
+    if (degrees >= 292.5  && degrees <= 337.5)  return directions.NW;
 }
 
 const getBearing = (goal, guess) => {
