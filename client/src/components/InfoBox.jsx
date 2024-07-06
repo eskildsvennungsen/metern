@@ -9,7 +9,7 @@ export const InfoBox = (props) => {
 
   if (props.data.guesses.length > 0) {
     return (
-      <div className='bg-cream font-medium p-3 sm:rounded-b-lg'>
+      <div className='bg-white font-medium p-3 sm:rounded-b-lg'>
         <div className='flex justify-between mb-2 border-dashed border-b-2 border-orange pb-2 text-coco'>
           <p>
             Nærmest: {props.data.closest.country.name} {props.data.closest.country.emoji}

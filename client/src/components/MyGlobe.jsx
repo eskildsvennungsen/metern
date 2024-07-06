@@ -7,8 +7,8 @@ const countries = GeoJson;
 
 export const MyGlobe = (props) => {
   const thisGlobe = useRef();
-  const [width, setWidth] = useState(window.innerWidth);
-  const [heigth, setHeight] = useState(window.innerHeight);
+  const [width, setWidth] = useState(400);
+  const [heigth, setHeight] = useState(400);
 
   function assignColors(e) {
     countries.features.map((feature) => {
@@ -52,10 +52,12 @@ export const MyGlobe = (props) => {
     window.addEventListener('resize', handleResize);
 
     function handleResize() {
-      setWidth(window.innerWidth);
-      setHeight(window.innerHeight);
+      const size = window.innerWidth > 6000 ? 600 : window.innerWidth;
+      setWidth(size);
+      setHeight(window.innerHeight - 250);
     }
     handleResize();
+    thisGlobe.current.controls().enableZoom = false;
   }, []);
 
   useEffect(() => {
