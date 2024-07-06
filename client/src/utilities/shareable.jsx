@@ -37,7 +37,7 @@ export const constructShareable = (guesses) => {
     let failedResult = results.slice(0, 9);
     let icon;
     if (results.length >= 10) {
-      icon = squares.pin;
+      icon = squares.sweat;
     } else if (results.lengt >= 18 && results.length < 25) {
       icon = squares.poop;
     } else {
