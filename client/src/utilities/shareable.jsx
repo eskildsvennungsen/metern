@@ -33,7 +33,7 @@ export const constructShareable = (guesses) => {
   });
 
   if (results.length > 9) {
-    let failedResult = results.slice(0, 8);
+    let failedResult = results.slice(0, 9);
     failedResult.push({ square: squares.x, direction: squares.poop });
     return failedResult;
   }
