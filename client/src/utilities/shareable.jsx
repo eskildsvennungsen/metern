@@ -60,7 +60,7 @@ const getBearing = (goal, guess) => {
 
 const getSquare = (distance) => {
     if (distance > 5000) return squares.red;
-    else if (distance > 1000) return squares.orange;
-    else if (distance > 0) return squares.yellow;
+    else if (distance > 2500) return squares.orange;
+    else if (distance == 0) return squares.yellow;
     else return squares.green;
 }
