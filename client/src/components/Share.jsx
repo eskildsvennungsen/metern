@@ -13,7 +13,7 @@ export const Share = (props) => {
                     .then((res) => res.json())
                     .then((data) => {
                         const numOfGuesses = props.data.guesses.length; // If this is done inline, it will sometimes return 0 for guesses
-                        const title = 'Metern ' + data.played + ' ' + numOfGuesses + '/10\n\n';
+                        const title = 'Metern ' + data.played + ' ' + numOfGuesses + '/10\n';
                         const shareable = constructShareable(props.data.guesses).map((item) => {
                                                 return item.square + item.direction;
                                             }).join('\n');
