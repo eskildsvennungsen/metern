@@ -3,6 +3,7 @@ import { VictoryBoxInfo } from './VictoryBoxInfo';
 import { VictoryBoxStats } from './VictoryBoxStats';
 import { getDate } from '../routes/game';
 import { apiURI } from '../main';
+import { Share } from './Share';
 
 export const VictoryBox = (props) => {
   const country = props.data.closest.country;
@@ -62,7 +63,10 @@ export const VictoryBox = (props) => {
           </button>
         </div>
         {state ? <VictoryBoxInfo country={country} /> : <VictoryBoxStats data={data} stats={stats} />}
-      </div>
+        <div className='flex items-center content-center pt-5'>
+          <Share data={props.data} stats={stats} />
+        </div>
+        </div>
     </div>
   );
 };
