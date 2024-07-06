@@ -11,7 +11,7 @@ export default {
         orange: '#FF8966',
       },
       animation: {
-        fade: 'fadeOut 4s ease-in-out',
+        fade: 'fadeOut 4s linear',
       },
       keyframes: theme => ({
         fadeOut: {
