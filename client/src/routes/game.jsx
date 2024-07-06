@@ -5,10 +5,12 @@ import { MyGlobe } from '../components/MyGlobe';
 import { VictoryBox } from '../components/VictoryBox';
 import { InfoBox } from '../components/InfoBox';
 import { apiURI } from '../main';
+import { DateTime } from 'luxon';
 import Starfield from '../components/Stars';
 
 export function getDate() {
-  return new Date().toISOString().split('T')[0];
+  const time = DateTime.local();
+  return `${time.year}-${time.month}-${time.day}`;
 }
 
 const Game = () => {
