@@ -16,6 +16,7 @@ const squares = {
     'green':  '🟩',
     'crown':  '👑',
     'poop':   '💩',
+    'o':      '⭕️',
     'x':      '❌'
 };
 
@@ -37,7 +38,7 @@ export const constructShareable = (guesses) => {
         return failedResult;
     }
 
-    results.push({ square: squares.green, direction: squares.crown });
+    results.push({ square: squares.o, direction: squares.crown });
     
     return results;
 };
@@ -61,6 +62,6 @@ const getBearing = (goal, guess) => {
 const getSquare = (distance) => {
     if (distance > 5000) return squares.red;
     else if (distance > 2500) return squares.orange;
-    else if (distance == 0) return squares.yellow;
-    else return squares.green;
+    else if (distance > 0) return squares.yellow;
+    else if (distance == 0) return squares.green;
 }
