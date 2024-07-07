@@ -1,10 +1,11 @@
 const express = require('express');
 const NodeCache = require('node-cache');
 const Database = require('better-sqlite3');
+const haversine = require('haversine-distance');
 
 const route = express.Router();
 const cache = new NodeCache();
-const db = new Database('./countries.sqlite3');
+const db = new Database('../db/countries.sqlite3');
 
 function getDate() {
   return new Date().toISOString().split('T')[0];
@@ -143,22 +144,9 @@ function getCountry(name) {
 }
 
 function calculateDistance(from, to) {
-  const deg2rad = (deg) => {
-    return (deg * Math.PI) / 180;
-  };
-
-  const earthRadius = 6371; // In KM
-
-  const deltaLon = deg2rad(to.longitude - from.longitude);
-  const deltaLat = deg2rad(to.latitude - from.latitude);
-  const x =
-    Math.pow(Math.sin(deltaLat / 2), 2) +
-    Math.cos(deg2rad(from.latitude)) * Math.cos(deg2rad(from.latitude)) * Math.pow(Math.sin(deltaLon / 2), 2);
-
-  const y = 2 * Math.atan2(Math.sqrt(x), Math.sqrt(1 - x));
-  const distance = Math.floor(y * earthRadius);
-
-  return distance;
+  const a = { latitude: from.latitude, longitude: from.longitude };
+  const b = { latitude: to.latitude, longitude: to.longitude };
+  return Math.round(haversine(a, b) / 1000);
 }
 
 function updateCountryOTDIfNotExist() {

@@ -25,6 +25,8 @@ services:
       context: './server'
       target: 'server'
     command: npm run start
+    volumes:
+      - ./db:/db
     networks:
       - reverse_proxy
     environment:
