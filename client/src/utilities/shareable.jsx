@@ -22,7 +22,7 @@ const squares = {
 };
 
 export const constructShareable = (guesses) => {
-  const deducedGuesses = guesses;
+  const deducedGuesses = [...guesses];
   const correctCountry = deducedGuesses.pop().country;
   const goal = { latitude: correctCountry.latitude, longitude: correctCountry.longitude };
   let results = [];
