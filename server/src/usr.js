@@ -3,7 +3,7 @@ const NodeCache = require('node-cache');
 const Database = require('better-sqlite3');
 
 const route = express.Router();
-const db = new Database('./usr.sqlite3');
+const db = new Database('../db/usr.sqlite3');
 
 function getDate() {
   return new Date().toISOString().split('T')[0];
