@@ -1,13 +1,10 @@
 const express = require('express');
 const NodeCache = require('node-cache');
 const Database = require('better-sqlite3');
+const getDate = require('./utility');
 
 const route = express.Router();
 const db = new Database('../db/usr.sqlite3');
-
-function getDate() {
-  return new Date().toISOString().split('T')[0];
-}
 
 route.use((req, res, next) => {
   const today = getDate();

@@ -2,14 +2,11 @@ const express = require('express');
 const NodeCache = require('node-cache');
 const Database = require('better-sqlite3');
 const haversine = require('haversine-distance');
+const getDate = require('./utility');
 
 const route = express.Router();
 const cache = new NodeCache();
 const db = new Database('../db/countries.sqlite3');
-
-function getDate() {
-  return new Date().toISOString().split('T')[0];
-}
 
 route.get('/get', (req, res) => {
   const iso3Array = req.query.iso3 || [];
