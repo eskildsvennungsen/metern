@@ -1,13 +1,11 @@
 const express = require('express');
-const NodeCache = require('node-cache');
 const Database = require('better-sqlite3');
-const getDate = require('./utility');
-
+const utility = require('./utility.js');
 const route = express.Router();
 const db = new Database('../db/usr.sqlite3');
 
 route.use((req, res, next) => {
-  const today = getDate();
+  const today = utility.getDate();
   const createTableQuery = `
     CREATE TABLE IF NOT EXISTS completions (
       id INTEGER PRIMARY KEY,
@@ -33,7 +31,7 @@ route.use((req, res, next) => {
 });
 
 route.get('/comp', (req, res) => {
-  const today = getDate();
+  const today = utility.getDate();
   const todayStats = db.prepare('SELECT * FROM completions where date = ?').get(today);
   res.status(200).json(todayStats);
 });
@@ -47,7 +45,7 @@ route.put('/comp', (req, res) => {
     return res.status(400).json({ error: 'Fuck off' });
   }
 
-  const today = getDate();
+  const today = utility.getDate();
   const todayStats = db.prepare('SELECT * FROM completions where date = ?').get(today);
 
   const ammount = todayStats.ammount + 1;

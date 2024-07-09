@@ -2,7 +2,7 @@ const express = require('express');
 const NodeCache = require('node-cache');
 const Database = require('better-sqlite3');
 const haversine = require('haversine-distance');
-const getDate = require('./utility');
+const utility = require('./utility.js');
 
 const route = express.Router();
 const cache = new NodeCache();
@@ -28,7 +28,7 @@ route.get('/check', (req, res) => {
   const cacheKey = 'solution';
   let solution = cache.get(cacheKey);
   const solutionNotAvailable = solution === undefined;
-  const outdatedSolution = solutionNotAvailable ? true : solution.date !== getDate();
+  const outdatedSolution = solutionNotAvailable ? true : solution.date !== utility.getDate();
 
   try {
     const target = getCountry(req.query.target);
@@ -122,7 +122,7 @@ function getCountryOTD() {
     WHERE countryOTD.date = ?
   `;
 
-  const today = getDate();
+  const today = utility.getDate();
   const country = db.prepare(getCountryQuery).get(today);
 
   return country;
@@ -147,7 +147,7 @@ function calculateDistance(from, to) {
 }
 
 function updateCountryOTDIfNotExist() {
-  const today = getDate();
+  const today = utility.getDate();
   const countryOTD = db.prepare('SELECT * FROM countryOTD where date = ?').get(today);
 
   if (!countryOTD) {
