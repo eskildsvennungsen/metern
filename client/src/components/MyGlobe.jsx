@@ -1,7 +1,7 @@
 import Globe from 'react-globe.gl';
 import globeImage from '../assets/water.jpg';
 import GeoJson from '../assets/data.json';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useLayoutEffect } from 'react';
 
 const countries = GeoJson;
 
@@ -11,11 +11,8 @@ export const MyGlobe = (props) => {
   const [heigth, setHeight] = useState(window.innerHeight);
 
   function assignColors(e) {
-    countries.features.map((feature) => {
-      if (feature.properties.iso_a3 === e.country.iso3) {
-        feature.properties.polygonCapColor = distanceColor(e.distance);
-      }
-    });
+    const ret = countries.features.filter(item => item.properties.iso_a3  === e.country.iso3)[0];
+    ret.properties.polygonCapColor = distanceColor(e.distance)
   }
 
   function distanceColor(distance) {
@@ -58,14 +55,14 @@ export const MyGlobe = (props) => {
     handleResize();
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!props.data.loadStorage) return;
     const data = props.data.guesses;
     data.map((item) => assignColors(item));
     rotateTo(data.at(-1).country.latitude, data.at(-1).country.longitude);
   }, [props.data.loadStorage]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (props.data.guess === 0) return;
     const guess = props.data.guess;
     assignColors(guess);
